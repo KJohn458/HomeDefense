@@ -38,7 +38,7 @@ public class AI_R : MonoBehaviour
         if (agent.remainingDistance == avoidDistance && hasAttacked == false)
         {
             hasAttacked = true;
-            Invoke("swingBranch", chargeTime);
+            Invoke("fireBullet", chargeTime);
         }
     }
 

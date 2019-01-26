@@ -11,11 +11,14 @@ public class AI_M : MonoBehaviour
     private int chargeTime = 3;
     private bool hasAttacked;
     private NavMeshAgent agent;
+    private bool agentDestroyed;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        agentDestroyed = false;
         House = GameObject.FindWithTag("House").transform;
         hasAttacked = false;
         agent = GetComponent<NavMeshAgent>();
@@ -33,17 +36,21 @@ public class AI_M : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1))
+        
+        if (Vector3.Distance(transform.position, House.position) <= 2)
         {
-            
+            Destroy(agent);
+            agentDestroyed = true;
+            transform.LookAt(House);
         }
 
-        if (agent.remainingDistance == 0 && hasAttacked == false)
+        if (hasAttacked == false && agentDestroyed == true)
         {
             hasAttacked = true;
             Invoke("swingBranch", chargeTime);
         }
+
+        //Debug.Log(Vector3.Distance(transform.position, House.position));
     }
 
 
