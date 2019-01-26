@@ -18,7 +18,7 @@ public class AI_M : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		enemyHealth = 20;
+		enemyHealth = 6;
         HouseGameObj = GameObject.FindWithTag("House");
         healthScript = HouseGameObj.GetComponent<Health>();
         agentDestroyed = false;
@@ -67,6 +67,7 @@ public class AI_M : MonoBehaviour
 			Death();
 		else
 			enemyHealth -= amount;
+			Debug.Log(enemyHealth);
 	}
 	
 	public void Death(){
