@@ -168,7 +168,7 @@ BoxCollider:
   m_GameObject: {fileID: 45889657}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -399,7 +399,7 @@ BoxCollider:
   m_GameObject: {fileID: 478165844}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -483,6 +483,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &540427210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540427204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec73d5337af49f45aa0e4d2559346a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  text: {fileID: 4441210475879887360}
+  death: {fileID: 0}
+  addonOne: {fileID: 0}
+  addonTwo: {fileID: 0}
+  addonThree: {fileID: 0}
 --- !u!1 &682817171
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +573,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &778159632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778159626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec73d5337af49f45aa0e4d2559346a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  text: {fileID: 4441210475879887360}
+  death: {fileID: 0}
+  addonOne: {fileID: 0}
+  addonTwo: {fileID: 0}
+  addonThree: {fileID: 0}
 --- !u!1 &784780113
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +940,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1125490773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125490767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec73d5337af49f45aa0e4d2559346a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  text: {fileID: 4441210475879887360}
+  death: {fileID: 0}
+  addonOne: {fileID: 0}
+  addonTwo: {fileID: 0}
+  addonThree: {fileID: 0}
 --- !u!1001 &1200265512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1134,7 +1188,7 @@ BoxCollider:
   m_GameObject: {fileID: 1262559744}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1239,7 +1293,7 @@ BoxCollider:
   m_GameObject: {fileID: 1278118002}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1413,7 +1467,7 @@ BoxCollider:
   m_GameObject: {fileID: 1386736055}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1743,7 +1797,7 @@ BoxCollider:
   m_GameObject: {fileID: 1804150569}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1848,7 +1902,7 @@ BoxCollider:
   m_GameObject: {fileID: 1917951133}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

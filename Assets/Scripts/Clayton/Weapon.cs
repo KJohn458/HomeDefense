@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SC.enabled = true;
+			Debug.Log("Box collider true");
         }
         else
         {
@@ -30,8 +31,10 @@ public class Weapon : MonoBehaviour
     {  
         if (Enemy.gameObject.tag == "Enemy")
         {
-			AI_M enemy_m = Enemy.gameObject.GetComponent<AI_M>();
-			enemy_m.hurt(damage);
+			Debug.Log("collision enter");
+			Destroy(Enemy.gameObject);
+			//AI_M enemy_m = Enemy.gameObject.GetComponent<AI_M>();
+			//enemy_m.hurt(damage);
         }
 
     }
