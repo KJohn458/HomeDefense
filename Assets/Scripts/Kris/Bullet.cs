@@ -22,16 +22,34 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enters collision");
-        if (other.tag == "House" || other.tag == "Addon1" || other.tag == "Addon2" || other.tag == "Addon3" && hitOnce == false)
+        if (other.tag == "House" && hitOnce == false)
         {
             Debug.Log("Enters tag");
             healthScript.Damage();
             Destroy(gameObject);
             hitOnce = true;
-
         }
-       
-        
+        if (other.tag == "Addon1" && hitOnce == false)
+        {
+            Debug.Log("Enters tag");
+            healthScript.Damage();
+            Destroy(gameObject);
+            hitOnce = true;
+        }
+        if (other.tag == "Addon2" && hitOnce == false)
+        {
+            Debug.Log("Enters tag");
+            healthScript.Damage();
+            Destroy(gameObject);
+            hitOnce = true;
+        }
+        if (other.tag == "Addon3" && hitOnce == false)
+        {
+            Debug.Log("Enters tag");
+            healthScript.Damage();
+            Destroy(gameObject);
+            hitOnce = true;
+        }
 
     }
 

@@ -19,9 +19,6 @@ public class Health : MonoBehaviour
     {
         health = 5;
 		Death.SetActive(false);
-        addonOne.SetActive(false);
-        addonTwo.SetActive(false);
-        addonThree.SetActive(false);
         Time.timeScale = 1f;
     }
 
@@ -47,12 +44,15 @@ public class Health : MonoBehaviour
 
         if (health >= 30 && health < 45)
         {
+            addonOne.SetActive(true);
             addonTwo.SetActive(true);
             addonThree.SetActive(false);
         }
 
         if (health >= 45 && health < 60)
         {
+            addonOne.SetActive(true);
+            addonTwo.SetActive(true);
             addonThree.SetActive(true);
         }
 
