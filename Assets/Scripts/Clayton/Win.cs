@@ -17,13 +17,11 @@ public class Win : MonoBehaviour
 
     private void Update()
     {
-        //HouseLvl = HP.text;
         SethouseLvl();
     }
 
     void SethouseLvl()
     {
-        //HP.text = "Score: " + HP.ToString();
         if (HouseLvl >= 10)
         {
             WinTxt.text = "YOU HAVE DEAFETED THE DARK WOODS";
