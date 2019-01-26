@@ -10,5 +10,6 @@ public class BacktoMenu : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 			SceneManager.LoadScene(0);
 	}
+	
 }
 	
