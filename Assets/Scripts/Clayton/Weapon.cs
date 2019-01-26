@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private BoxCollider SC;
+    private BoxCollider BC;
 	public int damage;
-    public GameObject BG;
 
     void Start()
     {
-        SC = GetComponent<BoxCollider>();
+        BC = GetComponent<BoxCollider>();
 		damage = 1;
     }
 
@@ -18,12 +17,12 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SC.enabled = true;
+            BC.enabled = true;
 			Debug.Log("Box collider true");
         }
         else
         {
-            SC.enabled = false;
+            BC.enabled = false;
         }
 
 		

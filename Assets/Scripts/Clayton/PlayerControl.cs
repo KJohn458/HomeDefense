@@ -11,12 +11,45 @@ public class PlayerControl : MonoBehaviour
 
     public float moveSpeed = .25f;
 
+    Animator Character;
+
+    private void Start()
+    {
+        Character = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         float moveAxis = Input.GetAxis(moveInputAxis);
         float turnAxis = Input.GetAxis(turnInputAxis);
 
         ApplyInput(moveAxis, turnAxis);
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            Character.SetBool("isWalking", true);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            Character.SetBool("isWalking", true);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            Character.SetBool("isWalking", true);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            Character.SetBool("isWalking", true);
+        }
+        else
+        {
+            Character.SetBool("isWalking", false);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Character.Play("Attack");
+        }
     }
 
     private void ApplyInput(float moveInput, float turnInput)
