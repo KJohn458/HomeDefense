@@ -14,6 +14,7 @@ public class AI_M : MonoBehaviour
     private GameObject HouseGameObj;
     private Health healthScript;
 	public int enemyHealth;
+    public int houseDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class AI_M : MonoBehaviour
     void Update()
     {
         
-        if (Vector3.Distance(transform.position, House.position) <= 2)
+        if (Vector3.Distance(transform.position, House.position) <= houseDistance)
         {
             Destroy(agent);
             agentDestroyed = true;
