@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
 	public int health;
 	public Text text;
-	public GameObject death;
+	public GameObject Death;
 
     public GameObject addonOne;
 
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         health = 5;
-		death.SetActive(false);
+		Death.SetActive(false);
         addonOne.SetActive(false);
         addonTwo.SetActive(false);
         addonThree.SetActive(false);
@@ -67,7 +67,7 @@ public class Health : MonoBehaviour
 	public void gameover()
 	{
 		Time.timeScale = 0f;
-		death.SetActive(true);
+		Death.SetActive(true);
 	}
 
     public void Heal()
