@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Win : MonoBehaviour
 {
-    public GameObject E;
-    public static bool disabled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +13,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (disabled)
-            E.SetActive(false);
-        else
-            E.SetActive(true);
+        
     }
 }
