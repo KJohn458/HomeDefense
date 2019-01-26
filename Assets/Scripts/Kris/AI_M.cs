@@ -63,14 +63,16 @@ public class AI_M : MonoBehaviour
     }
 	
 	public void hurt(int amount){
-		if(enemyHealth<=0)
+		
+		enemyHealth -= amount;
+		Debug.Log(enemyHealth);
+		if(enemyHealth==0)
 			Death();
-		else
-			enemyHealth -= amount;
-			Debug.Log(enemyHealth);
 	}
 	
 	public void Death(){
+		healthScript.Heal();
 		Destroy(gameObject);
+		
 	}
 }

@@ -19,6 +19,9 @@ public class Health : MonoBehaviour
     {
         health = 5;
 		death.SetActive(false);
+		addonOne.SetActive(false);
+		addonTwo.SetActive(false);
+		addonThree.SetActive(false);
 		Time.timeScale = 1f;
     }
 
