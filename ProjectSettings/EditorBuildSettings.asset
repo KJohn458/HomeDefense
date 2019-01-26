@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Samuel/Scenes/Title with art.unity
     guid: 465a2fc00814238439434bb1a20550be
   - enabled: 1
-    path: Assets/Andrew/Test.unity
-    guid: 75fc49e71bc1b624a9659e23c875155c
+    path: Assets/Scenes/House.unity
+    guid: adc3e0ed925d2dd43bc98962db974d1e
   m_configObjects: {}
