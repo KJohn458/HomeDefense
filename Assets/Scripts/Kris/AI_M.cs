@@ -27,19 +27,13 @@ public class AI_M : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(House.position, path);
-        agent.destination = House.position;
-        if (path.status == NavMeshPathStatus.PathPartial)
-        {
-            Destroy(this);
-        }
-
-        
+        agent.destination = House.position;     
     }
 
     // Update is called once per frame
     void Update()
     {
-  
+        
         if (Vector3.Distance(transform.position, House.position) <= 2)
         {
             Destroy(agent);
@@ -62,7 +56,7 @@ public class AI_M : MonoBehaviour
         healthScript.Damage();
     }
 	
-	public void Hurt(int amount = 1){
+	public void Hurt(int amount){
 		
 		enemyHealth -= amount;
 		Debug.Log(enemyHealth);
