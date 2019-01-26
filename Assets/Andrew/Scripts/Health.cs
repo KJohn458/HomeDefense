@@ -19,10 +19,10 @@ public class Health : MonoBehaviour
     {
         health = 5;
 		death.SetActive(false);
-		Destroy(addonOne);
-		Destroy(addonTwo);
-		Destroy(addonThree);
-		Time.timeScale = 1f;
+        addonOne.SetActive(false);
+        addonTwo.SetActive(false);
+        addonThree.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 
@@ -36,24 +36,24 @@ public class Health : MonoBehaviour
 
         if(health < 15)
         {
-            Destroy(addonOne);
+            addonOne.SetActive(false);
         }
 
         if(health >= 15 && health < 30)
         {
-            Instantiate(addonOne);
-            Destroy(addonTwo);
+            addonOne.SetActive(true);
+            addonTwo.SetActive(false);
         }
 
         if (health >= 30 && health < 45)
         {
-            Instantiate(addonTwo);
-            Destroy(addonThree);
+            addonTwo.SetActive(true);
+            addonThree.SetActive(false);
         }
 
         if (health >= 45 && health < 60)
         {
-            Instantiate(addonThree);
+            addonThree.SetActive(true);
         }
 
 

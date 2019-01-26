@@ -62,10 +62,6 @@ public class AI_R : MonoBehaviour
             NavMeshPath path = new NavMeshPath();
             agent.CalculatePath(House.position, path);
             agent.destination = House.position;
-            if (path.status == NavMeshPathStatus.PathPartial)
-            {
-                Destroy(this);
-            }
         }
 
 

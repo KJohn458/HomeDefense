@@ -33,7 +33,9 @@ public class Spawner : MonoBehaviour
 
     void spawnMeleeDude()
     {
-        Instantiate(meleeEnemy, pos, rotation);
+        GameObject clone;
+        clone = Instantiate(meleeEnemy, pos, rotation);
+        clone.SetActive(true);
         spawnBool = false;
     }
 }
