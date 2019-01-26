@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Rigidbody rb;
-    // Start is called before the first frame update
-    void Start()
+    private string moveInputAxis = "Vertical";
+    private string turnInputAxis = "Horizontal";
+
+    public float rotationRate = 360;
+
+    public float moveSpeed = 2;
+
+    private void Update()
     {
-        rb = GetComponent<Rigidbody>();
+        float moveAxis = Input.GetAxis(moveInputAxis);
+        float turnAxis = Input.GetAxis(turnInputAxis);
+
+        ApplyInput(moveAxis, turnAxis);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void ApplyInput(float moveInput, float turnInput)
     {
-        float h = Input.GetAxis("Horizontal") * 5;
-        float v = Input.GetAxis("Vertical") * 5;
+        Move(moveInput);
+        Turn(turnInput);
+    }
 
-        Vector3 vel = rb.velocity;
-        vel.x = h;
-        vel.z = v;
-        rb.velocity = vel;
+    private void Move(float input)
+    {
+        transform.Translate(Vector3.forward * input * moveSpeed);
+    }
+
+    private void Turn(float input)
+    {
+        transform.Rotate(0, input * rotationRate * Time.deltaTime, 0);
     }
 }
