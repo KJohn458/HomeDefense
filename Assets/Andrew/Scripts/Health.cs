@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     {
         health = 5;
 		death.SetActive(false);
+		Time.timeScale = 1f;
     }
 
 
@@ -31,4 +32,9 @@ public class Health : MonoBehaviour
 		Time.timeScale = 0f;
 		death.SetActive(true);
 	}
+
+    public void Heal()
+    {
+        health++;
+    }
 }
