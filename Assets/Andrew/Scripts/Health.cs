@@ -7,6 +7,14 @@ public class Health : MonoBehaviour
 	public int health;
 	public Text text;
 	public GameObject death;
+
+    public GameObject addonOne;
+
+    public GameObject addonTwo;
+
+    public GameObject addonThree;
+
+
     void Start()
     {
         health = 5;
@@ -19,7 +27,33 @@ public class Health : MonoBehaviour
     {
         text.text = health.ToString();
 		if(health==0)
-			gameover();
+        {
+            gameover();
+        }
+
+        if(health < 15)
+        {
+            Destroy(addonOne);
+        }
+
+        if(health >= 15 && health < 30)
+        {
+            Instantiate(addonOne);
+            Destroy(addonTwo);
+        }
+
+        if (health >= 30 && health < 45)
+        {
+            Instantiate(addonTwo);
+            Destroy(addonThree);
+        }
+
+        if (health >= 45 && health < 60)
+        {
+            Instantiate(addonThree);
+        }
+
+
     }
 	
 	public void Damage()
@@ -32,4 +66,9 @@ public class Health : MonoBehaviour
 		Time.timeScale = 0f;
 		death.SetActive(true);
 	}
+
+    public void Heal()
+    {
+        health++;
+    }
 }

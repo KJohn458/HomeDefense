@@ -323,6 +323,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1524747747}
+  bulletPrefab: {fileID: 7302862943934017162, guid: aa09aafd6adc57e48a783553b78cd652,
+    type: 3}
+  distanceAwayFromHouse: 4
+  bulletVelocity: 4
   EnemyDistanceRun: 4
 --- !u!136 &373077847
 CapsuleCollider:
@@ -391,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373077845}
   m_LocalRotation: {x: -0, y: -0.36329302, z: -0, w: 0.93167496}
-  m_LocalPosition: {x: 8.54, y: 13.54, z: -1.93}
+  m_LocalPosition: {x: -8.37, y: 12.57, z: 0.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 594849328}
@@ -1654,7 +1658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613032379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.74, y: 11.95, z: -17.55}
+  m_LocalPosition: {x: -5.74, y: 11.95, z: -30.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1779,6 +1783,7 @@ GameObject:
   - component: {fileID: 1809920962}
   - component: {fileID: 1809920961}
   - component: {fileID: 1809920960}
+  - component: {fileID: 1809920965}
   - component: {fileID: 1809920959}
   - component: {fileID: 1809920963}
   - component: {fileID: 1809920964}
@@ -1797,7 +1802,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809920958}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -1892,6 +1897,22 @@ MonoBehaviour:
   health: 5
   text: {fileID: 2068389826}
   death: {fileID: 1894552608}
+  addonOne: {fileID: 0}
+  addonTwo: {fileID: 0}
+  addonThree: {fileID: 0}
+--- !u!65 &1809920965
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809920958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1894552608 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7238072115861918962, guid: 7cfa7bd6b1861194c86897a3b95d5dc1,
@@ -2033,7 +2054,7 @@ PrefabInstance:
     - target: {fileID: 8318447812629161003, guid: cd7fe3a298107ab439647f91a9aa8b9a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.96
+      value: -35.3
       objectReference: {fileID: 0}
     - target: {fileID: 8318447812629161003, guid: cd7fe3a298107ab439647f91a9aa8b9a,
         type: 3}
@@ -2043,7 +2064,7 @@ PrefabInstance:
     - target: {fileID: 8318447812629161003, guid: cd7fe3a298107ab439647f91a9aa8b9a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.46
+      value: -42.4
       objectReference: {fileID: 0}
     - target: {fileID: 8318447812629161003, guid: cd7fe3a298107ab439647f91a9aa8b9a,
         type: 3}

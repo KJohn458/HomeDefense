@@ -7,9 +7,9 @@ public class PlayerControl : MonoBehaviour
     private string moveInputAxis = "Vertical";
     private string turnInputAxis = "Horizontal";
 
-    public float rotationRate = 360;
+    public float rotationRate = 180;
 
-    public float moveSpeed = 2;
+    public float moveSpeed = .2f;
 
     private void Update()
     {
