@@ -214,12 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f8a61dd8408234ea43c87570841371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  House: {fileID: 1809920962}
-  Player: {fileID: 1524747751}
-  projectile: {fileID: 0}
-  MoveSpeed: 5
-  minDist: 1
-  maxDist: 1
 --- !u!136 &325197973
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1107,7 +1101,7 @@ GameObject:
   - component: {fileID: 1809920959}
   m_Layer: 0
   m_Name: House
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
