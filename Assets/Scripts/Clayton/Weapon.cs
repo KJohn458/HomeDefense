@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     private BoxCollider SC;
 	public int damage;
+    public GameObject BG;
 
     void Start()
     {
@@ -30,8 +31,7 @@ public class Weapon : MonoBehaviour
     {  
         if (Enemy.gameObject.tag == "Enemy")
         {
-			AI_M enemy_m = Enemy.gameObject.GetComponent<AI_M>();
-			enemy_m.hurt(damage);
+            Destroy(BG);
         }
 
     }

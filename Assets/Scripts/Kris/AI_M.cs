@@ -62,7 +62,7 @@ public class AI_M : MonoBehaviour
         healthScript.Damage();
     }
 	
-	public void hurt(int amount){
+	public void Hurt(int amount = 1){
 		
 		enemyHealth -= amount;
 		Debug.Log(enemyHealth);
