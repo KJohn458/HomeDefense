@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     {
         health = 5;
 		death.SetActive(false);
+		Time.timeScale = 1f;
     }
 
 
