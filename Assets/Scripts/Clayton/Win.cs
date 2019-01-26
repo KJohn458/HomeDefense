@@ -6,21 +6,31 @@ using UnityEngine.UI;
 public class Win : MonoBehaviour
 {
     private int HouseLvl;
-    public Text houseLvl;
+    public Text HP;
     public Text WinTxt;
-    // Start is called before the first frame update
     void Start()
     {
-        HouseLvl = 0;
-        SethouseLvl ();
+        HouseLvl = 1;
+        
         WinTxt.text = "";
     }
+
+    private void Update()
+    {
+        //HouseLvl = HP.text;
+        SethouseLvl();
+    }
+
     void SethouseLvl()
     {
-        houseLvl.text = "Score: " + houseLvl.ToString();
-        if (HouseLvl >= 3)
+        //HP.text = "Score: " + HP.ToString();
+        if (HouseLvl >= 10)
         {
             WinTxt.text = "YOU HAVE DEAFETED THE DARK WOODS";
+        }
+        else if (HouseLvl == 0)
+        {
+            WinTxt.text = "You Have Been Defeated!";
         }
     }   
 }
