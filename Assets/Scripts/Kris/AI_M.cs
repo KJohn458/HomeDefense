@@ -33,6 +33,12 @@ public class AI_M : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1))
+        {
+            
+        }
+
         if (agent.remainingDistance == 0 && hasAttacked == false)
         {
             hasAttacked = true;

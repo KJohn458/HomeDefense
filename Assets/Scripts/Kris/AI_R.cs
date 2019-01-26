@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AI_R : MonoBehaviour
 {
     public Transform House;
     public Transform Player;
     public Rigidbody projectile;
-    public int MoveSpeed;
-    public int getCloseToHouseDistance;
-    public int closeEnoughToFireAtHouseRange;
     public int avoidDistance;
 
-
+    private NavMeshAgent agent;
     private int chargeTime = 3;
     private int bulletSpeed = 6;
     private bool hasAttacked;
@@ -22,39 +20,27 @@ public class AI_R : MonoBehaviour
     void Start()
     {
         hasAttacked = false;
+        House = GameObject.FindWithTag("House").transform;
+        agent = GetComponent<NavMeshAgent>();
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(House.position, path);
+        agent.destination = House.position;
+        if (path.status == NavMeshPathStatus.PathPartial)
+        {
+            Destroy(this);
+        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(House);
-        if(Vector3.Distance(transform.position, House.position) >= getCloseToHouseDistance)
-        {
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        }
-        if(Vector3.Distance(transform.position, Player.position) >= avoidDistance)
-        {
-            //code to avoid player
-        }
-
-        if(Vector3.Distance(transform.position, House.position) <= closeEnoughToFireAtHouseRange && !hasAttacked)
+        if (agent.remainingDistance == avoidDistance && hasAttacked == false)
         {
             hasAttacked = true;
-            Invoke("fireBullet", chargeTime);
+            Invoke("swingBranch", chargeTime);
         }
-      /* transform.LookAt(House);
-            if (Vector3.Distance(transform.position, House.position) >= minDist && Vector3.Distance(transform.position, House.position) >= maxDist)
-            {
-                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-            }
-
-            if (Vector3.Distance(transform.position, House.position) >= maxDist && Vector3.Distance(transform.position, Player.position) >= avoidDistance && !hasAttacked)
-            {
-                hasAttacked = true;
-                Invoke("fireBullet", chargeTime);
-            }
-            */
-        }
+    }
 
 
     void fireBullet()
