@@ -32,4 +32,9 @@ public class Health : MonoBehaviour
 		Time.timeScale = 0f;
 		death.SetActive(true);
 	}
+
+    public void Heal()
+    {
+        health++;
+    }
 }

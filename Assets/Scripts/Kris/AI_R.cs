@@ -5,31 +5,46 @@ using UnityEngine.AI;
 
 public class AI_R : MonoBehaviour
 {
-    private NavMeshAgent agent;
-    private bool isFiring;
-    public GameObject Player;
-
+    private GameObject HouseGameObj;
     private Transform House;
+    private Health healthScript;
+    private NavMeshAgent agent;
+    public GameObject Player;
+    
+
+    
     private int chargeTime = 3;
     private bool hasAttacked;
-    private bool agentDestroyed;
-    private GameObject HouseGameObj;
-    private Health healthScript;
+    private Rigidbody cloneRB;
+    public GameObject bulletPrefab;
+    public int distanceAwayFromHouse;
+    public float bulletVelocity = 8000f;
+    
+
+
+
+
+    private Vector3 pos;
+    Quaternion rotation;
 
     public float EnemyDistanceRun = 4.0f;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        isFiring = false;
+        HouseGameObj = GameObject.Find("House");
+        House = GameObject.FindWithTag("House").transform;
     }
 
     private void Update()
     {
+        pos = gameObject.transform.position;
+        rotation = gameObject.transform.rotation;
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-        if (distance < EnemyDistanceRun && isFiring == false)
+        if (distance < EnemyDistanceRun && hasAttacked == false)
         {
+            agent.isStopped = false;
             Vector3 dirToPlayer = transform.position - Player.transform.position;
 
             Vector3 newPos = transform.position + dirToPlayer;
@@ -37,12 +52,11 @@ public class AI_R : MonoBehaviour
             agent.SetDestination(newPos);
         }
 
-        else
+        else if(Vector3.Distance(transform.position, House.position) > distanceAwayFromHouse)
         {
-            HouseGameObj = GameObject.Find("House");
+            agent.isStopped = false;
             healthScript = HouseGameObj.GetComponent<Health>();
-            agentDestroyed = false;
-            House = GameObject.FindWithTag("House").transform;
+            
             hasAttacked = false;
             agent = GetComponent<NavMeshAgent>();
             NavMeshPath path = new NavMeshPath();
@@ -55,10 +69,28 @@ public class AI_R : MonoBehaviour
         }
 
 
-        if (Vector3.Distance(transform.position, House.position) <= 2)
+        else if(!hasAttacked)
         {
+            agent.isStopped = true;
             transform.LookAt(House);
-
+            hasAttacked = true;
+            Invoke("rangedAttack", chargeTime);
         }
+
+        else
+        {
+          //  Debug.Log("Charging my attack!");
+        }
+    }
+
+    void rangedAttack()
+    {
+        GameObject clone;
+        hasAttacked = false;
+        clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
+        clone.AddComponent<Rigidbody>();
+        cloneRB = clone.GetComponent<Rigidbody>();
+        cloneRB.AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
+        
     }
 }
