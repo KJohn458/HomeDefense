@@ -22,11 +22,11 @@ public class Weapon : MonoBehaviour
             SC.enabled = false;
         }
     }
-    void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider Enemy)
     {
-        if (col.gameObject.name == "trigger")
+        if (Enemy.gameObject.tag == "Enemy")
         {
-            Destroy(col.gameObject);
+            Destroy(Enemy.gameObject);
         }
     }
 }
