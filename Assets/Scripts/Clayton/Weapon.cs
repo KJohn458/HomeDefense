@@ -7,12 +7,15 @@ public class Weapon : MonoBehaviour
     private BoxCollider SC;
 	private AI_M enemy_m;
 	private GameObject enemy_obj;
+	private bool hitOnce;
+	public int damage = 1;
 
     void Start()
     {
         SC = GetComponent<BoxCollider>();
 		enemy_obj = GameObject.FindWithTag("Enemy");
         enemy_m = enemy_obj.GetComponent<AI_M>();
+		hitOnce = false;
     }
 
     void Update()
@@ -25,19 +28,16 @@ public class Weapon : MonoBehaviour
         {
             SC.enabled = false;
         }
+		if (hitOnce = true)
+			hitOnce = false;
 		
     }
     void OnTriggerEnter(Collider Enemy)
-    {
+    {  
         if (Enemy.gameObject.tag == "Enemy")
         {
-            enemy_m.enemyHealth-=1;
-			
+            Destory(Enemy.gameObject);
         }
-		if (enemy_m.enemyHealth<=0)
-		{
-			Destroy(Enemy.gameObject);
-			Debug.Log("Kill");
-		}
+
     }
 }
