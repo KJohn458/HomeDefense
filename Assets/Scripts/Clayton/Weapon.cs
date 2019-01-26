@@ -5,10 +5,14 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private BoxCollider SC;
+	private AI_M enemy_m;
+	private GameObject enemy_obj;
 
     void Start()
     {
         SC = GetComponent<BoxCollider>();
+		enemy_obj = GameObject.FindWithTag("Enemy");
+        enemy_m = enemy_obj.GetComponent<AI_M>();
     }
 
     void Update()
@@ -21,12 +25,19 @@ public class Weapon : MonoBehaviour
         {
             SC.enabled = false;
         }
+		
     }
     void OnTriggerEnter(Collider Enemy)
     {
         if (Enemy.gameObject.tag == "Enemy")
         {
-            Destroy(Enemy.gameObject);
+            enemy_m.enemyHealth-=1;
+			
         }
+		if (enemy_m.enemyHealth<=0)
+		{
+			Destroy(Enemy.gameObject);
+			Debug.Log("Kill");
+		}
     }
 }

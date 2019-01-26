@@ -13,11 +13,13 @@ public class AI_M : MonoBehaviour
     private bool agentDestroyed;
     private GameObject HouseGameObj;
     private Health healthScript;
+	public int enemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        HouseGameObj = GameObject.Find("House");
+		enemyHealth = 20;
+        HouseGameObj = GameObject.FindWithTag("House");
         healthScript = HouseGameObj.GetComponent<Health>();
         agentDestroyed = false;
         House = GameObject.FindWithTag("House").transform;
@@ -37,15 +39,14 @@ public class AI_M : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+  
         if (Vector3.Distance(transform.position, House.position) <= 2)
         {
             Destroy(agent);
             agentDestroyed = true;
             transform.LookAt(House);
         }
-
-        if (hasAttacked == false && agentDestroyed == true)
+		if(hasAttacked == false && agentDestroyed == true)
         {
             hasAttacked = true;
             Invoke("swingBranch", chargeTime);
@@ -53,9 +54,7 @@ public class AI_M : MonoBehaviour
 
         //Debug.Log(Vector3.Distance(transform.position, House.position));
     }
-
-
-
+	
     void swingBranch()
     {
         Debug.Log("Hit");
