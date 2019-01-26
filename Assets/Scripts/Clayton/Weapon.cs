@@ -5,10 +5,13 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private BoxCollider SC;
+	public int damage;
+    public GameObject BG;
 
     void Start()
     {
         SC = GetComponent<BoxCollider>();
+		damage = 1;
     }
 
     void Update()
@@ -16,17 +19,23 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SC.enabled = true;
+			Debug.Log("Box collider true");
         }
         else
         {
             SC.enabled = false;
         }
+
+		
     }
     void OnTriggerEnter(Collider Enemy)
-    {
+    {  
         if (Enemy.gameObject.tag == "Enemy")
         {
-            Destroy(Enemy.gameObject);
+			Debug.Log("collision enter");
+			AI_M enemy_m = Enemy.gameObject.GetComponent<AI_M>();
+			enemy_m.Hurt(damage);
         }
+
     }
 }
