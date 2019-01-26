@@ -61,4 +61,15 @@ public class AI_M : MonoBehaviour
         hasAttacked = false;
         healthScript.Damage();
     }
+	
+	public void hurt(int amount){
+		if(enemyHealth<=0)
+			Death();
+		else
+			enemyHealth -= amount;
+	}
+	
+	public void Death(){
+		Destroy(gameObject);
+	}
 }
