@@ -7,17 +7,18 @@ using UnityEngine.AI;
 public class AI_M : MonoBehaviour
 {
     private Transform House;
-
     private int chargeTime = 3;
     private bool hasAttacked;
     private NavMeshAgent agent;
     private bool agentDestroyed;
-
+    private GameObject HouseGameObj;
+    private Health healthScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        HouseGameObj = GameObject.Find("House");
+        healthScript = HouseGameObj.GetComponent<Health>();
         agentDestroyed = false;
         House = GameObject.FindWithTag("House").transform;
         hasAttacked = false;
@@ -59,5 +60,6 @@ public class AI_M : MonoBehaviour
     {
         Debug.Log("Hit");
         hasAttacked = false;
+        healthScript.Damage();
     }
 }
