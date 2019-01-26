@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     private BoxCollider SC;
 	public int damage;
     public GameObject BG;
+    public Health _Health;
 
     void Start()
     {
