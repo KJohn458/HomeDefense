@@ -7,7 +7,7 @@ public class Pause_Menu : MonoBehaviour
 {
 	public static bool paused = false;
 	
-	public GameObject pauseMenu;
+	public GameObject PauseMenu;
 	
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.Escape)){
@@ -24,14 +24,14 @@ public class Pause_Menu : MonoBehaviour
 	public void Resume(){
 		paused = false;
 		Time.timeScale = 1f;
-		pauseMenu.SetActive(false);
+		PauseMenu.SetActive(false);
 	}
 	
 	
 	void Pause(){
 		paused = true;
 		Time.timeScale = 0f;
-		pauseMenu.SetActive(true);
+		PauseMenu.SetActive(true);
 	}
 	
 	public void ReturnMenu(){
