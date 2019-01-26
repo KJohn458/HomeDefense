@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        health = 5;
+        //health = 5;
 		death.SetActive(false);
         addonOne.SetActive(false);
         addonTwo.SetActive(false);
