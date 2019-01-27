@@ -22,6 +22,7 @@ public class AI_R : MonoBehaviour
     public HouseLocs houseLocations;
 
     public GameObject pivot;
+    private Collider col;
 
 
     private int chargeTime = 3;
@@ -46,6 +47,7 @@ public class AI_R : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         findHouse();
         findTarget = true;
+        col = GetComponent<Collider>();
 
         R = GetComponent<Animator>();
     }
@@ -136,6 +138,14 @@ public class AI_R : MonoBehaviour
     public void Death()
     {
         healthScript.Heal(1);
+        Destroy(col);
+        Destroy(agent);
+        R.SetTrigger("Death");
+        Invoke("deathAnim", 1.5f);
+    }
+
+    void deathAnim()
+    {
         Destroy(gameObject);
     }
 
