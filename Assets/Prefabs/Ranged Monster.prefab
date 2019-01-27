@@ -930,13 +930,14 @@ MonoBehaviour:
     type: 3}
   houseLocations: {fileID: 0}
   pivot: {fileID: 1788529041}
+  deathParticles: {fileID: 649968584280958748}
   distanceAwayFromHouse: 30
   bulletVelocity: 80
   EnemyDistanceRun: 20
   enemyHealth: 1
   audio: {fileID: 0}
   deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
-  attackAudioClip: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  attackAudioClip: {fileID: 8300000, guid: 04ce7076adb7e5d419dd1271eb8a4189, type: 3}
 --- !u!82 &3302761543585930934
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2887,11 +2888,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7135158949933700690}
     m_Modifications:
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_Name
-      value: Hit Particles
-      objectReference: {fileID: 0}
     - target: {fileID: 7004233311588704925, guid: 2792763f338edf14b92a33b4fe5b9c14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2962,8 +2958,24 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5828054
       objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_Name
+      value: Hit Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2792763f338edf14b92a33b4fe5b9c14, type: 3}
+--- !u!1 &649968584280958748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+    type: 3}
+  m_PrefabInstance: {fileID: 6813185514206124997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4591777396098873688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7004233311588704925, guid: 2792763f338edf14b92a33b4fe5b9c14,
