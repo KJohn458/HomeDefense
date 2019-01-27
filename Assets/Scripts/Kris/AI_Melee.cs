@@ -126,7 +126,7 @@ public class AI_Melee : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Heal(wood);
+        healthScript.Gather(wood);
         Destroy(agent);
         Destroy(col);
         M.SetTrigger("Death");

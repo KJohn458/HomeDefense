@@ -25,6 +25,7 @@ public class AI_R : MonoBehaviour
     private Collider col;
     public GameObject deathParticles;
 
+    public int wood;
 
     private int chargeTime = 3;
     public int distanceAwayFromHouse;
@@ -54,7 +55,7 @@ public class AI_R : MonoBehaviour
 
     private void Start()
     {
-        enemyHealth = 1;
+        wood = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         House = GameObject.FindGameObjectWithTag("House").transform;
@@ -163,7 +164,7 @@ public class AI_R : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Heal(1);
+        healthScript.Gather(wood);
         Destroy(col);
         Destroy(agent);
         R.SetTrigger("Death");
