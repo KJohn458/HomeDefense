@@ -125,8 +125,8 @@ public class Upgrade : MonoBehaviour
 		if (healthScript.wood>speedCost()){
 			healthScript.Buy(speedCost());
 			speed_level++;
-			control.moveSpeed+=.2f;
-			control.rotationRate+=30;
+			control.moveSpeed+=.1f;
+			control.rotationRate+=15;
 			if (speed_level>=3)
 			{
 				speedMax = true;
