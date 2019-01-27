@@ -742,11 +742,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause_Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 8561283014548267714, guid: 15594a13940fe624899296a939a4765b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8561283014548267712, guid: 15594a13940fe624899296a939a4765b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -832,20 +827,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7287589634038074295}
-    - target: {fileID: 3781752497582206880, guid: 15594a13940fe624899296a939a4765b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7580169581728186024, guid: 15594a13940fe624899296a939a4765b,
         type: 3}
       propertyPath: m_TagString
       value: Upgrade
-      objectReference: {fileID: 0}
-    - target: {fileID: 7580169581728186024, guid: 15594a13940fe624899296a939a4765b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8249395867848092529, guid: 15594a13940fe624899296a939a4765b,
         type: 3}
@@ -951,6 +936,11 @@ PrefabInstance:
       objectReference: {fileID: 413549650494833181}
     - target: {fileID: 9092835701573005709, guid: 15594a13940fe624899296a939a4765b,
         type: 3}
+      propertyPath: build
+      value: 
+      objectReference: {fileID: 4981102985794110869}
+    - target: {fileID: 9092835701573005709, guid: 15594a13940fe624899296a939a4765b,
+        type: 3}
       propertyPath: speedButton
       value: 
       objectReference: {fileID: 5330975362183319025}
@@ -964,6 +954,21 @@ PrefabInstance:
       propertyPath: woodButton
       value: 
       objectReference: {fileID: 3303403058205050837}
+    - target: {fileID: 9092835701573005709, guid: 15594a13940fe624899296a939a4765b,
+        type: 3}
+      propertyPath: buildButton
+      value: 
+      objectReference: {fileID: 6473407918205018738}
+    - target: {fileID: 9092835701573005709, guid: 15594a13940fe624899296a939a4765b,
+        type: 3}
+      propertyPath: control
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092835701573005709, guid: 15594a13940fe624899296a939a4765b,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15594a13940fe624899296a939a4765b, type: 3}
 --- !u!114 &5284852728000753444 stripped
