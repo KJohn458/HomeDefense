@@ -110,7 +110,7 @@ public class Health : MonoBehaviour
 	}
 	
 	public void Gather(){
-		wood+=1*mod
+		wood+=1*mod;
 	}
     public void Heal(int amount)
     {

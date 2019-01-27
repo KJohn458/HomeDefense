@@ -102,7 +102,8 @@ public class Upgrade : MonoBehaviour
 				reachLv3.SetActive(true);
 				reachButton.interactable = false;
 			}
-		}else{
+		}
+		else{
 			reachButton.interactable = false;
 		}
 	}
