@@ -43,19 +43,19 @@ public class Spawner : MonoBehaviour
         pos = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
 
-        if(spawnMelee && !spawnDelayBool)
+        if(spawnMelee && !spawnDelayBool && !spawnRanged)
         {
             spawnDelayBool = true;
             Invoke("spawnMeleeDude", spawnTimer);
         }
 
-        if(spawnRanged && !spawnDelayBool)
+        if(spawnRanged && !spawnDelayBool && !spawnMelee)
         {
             spawnDelayBool = true;
             Invoke("spawnRangedDude", spawnTimer);
         }
 
-        if((spawnMelee && spawnRanged) && !spawnDelayBool)
+        if(spawnMelee && spawnRanged && !spawnDelayBool)
         {
             spawnDelayBool = true;
             randomNum = Random.Range(minNum, maxNum);
@@ -79,8 +79,9 @@ public class Spawner : MonoBehaviour
         spawnDelayBool = false;
     }
 
-    void randomSpawnDude()
+    void spawnRandomDude()
     {
+        Debug.Log(randomNum);
         if (randomNum >= 5.0f)
         {
             spawnMeleeDude();
