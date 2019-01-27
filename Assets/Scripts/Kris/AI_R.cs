@@ -31,6 +31,8 @@ public class AI_R : MonoBehaviour
     private bool findTarget;
     public int enemyHealth;
 
+    Animator R;
+
     private void Start()
     {
         enemyHealth = 1;
@@ -43,10 +45,25 @@ public class AI_R : MonoBehaviour
         findHouse();
         findTarget = true;
 
+        R = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        if (agent.speed > 0)
+        {
+            R.SetBool("isWalking", true);
+        }
+        else
+        {
+            R.SetBool("isWalking", false);
+        }
+
+        if (hasAttacked == true)
+        {
+            R.Play("Attack");
+        }
+
         pos = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
         float distance = Vector3.Distance(transform.position, Player.transform.position);

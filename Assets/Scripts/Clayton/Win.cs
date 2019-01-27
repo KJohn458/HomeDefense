@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class Win : MonoBehaviour
 {
     private int HouseLvl;
-    public Text HP;
     public Text WinText;
+
     void Start()
     {
         HouseLvl = 1;
-        
         WinText.text = "";
     }
 
