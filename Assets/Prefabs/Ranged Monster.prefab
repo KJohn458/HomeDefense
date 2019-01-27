@@ -944,6 +944,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2491543503938907506, guid: c4b2657f5d6ed9c4e955dfb18f39e37d,
     type: 3}
   houseLocations: {fileID: 0}
+  pivot: {fileID: 1788529041}
   distanceAwayFromHouse: 30
   bulletVelocity: 80
   EnemyDistanceRun: 20
