@@ -24,6 +24,10 @@ public class Weapon : MonoBehaviour
             BC.enabled = false;
         }
     }
+	public void damageIncrease()
+	{
+		damage++;
+	}
 
     public void OnTriggerEnter(Collider other)
     {
