@@ -2201,6 +2201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationRate: 150
   moveSpeed: 0.8
+  repairCanvas: {fileID: 0}
 --- !u!1 &1206207262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,7 +3484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7409135
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3520,18 +3521,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_Enabled

@@ -901,7 +901,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -931,11 +931,12 @@ MonoBehaviour:
   houseLocations: {fileID: 0}
   pivot: {fileID: 1788529041}
   deathParticles: {fileID: 649968584280958748}
+  wood: 0
   distanceAwayFromHouse: 30
   bulletVelocity: 80
   EnemyDistanceRun: 20
   enemyHealth: 1
-  audio: {fileID: 0}
+  audio: {fileID: 3302761543585930934}
   deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
   attackAudioClip: {fileID: 8300000, guid: 04ce7076adb7e5d419dd1271eb8a4189, type: 3}
 --- !u!82 &3302761543585930934
