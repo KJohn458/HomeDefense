@@ -90,7 +90,7 @@ public class Upgrade : MonoBehaviour
 	public void Difficulty(){
 		if (healthScript.wood>buildCost()){
 			difficulty++;
-			healthScript.Buy(buildCost()/2);
+			healthScript.Buy(buildCost() - 15);
 		}
 	}
 	
