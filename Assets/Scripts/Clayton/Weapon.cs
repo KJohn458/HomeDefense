@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
         if (Enemy.gameObject.tag == "Enemy")
         {
 			Debug.Log("collision enter");
-			AI_M enemy_m = Enemy.gameObject.GetComponent<AI_M>();
+			AI_Melee enemy_m = Enemy.gameObject.GetComponent<AI_Melee>();
 			enemy_m.Hurt(damage);
         }
 
