@@ -29,6 +29,8 @@ public class AI_Melee : MonoBehaviour
     public AudioClip deathAudioClip;
     public AudioClip attackAudioClip;
 
+    public GameObject deathParticles;
+
     public void Start()
     {
 
@@ -117,7 +119,9 @@ public class AI_Melee : MonoBehaviour
         Destroy(col);
         M.SetTrigger("Death");
         audio.PlayOneShot(deathAudioClip, 0.4f);
+        deathParticles.SetActive(true);
         Invoke("deathAnim", 1.5f);
+
     }
     
     void deathAnim()

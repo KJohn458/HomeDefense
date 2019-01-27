@@ -637,6 +637,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
   attackAudioClip: {fileID: 8300000, guid: e42bda0c80a4b3445b0200372f8de4e5, type: 3}
+  deathParticles: {fileID: 6407602967711886109}
 --- !u!82 &2664924909709547443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2945,8 +2946,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hit Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2792763f338edf14b92a33b4fe5b9c14, type: 3}
+--- !u!1 &6407602967711886109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109022575391512516}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7948856907990201689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7004233311588704925, guid: 2792763f338edf14b92a33b4fe5b9c14,
