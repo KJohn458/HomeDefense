@@ -377,6 +377,11 @@ PrefabInstance:
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnMelee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnTimer
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
@@ -845,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 1598718736}
     - target: {fileID: 1743612816, guid: e48f8caee5a312644bda0992db301810, type: 3}
       propertyPath: wood
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7177818146639586397, guid: e48f8caee5a312644bda0992db301810,
         type: 3}
