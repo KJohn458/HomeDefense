@@ -901,7 +901,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -931,6 +931,7 @@ MonoBehaviour:
   houseLocations: {fileID: 0}
   pivot: {fileID: 1788529041}
   deathParticles: {fileID: 649968584280958748}
+  wood: 0
   distanceAwayFromHouse: 30
   bulletVelocity: 80
   EnemyDistanceRun: 20
@@ -2888,6 +2889,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7135158949933700690}
     m_Modifications:
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_Name
+      value: Hit Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7004233311588704925, guid: 2792763f338edf14b92a33b4fe5b9c14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2957,16 +2968,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5828054
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_Name
-      value: Hit Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2792763f338edf14b92a33b4fe5b9c14, type: 3}
