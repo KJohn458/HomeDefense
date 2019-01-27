@@ -20,8 +20,9 @@ public class AI_Melee : MonoBehaviour
     private Transform House;
     private NavMeshAgent agent;
 
-    private void Start()
+    public void Start()
     {
+        enemyHealth = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindWithTag("House");
         House = GameObject.FindWithTag("House").transform;
@@ -62,11 +63,14 @@ public class AI_Melee : MonoBehaviour
 
     public void Hurt(int amount)
     {
-
+        Debug.Log("Test hurt");
         enemyHealth -= amount;
         Debug.Log(enemyHealth);
         if (enemyHealth == 0)
+        {
             Death();
+        }
+            
     }
 
     public void Death()
@@ -189,7 +193,6 @@ public class AI_Melee : MonoBehaviour
         {
             houseToMoveTo = House;
             houseToMoveTo.position = House.position;
-            Debug.Log("lock on");
         }
     }
 }

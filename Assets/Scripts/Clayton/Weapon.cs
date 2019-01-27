@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             BC.enabled = true;
-			Debug.Log("Box collider true");
+			//Debug.Log("Box collider true");
         }
         else
         {
@@ -26,12 +26,15 @@ public class Weapon : MonoBehaviour
         }
 
 		
+
     }
-    void OnTriggerEnter(Collider Enemy)
-    {  
+
+    void OnTriggerStay(Collider Enemy)
+    {
+        Debug.Log("Hit an enemy");
         if (Enemy.gameObject.tag == "Enemy")
         {
-			Debug.Log("collision enter");
+			Debug.Log("Hit an enemy");
 			AI_Melee enemy_m = Enemy.gameObject.GetComponent<AI_Melee>();
 			enemy_m.Hurt(damage);
         }
