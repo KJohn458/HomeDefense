@@ -22,11 +22,11 @@ public class AI_Melee : MonoBehaviour
 
     public void Start()
     {
-        
+
         enemyHealth = 1;
         agent = GetComponent<NavMeshAgent>();
-        HouseGameObj = GameObject.FindWithTag("House");
-        House = GameObject.FindWithTag("House").transform;
+        HouseGameObj = GameObject.FindGameObjectWithTag("House");
+        House = GameObject.FindGameObjectWithTag("House").transform;
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
@@ -41,7 +41,7 @@ public class AI_Melee : MonoBehaviour
 
         if (Vector3.Distance(transform.position, houseToMoveTo.position) < distanceAwayFromHouse)
         {
-            Destroy(agent);
+            agent.speed = 0;
             agentDestroyed = true;
             transform.LookAt(houseToMoveTo);
         }
@@ -69,7 +69,8 @@ public class AI_Melee : MonoBehaviour
         {
             Death();
         }
-            
+
+
     }
 
     public void Death()
