@@ -21,6 +21,8 @@ public class AI_Melee : MonoBehaviour
     private Transform House;
     private NavMeshAgent agent;
 
+    private Collider col; 
+
     Animator M;
 
     public void Start()
@@ -33,6 +35,7 @@ public class AI_Melee : MonoBehaviour
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
+        col = GetComponent<Collider>();
         findHouse();
 
         M = GetComponent<Animator>();
@@ -49,10 +52,6 @@ public class AI_Melee : MonoBehaviour
             M.SetBool("isWalking", false);
         }
 
-        if (agent.speed == 0)
-        {
-            M.Play("Attack");
-        }
         if(hasAttacked == false && agentStopped == true)
         {
             hasAttacked = true;
@@ -104,9 +103,16 @@ public class AI_Melee : MonoBehaviour
     public void Death()
     {
         healthScript.Heal(wood);
-        Destroy(gameObject);
+        Destroy(agent);
+        Destroy(col);
+        //play death anim clip here
+        Invoke("deathAnim", 1.5f);
     }
-
+    
+    void deathAnim()
+    {
+        Destroy(gameObject) 
+    }
     void findHouse()
     {
         Debug.Log("I find the house");
