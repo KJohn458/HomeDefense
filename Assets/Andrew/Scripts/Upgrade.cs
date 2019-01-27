@@ -19,6 +19,9 @@ public class Upgrade : MonoBehaviour
 	public Button speedButton;
 	public Button powerButton;
 	public Button woodButton;
+	private PlayerControl control;
+	public GameObject player;
+	
 	void Start()
 	{
 		speed.text = "Cost "+speedCost().ToString()+" wood";
@@ -28,6 +31,7 @@ public class Upgrade : MonoBehaviour
 		WeaponGameObj = GameObject.FindWithTag("Weapon");
 		healthScript = HouseGameObj.GetComponent<Health>();
 		weapon = WeaponGameObj.GetComponent<Weapon>();
+		control = player.GetComponent<PlayerControl>();
 	}
 	
     void Update()
