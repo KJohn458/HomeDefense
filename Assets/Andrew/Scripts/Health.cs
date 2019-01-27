@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
             gameover();
         }
 
-        if(health >= 5)
+        if(upgradeScript.difficulty == 0)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(false);
@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
             addonOne.SetActive(false);
         }
 
-        if(health >= 7)
+        if(upgradeScript.difficulty == 1)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(true);
@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
             addonTwo.SetActive(false);
         }
 
-        if (health >= 35)
+        if (upgradeScript.difficulty == 2)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(true);
@@ -81,7 +81,7 @@ public class Health : MonoBehaviour
             addonThree.SetActive(false);
         }
 
-        if (health >= 45)
+        if (upgradeScript.difficulty == 3)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(true);
@@ -93,7 +93,7 @@ public class Health : MonoBehaviour
             addonThree.SetActive(true);
         }
 
-        if(upgradeScript.difficulty == 4)
+        if(upgradeScript.difficulty >= 4)
         {
 
         }
