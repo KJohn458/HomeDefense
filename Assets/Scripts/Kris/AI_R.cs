@@ -41,6 +41,8 @@ public class AI_R : MonoBehaviour
     public AudioClip deathAudioClip;
     public AudioClip attackAudioClip;
 
+    
+
     private void Start()
     {
         enemyHealth = 1;
