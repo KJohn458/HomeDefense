@@ -20,9 +20,10 @@ public class Upgrade : MonoBehaviour
 	public Button speedButton;
 	public Button powerButton;
 	public Button woodButton;
+	public Button buildButton;
 	private PlayerControl control;
 	public GameObject player;
-	public int difficulty = 0;
+	public int difficulty = 1;
 	public bool woodMax;
 	public bool powerMax;
 	public bool speedMax;
@@ -38,6 +39,9 @@ public class Upgrade : MonoBehaviour
 		healthScript = HouseGameObj.GetComponent<Health>();
 		weapon = WeaponGameObj.GetComponent<Weapon>();
 		control = player.GetComponent<PlayerControl>();
+		woodMax = false;
+		powerMax = false;
+		speedMax = false;
 	}
 	
     void Update()
@@ -45,6 +49,11 @@ public class Upgrade : MonoBehaviour
 		speed.text = "Cost "+speedCost().ToString()+" wood";
 		power.text = "Cost "+powerCost().ToString()+" wood";
 		wood.text = "Cost "+woodCost().ToString()+" wood";
+		if (healthScript.wood<buildCost()){
+			buildButton.interactable = false;
+		}else{
+			buildButton.interactable = true;
+		}
 		if (healthScript.wood<powerCost()||powerMax){
 			powerButton.interactable = false;
 		}else{
@@ -63,7 +72,7 @@ public class Upgrade : MonoBehaviour
 		
     }
 	private int buildCost(){
-		return upgrade_cost*2*(difficulty+1);
+		return upgrade_cost*2*difficulty;
 	}
 	
 	private int speedCost(){
