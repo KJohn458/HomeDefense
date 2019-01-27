@@ -2026,7 +2026,7 @@ GameObject:
   - component: {fileID: 1205306468}
   - component: {fileID: 1205306469}
   m_Layer: 0
-  m_Name: Non bind pose import test
+  m_Name: Player Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
