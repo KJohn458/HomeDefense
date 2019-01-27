@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnRanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: repairCanvas
       value: 
       objectReference: {fileID: 230260535}
+    - target: {fileID: 1228725648, guid: dc785184b553af6419f99e120540c4b0, type: 3}
+      propertyPath: moveSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc785184b553af6419f99e120540c4b0, type: 3}
 --- !u!1 &1290557665 stripped
