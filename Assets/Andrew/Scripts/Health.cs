@@ -21,8 +21,7 @@ public class Health : MonoBehaviour
 	
 	public int mod = 1;
 
-    private Upgrade upgradeScript;
-    private GameObject upgradescriptObject;
+    public Upgrade upgradeScript;
 
 
     void Start()
@@ -36,8 +35,6 @@ public class Health : MonoBehaviour
 		Death.SetActive(false);
         Time.timeScale = 1f;
 
-        upgradescriptObject = GameObject.FindGameObjectWithTag("Upgrade");
-        upgradeScript = upgradescriptObject.GetComponent<Upgrade>();
     }
 
 
