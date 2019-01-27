@@ -26,10 +26,6 @@ public class Weapon : MonoBehaviour
             MC.enabled = false;
         }
     }
-	public void damageIncrease()
-	{
-		damage++;
-	}
 
     public void OnTriggerEnter(Collider other)
     {

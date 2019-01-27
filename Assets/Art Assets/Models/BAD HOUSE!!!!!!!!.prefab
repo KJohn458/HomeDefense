@@ -139,7 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  text: {fileID: 0}
+  wood: 0
+  HP: {fileID: 0}
+  Wood: {fileID: 0}
   Death: {fileID: 0}
   addonOne: {fileID: 8504359612279604149}
   addonTwo: {fileID: 8504359611466420589}
@@ -149,6 +151,7 @@ MonoBehaviour:
   spawn3: {fileID: 0}
   spawn4: {fileID: 0}
   mod: 1
+  upgradeScript: {fileID: 0}
 --- !u!65 &190761542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 311785318798017785, guid: 512d5605bffc9444990aedaa394c9551,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.24
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 311785318798017785, guid: 512d5605bffc9444990aedaa394c9551,
         type: 3}
