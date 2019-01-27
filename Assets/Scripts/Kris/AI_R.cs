@@ -22,6 +22,8 @@ public class AI_R : MonoBehaviour
     public HouseLocs houseLocations;
 
     public GameObject pivot;
+    private Collider col;
+    public GameObject deathParticles;
 
 
     private int chargeTime = 3;
@@ -35,6 +37,12 @@ public class AI_R : MonoBehaviour
 
     Animator R;
 
+    new public AudioSource audio;
+    public AudioClip deathAudioClip;
+    public AudioClip attackAudioClip;
+
+    
+
     private void Start()
     {
         enemyHealth = 1;
@@ -46,6 +54,8 @@ public class AI_R : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         findHouse();
         findTarget = true;
+        col = GetComponent<Collider>();
+        audio = GetComponent<AudioSource>();
 
         R = GetComponent<Animator>();
     }
@@ -118,7 +128,8 @@ public class AI_R : MonoBehaviour
         clone.AddComponent<Rigidbody>();
         cloneRB = clone.GetComponent<Rigidbody>();
         cloneRB.AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
-        
+        audio.PlayOneShot(attackAudioClip, 0.4f);
+
     }
 
     public void Hurt(int amount)
@@ -136,6 +147,16 @@ public class AI_R : MonoBehaviour
     public void Death()
     {
         healthScript.Heal(1);
+        Destroy(col);
+        Destroy(agent);
+        R.SetTrigger("Death");
+        audio.PlayOneShot(deathAudioClip, 0.4f);
+        deathParticles.SetActive(true);
+        Invoke("deathAnim", 1.5f);
+    }
+
+    void deathAnim()
+    {
         Destroy(gameObject);
     }
 

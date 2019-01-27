@@ -21,7 +21,15 @@ public class AI_Melee : MonoBehaviour
     private Transform House;
     private NavMeshAgent agent;
 
+    private Collider col; 
+
     Animator M;
+
+    new public AudioSource audio;
+    public AudioClip deathAudioClip;
+    public AudioClip attackAudioClip;
+
+    public GameObject deathParticles;
 
     public void Start()
     {
@@ -33,7 +41,11 @@ public class AI_Melee : MonoBehaviour
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
+        col = GetComponent<Collider>();
         findHouse();
+
+        
+        audio = GetComponent<AudioSource>();
 
         M = GetComponent<Animator>();
     }
@@ -49,10 +61,6 @@ public class AI_Melee : MonoBehaviour
             M.SetBool("isWalking", false);
         }
 
-        if (agent.speed == 0)
-        {
-            M.Play("Attack");
-        }
         if(hasAttacked == false && agentStopped == true)
         {
             hasAttacked = true;
@@ -62,8 +70,10 @@ public class AI_Melee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "House")
+        Debug.Log("Yoyoyo");
+        if(other.gameObject.tag == "House" || other.gameObject.tag == "Addon1" || other.gameObject.tag == "Addon2" || other.gameObject.tag == "Addon3")
         {
+            
             agent.speed = 0;
             agentStopped = true;
             transform.LookAt(houseToMoveTo);
@@ -72,7 +82,7 @@ public class AI_Melee : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "House")
+        if (other.gameObject.tag == "House" || other.gameObject.tag == "Addon1" || other.gameObject.tag == "Addon2" || other.gameObject.tag == "Addon3")
         {
             agentStopped = false;
             agent.speed = speedOfTree;
@@ -85,6 +95,7 @@ public class AI_Melee : MonoBehaviour
         Debug.Log("Hit");
         hasAttacked = false;
         healthScript.Damage(1);
+        audio.PlayOneShot(attackAudioClip, .4f);
         M.Play("Tree Attack");
     }
 
@@ -104,6 +115,17 @@ public class AI_Melee : MonoBehaviour
     public void Death()
     {
         healthScript.Heal(wood);
+        Destroy(agent);
+        Destroy(col);
+        M.SetTrigger("Death");
+        audio.PlayOneShot(deathAudioClip, 0.4f);
+        deathParticles.SetActive(true);
+        Invoke("deathAnim", 1.5f);
+
+    }
+    
+    void deathAnim()
+    {
         Destroy(gameObject);
     }
 
