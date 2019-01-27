@@ -49,6 +49,12 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Character.Play("Attack");
+            Character.SetBool("attackParticles", true);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            Character.SetBool("attackParticles", false);
         }
     }
 
