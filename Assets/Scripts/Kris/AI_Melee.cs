@@ -25,6 +25,8 @@ public class AI_Melee : MonoBehaviour
 
     Animator M;
 
+    private AudioSource deathSound;
+
     public void Start()
     {
 
@@ -37,6 +39,7 @@ public class AI_Melee : MonoBehaviour
         healthScript = HouseGameObj.GetComponent<Health>();
         col = GetComponent<Collider>();
         findHouse();
+        deathSound = GetComponent<AudioSource>();
 
         M = GetComponent<Animator>();
     }
@@ -106,6 +109,7 @@ public class AI_Melee : MonoBehaviour
         Destroy(agent);
         Destroy(col);
         M.SetTrigger("Death");
+        deathSound.Play();
         Invoke("deathAnim", 1.5f);
     }
     
