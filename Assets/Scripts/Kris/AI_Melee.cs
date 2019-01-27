@@ -134,7 +134,7 @@ public class AI_Melee : MonoBehaviour
         M.SetTrigger("Death");
         audio.PlayOneShot(deathAudioClip, 0.4f);
         deathParticles.SetActive(true);
-        Invoke("deathAnim", 1.5f);
+        Invoke("deathAnim", 0.75f);
 
     }
 
