@@ -626,12 +626,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8cffa06cee99a448f429334292f5df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceAwayFromHouse: 5
+  distanceAwayFromHouse: 10
   swingTime: 3
   enemyHealth: 1
   wood: 1
-  speedOfTree: 0
+  speedOfTree: 1
   houseLocations: {fileID: 0}
+  audio: {fileID: 0}
+  deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
+  attackAudioClip: {fileID: 8300000, guid: e42bda0c80a4b3445b0200372f8de4e5, type: 3}
 --- !u!82 &2664924909709547443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -642,9 +645,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

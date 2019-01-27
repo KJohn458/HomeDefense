@@ -933,6 +933,9 @@ MonoBehaviour:
   bulletVelocity: 80
   EnemyDistanceRun: 20
   enemyHealth: 1
+  audio: {fileID: 0}
+  deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
+  attackAudioClip: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!82 &3302761543585930934
 AudioSource:
   m_ObjectHideFlags: 0
@@ -943,7 +946,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

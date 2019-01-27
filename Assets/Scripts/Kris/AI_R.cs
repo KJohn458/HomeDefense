@@ -35,7 +35,10 @@ public class AI_R : MonoBehaviour
     public int enemyHealth;
 
     Animator R;
-    AudioSource deathSound;
+
+    new public AudioSource audio;
+    public AudioClip deathAudioClip;
+    public AudioClip attackAudioClip;
 
     private void Start()
     {
@@ -49,7 +52,7 @@ public class AI_R : MonoBehaviour
         findHouse();
         findTarget = true;
         col = GetComponent<Collider>();
-        deathSound = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
 
         R = GetComponent<Animator>();
     }
@@ -122,7 +125,8 @@ public class AI_R : MonoBehaviour
         clone.AddComponent<Rigidbody>();
         cloneRB = clone.GetComponent<Rigidbody>();
         cloneRB.AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
-        
+        audio.PlayOneShot(attackAudioClip, 0.4f);
+
     }
 
     public void Hurt(int amount)
@@ -143,7 +147,7 @@ public class AI_R : MonoBehaviour
         Destroy(col);
         Destroy(agent);
         R.SetTrigger("Death");
-        deathSound.Play();
+        audio.PlayOneShot(deathAudioClip, 0.4f);
         Invoke("deathAnim", 1.5f);
     }
 

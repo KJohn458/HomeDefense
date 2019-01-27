@@ -25,7 +25,9 @@ public class AI_Melee : MonoBehaviour
 
     Animator M;
 
-    private AudioSource deathSound;
+    new public AudioSource audio;
+    public AudioClip deathAudioClip;
+    public AudioClip attackAudioClip;
 
     public void Start()
     {
@@ -39,7 +41,9 @@ public class AI_Melee : MonoBehaviour
         healthScript = HouseGameObj.GetComponent<Health>();
         col = GetComponent<Collider>();
         findHouse();
-        deathSound = GetComponent<AudioSource>();
+
+        
+        audio = GetComponent<AudioSource>();
 
         M = GetComponent<Animator>();
     }
@@ -64,8 +68,10 @@ public class AI_Melee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if(other.gameObject.tag == "House")
         {
+            Debug.Log("Yoyoyo");
             agent.speed = 0;
             agentStopped = true;
             transform.LookAt(houseToMoveTo);
@@ -87,6 +93,7 @@ public class AI_Melee : MonoBehaviour
         Debug.Log("Hit");
         hasAttacked = false;
         healthScript.Damage(1);
+        audio.PlayOneShot(attackAudioClip, .4f);
         M.Play("Tree Attack");
     }
 
@@ -109,7 +116,7 @@ public class AI_Melee : MonoBehaviour
         Destroy(agent);
         Destroy(col);
         M.SetTrigger("Death");
-        deathSound.Play();
+        audio.PlayOneShot(deathAudioClip, 0.4f);
         Invoke("deathAnim", 1.5f);
     }
     
@@ -117,6 +124,7 @@ public class AI_Melee : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     void findHouse()
     {
         Debug.Log("I find the house");
