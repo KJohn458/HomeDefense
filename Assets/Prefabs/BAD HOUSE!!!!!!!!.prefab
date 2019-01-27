@@ -1,5 +1,83 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &391980716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155588498024012438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07529848, y: 0.10000001, z: 0.09201361}
+  m_Center: {x: 0.2676497, y: 0.06, z: -0.0028546064}
+--- !u!65 &391980717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155588498024012438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04, y: 0.1, z: 0.04}
+  m_Center: {x: 0.25, y: 0.06, z: 0}
+--- !u!65 &757080806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136760021425110537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12195488, y: 0.25823417, z: 0.075161226}
+  m_Center: {x: 0.014764415, y: 0, z: 0.015211724}
+--- !u!65 &757080807
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136760021425110537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09242652, y: 0.25823414, z: 0.044737447}
+  m_Center: {x: 0.00000011920929, y: 0, z: -0.00000023841858}
+--- !u!65 &1183239996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769450967244206666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13853884, y: 0.052631848, z: 0.2182692}
+  m_Center: {x: -0.018911978, y: 0, z: -0.006398409}
+--- !u!65 &1183239997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769450967244206666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10071522, y: 0.05263187, z: 0.13547571}
+  m_Center: {x: -0.00000023841858, y: 0, z: 0}
 --- !u!1 &6554367293378123271
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,12 +91,14 @@ GameObject:
   - component: {fileID: 119844166102873861}
   - component: {fileID: 1743612817}
   - component: {fileID: 1743612816}
+  - component: {fileID: 7177818146639586397}
+  - component: {fileID: 7058779400850118367}
   m_Layer: 0
   m_Name: BAD HOUSE!!!!!!!!
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4831233223978608810
 Transform:
@@ -110,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec73d5337af49f45aa0e4d2559346a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 5
   text: {fileID: 0}
   Death: {fileID: 0}
   addonOne: {fileID: 1136760021425110537}
@@ -121,6 +201,32 @@ MonoBehaviour:
   spawn3: {fileID: 0}
   spawn4: {fileID: 0}
   mod: 1
+--- !u!65 &7177818146639586397
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554367293378123271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.03, y: 1.97, z: 2.8}
+  m_Center: {x: 0, y: 0.8666251, z: 0}
+--- !u!65 &7058779400850118367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554367293378123271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3686957, y: 1.7346847, z: 2.0812016}
+  m_Center: {x: 0, y: 0.8666251, z: 0}
 --- !u!1001 &155588498023914534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +237,14 @@ PrefabInstance:
     - target: {fileID: 100016, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
       propertyPath: m_Name
       value: Poopy House Addon 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_TagString
+      value: Addon2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -196,6 +310,66 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 4cfc379d469e32c4a99112ddc1eb0ee4, type: 2}
+    - target: {fileID: 100000, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100024, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100026, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100030, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c18b127193b834ca742c010fc4758c, type: 3}
 --- !u!1 &155588498024012438 stripped
@@ -220,6 +394,14 @@ PrefabInstance:
     - target: {fileID: 628239774, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
       propertyPath: m_Name
       value: Chimney Addon 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628239774, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
+      propertyPath: m_TagString
+      value: Addon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 628239774, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 628239777, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -276,6 +458,11 @@ PrefabInstance:
     - target: {fileID: 628239777, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
       propertyPath: m_LocalScale.z
       value: 8.529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609527668438, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
@@ -357,6 +544,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a9647c7688b667f4ca24dc47fb98d810, type: 3}
       propertyPath: m_Name
       value: Big Wood Addon 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a9647c7688b667f4ca24dc47fb98d810, type: 3}
+      propertyPath: m_TagString
+      value: Addon3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a9647c7688b667f4ca24dc47fb98d810, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9647c7688b667f4ca24dc47fb98d810, type: 3}
