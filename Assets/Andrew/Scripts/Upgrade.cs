@@ -21,7 +21,7 @@ public class Upgrade : MonoBehaviour
 	public Button woodButton;
 	private PlayerControl control;
 	public GameObject player;
-	public int difficalty = 0;
+	public int difficulty = 0;
 	
 	void Start()
 	{
@@ -58,7 +58,7 @@ public class Upgrade : MonoBehaviour
 		
     }
 	private int buildCost(){
-		return upgrade_cost*2*(difficalty+1);
+		return upgrade_cost*2*(difficulty+1);
 	}
 	
 	private int speedCost(){
@@ -73,9 +73,9 @@ public class Upgrade : MonoBehaviour
 		return upgrade_cost*power_level;
 	}
 	
-	public void Difficalty(){
+	public void Difficulty(){
 		if (healthScript.wood>buildCost()){
-			difficalty++;
+			difficulty++;
 			healthScript.Buy(buildCost());
 		}
 	}
