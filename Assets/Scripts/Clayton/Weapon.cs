@@ -29,22 +29,22 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void OnTriggerCollider(Collider Enemy)
+    public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit an enemy");
-        if (Enemy.gameObject.tag == "Melee")
+        
+        if (other.gameObject.tag == "Melee")
         {
-            AI_Melee enemy_m = Enemy.gameObject.GetComponent<AI_Melee>();
-            Debug.Log("Hit an enemy");
+            Debug.Log("Hit melee");
+            AI_Melee enemy_m = other.gameObject.GetComponent<AI_Melee>();
             enemy_m.Hurt(damage);
-            
+
         }
-        if(Enemy.gameObject.tag == "Ranged")
+        if (other.gameObject.tag == "Ranged")
         {
-            Debug.Log("Hit an enemy");
-            AI_R enemy_r = Enemy.gameObject.GetComponent<AI_R>();
+            Debug.Log("Hit ranged");
+            AI_R enemy_r = other.gameObject.GetComponent<AI_R>();
             enemy_r.Hurt(damage);
         }
-
     }
+
 }
