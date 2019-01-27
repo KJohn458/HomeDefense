@@ -96,6 +96,11 @@ public class Health : MonoBehaviour
             addonThree.SetActive(true);
         }
 
+        if(upgradeScript.difficulty == 4)
+        {
+
+        }
+
 
     }
 	
