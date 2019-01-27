@@ -1,113 +1,83 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
-public class AI_R : MonoBehaviour
+public class AI_Melee : MonoBehaviour
 {
-    private GameObject HouseGameObj;
-    public GameObject Player;
-    public GameObject bulletPrefab;
-
-    private Health healthScript;
-    private NavMeshAgent agent;
-
-    private Vector3 pos;
-    Quaternion rotation;
-
-    private Rigidbody cloneRB;
-
-    private Transform House;
-    private Transform houseToMoveTo;
-
-    private GameObject GameManagerObj;
-    public HouseLocs houseLocations;
-
-
-    private int chargeTime = 3;
     public int distanceAwayFromHouse;
-    private bool hasAttacked;
-    public float bulletVelocity = 8000f;
-    public float EnemyDistanceRun = 4.0f;
+    private bool agentDestroyed = false;
+    private bool hasAttacked = false;
+    public int swingTime = 3;
+    public int enemyHealth;
 
+    public HouseLocs houseLocations;
+    private Health healthScript;
 
-
-
-
-
-
-
-
+    private GameObject HouseGameObj;
+    private GameObject GameManagerObj;
+    private Transform houseToMoveTo;
+    private Transform House;
+    private NavMeshAgent agent;
 
     private void Start()
     {
-
         agent = GetComponent<NavMeshAgent>();
-        HouseGameObj = GameObject.FindGameObjectWithTag("House");
-        House = GameObject.FindGameObjectWithTag("House").transform;
+        HouseGameObj = GameObject.FindWithTag("House");
+        House = GameObject.FindWithTag("House").transform;
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
+        healthScript = HouseGameObj.GetComponent<Health>();
 
-
+        
     }
 
     private void Update()
     {
-        pos = gameObject.transform.position;
-        rotation = gameObject.transform.rotation;
-        float distance = Vector3.Distance(transform.position, Player.transform.position);
         findHouse();
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(houseToMoveTo.position, path);
+        agent.destination = houseToMoveTo.position;
 
-        if (distance < EnemyDistanceRun && hasAttacked == false)
+        if (Vector3.Distance(transform.position, houseToMoveTo.position) < distanceAwayFromHouse)
         {
-            agent.isStopped = false;
-            Vector3 dirToPlayer = transform.position - Player.transform.position;
-
-            Vector3 newPos = transform.position + dirToPlayer;
-
-            agent.SetDestination(newPos);
-        }
-
-        else if(Vector3.Distance(transform.position, houseToMoveTo.position) > distanceAwayFromHouse)
-        {
-           
-            agent.isStopped = false;
-            healthScript = HouseGameObj.GetComponent<Health>();
-            
-            hasAttacked = false;
-            agent = GetComponent<NavMeshAgent>();
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(houseToMoveTo.position, path);
-            agent.destination = houseToMoveTo.position;
-        }
-
-
-        else if(!hasAttacked)
-        {
-            agent.isStopped = true;
+            Destroy(agent);
+            agentDestroyed = true;
             transform.LookAt(houseToMoveTo);
-            hasAttacked = true;
-            Invoke("rangedAttack", chargeTime);
         }
 
-        else
+        if(hasAttacked == false && agentDestroyed == true)
         {
-          //  Debug.Log("Charging my attack!");
+            hasAttacked = true;
+            Invoke("swingBranch", swingTime);
         }
     }
 
-    void rangedAttack()
+    void swingBranch()
     {
-        GameObject clone;
+        Debug.Log("Hit");
         hasAttacked = false;
-        clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
-        clone.AddComponent<Rigidbody>();
-        cloneRB = clone.GetComponent<Rigidbody>();
-        cloneRB.AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
-        
+        healthScript.Damage();
+    }
+
+    public void Hurt(int amount)
+    {
+
+        enemyHealth -= amount;
+        Debug.Log(enemyHealth);
+        if (enemyHealth == 0)
+            Death();
+    }
+
+    public void Death()
+    {
+        healthScript.Heal();
+        Destroy(gameObject);
     }
 
     void findHouse()
     {
-        
+
         if (houseLocations.Addon1GO.activeSelf == true && houseLocations.Addon2GO.activeSelf == false)
         {
             Debug.Log("test");
@@ -161,7 +131,7 @@ public class AI_R : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon2Pos.position))
                 {
-                    if(Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
+                    if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
                     {
                         houseToMoveTo = House;
                         houseToMoveTo.position = House.position;
@@ -172,7 +142,7 @@ public class AI_R : MonoBehaviour
                         houseToMoveTo.position = houseLocations.Addon3Pos.position;
                     }
                 }
-                else if(Vector3.Distance(transform.position, houseLocations.Addon2Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
+                else if (Vector3.Distance(transform.position, houseLocations.Addon2Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
                 {
                     houseToMoveTo = houseLocations.Addon2Pos;
                     houseToMoveTo.position = houseLocations.Addon2Pos.position;
@@ -189,7 +159,7 @@ public class AI_R : MonoBehaviour
                 Debug.Log("test3");
                 if (Vector3.Distance(transform.position, houseLocations.Addon1Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon2Pos.position))
                 {
-                    if(Vector3.Distance(transform.position, houseLocations.Addon1Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
+                    if (Vector3.Distance(transform.position, houseLocations.Addon1Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
                     {
                         houseToMoveTo = houseLocations.Addon1Pos;
                         houseToMoveTo.position = houseLocations.Addon1Pos.position;
@@ -202,7 +172,7 @@ public class AI_R : MonoBehaviour
                 }
                 else
                 {
-                    if(Vector3.Distance(transform.position, houseLocations.Addon2Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
+                    if (Vector3.Distance(transform.position, houseLocations.Addon2Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
                     {
                         houseToMoveTo = houseLocations.Addon2Pos;
                         houseToMoveTo.position = houseLocations.Addon2Pos.position;

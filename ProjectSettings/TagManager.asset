@@ -9,6 +9,7 @@ TagManager:
   - Addon1
   - Addon2
   - Addon3
+  - GameManager
   layers:
   - Default
   - TransparentFX
