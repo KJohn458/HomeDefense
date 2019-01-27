@@ -124,6 +124,18 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 431991437}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &277636618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 155588498024012438, guid: e48f8caee5a312644bda0992db301810,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504582341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &349490033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1769450967244206666, guid: e48f8caee5a312644bda0992db301810,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504582341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &431991437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -440,21 +452,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: setMeleeSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: spawnRanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: spawnMelee
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3713915653956736744, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: m_Enabled
@@ -468,17 +465,17 @@ PrefabInstance:
     - target: {fileID: 3713915653956736747, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: setMeleeSpeed
-      value: 15
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653956736747, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setRangedSpeed
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653931299680, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: setMeleeSpeed
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3713915655054283099, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -511,8 +508,49 @@ PrefabInstance:
       propertyPath: setMeleeHealth
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setRangedSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnRanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setRangedSpeed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33152485731b2754cb4115bab335771f, type: 3}
+--- !u!1 &454488889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1136760021425110537, guid: e48f8caee5a312644bda0992db301810,
+    type: 3}
+  m_PrefabInstance: {fileID: 1504582341}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &680920950 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9049595339211769319, guid: 36ff0c7794307304b949b14a9563659e,
@@ -802,6 +840,14 @@ PrefabInstance:
       propertyPath: repairCanvas
       value: 
       objectReference: {fileID: 230260535}
+    - target: {fileID: 1228725648, guid: dc785184b553af6419f99e120540c4b0, type: 3}
+      propertyPath: moveSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228725648, guid: dc785184b553af6419f99e120540c4b0, type: 3}
+      propertyPath: rotationRate
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc785184b553af6419f99e120540c4b0, type: 3}
 --- !u!1 &1354429510
@@ -1272,17 +1318,17 @@ PrefabInstance:
         type: 3}
       propertyPath: Addon1GO
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 454488889}
     - target: {fileID: 9049595339211769318, guid: 36ff0c7794307304b949b14a9563659e,
         type: 3}
       propertyPath: Addon2GO
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 277636618}
     - target: {fileID: 9049595339211769318, guid: 36ff0c7794307304b949b14a9563659e,
         type: 3}
       propertyPath: Addon3GO
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 349490033}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36ff0c7794307304b949b14a9563659e, type: 3}
 --- !u!114 &2082729757 stripped
