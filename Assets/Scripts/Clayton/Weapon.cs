@@ -5,12 +5,11 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     private BoxCollider BC;
-	public int damage;
+	public int damage =1;
 
     void Start()
     {
         BC = GetComponent<BoxCollider>();
-		damage = 1;
     }
 
     void Update()
@@ -24,11 +23,12 @@ public class Weapon : MonoBehaviour
         {
             BC.enabled = false;
         }
-
-		
-
     }
 
+	public void damageIncrease()
+	{
+		damage++;
+	}
     void OnTriggerCollider(Collider Enemy)
     {
         Debug.Log("Hit an enemy");

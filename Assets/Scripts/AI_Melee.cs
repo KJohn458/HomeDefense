@@ -10,6 +10,7 @@ public class AI_Melee : MonoBehaviour
     private bool hasAttacked = false;
     public int swingTime = 3;
     public int enemyHealth;
+	public int wood = 1;
 
     public HouseLocs houseLocations;
     private Health healthScript;
@@ -74,7 +75,7 @@ public class AI_Melee : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Heal(1);
+        healthScript.Heal(wood);
         Destroy(gameObject);
     }
 
