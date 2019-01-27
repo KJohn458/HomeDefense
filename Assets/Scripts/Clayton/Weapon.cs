@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    private BoxCollider BC;
+    private MeshCollider MC;
     private AudioSource attackSound;
 	public int damage =1;
 
     void Start()
     {
-        BC = GetComponent<BoxCollider>();
+        MC = GetComponent<MeshCollider>();
         attackSound = GetComponent<AudioSource>();
     }
 
@@ -18,12 +18,12 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            BC.enabled = true;
+            MC.enabled = true;
 			//Debug.Log("Box collider true");
         }
         else
         {
-            BC.enabled = false;
+            MC.enabled = false;
         }
     }
 	public void damageIncrease()
