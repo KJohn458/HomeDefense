@@ -72,7 +72,7 @@ public class Upgrade : MonoBehaviour
 		
     }
 	private int buildCost(){
-		return upgrade_cost*2*(difficulty+1);
+		return upgrade_cost*(difficulty+1);
 	}
 	
 	private int speedCost(){
