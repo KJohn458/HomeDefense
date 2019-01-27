@@ -88,14 +88,14 @@ public class Upgrade : MonoBehaviour
 	}
 	
 	public void Difficulty(){
-		if (healthScript.wood>buildCost()){
+		if (healthScript.wood>=buildCost()){
 			difficulty++;
 			healthScript.Buy(buildCost() - 15);
 		}
 	}
 	
 	public void Power(){
-		if (healthScript.wood>powerCost()){
+		if (healthScript.wood>=powerCost()){
 			healthScript.Buy(powerCost());
 			power_level++;
 			weapon.damage+=1;
@@ -108,7 +108,7 @@ public class Upgrade : MonoBehaviour
 	}
 	
 	public void Wood(){
-		if (healthScript.wood>woodCost()){
+		if (healthScript.wood>=woodCost()){
 			healthScript.Buy(woodCost());
 			wood_level++;
 			healthScript.mod+=1;
@@ -122,7 +122,7 @@ public class Upgrade : MonoBehaviour
 	}
 	
 	public void Speed(){
-		if (healthScript.wood>speedCost()){
+		if (healthScript.wood>=speedCost()){
 			healthScript.Buy(speedCost());
 			speed_level++;
 			control.moveSpeed+=.1f;

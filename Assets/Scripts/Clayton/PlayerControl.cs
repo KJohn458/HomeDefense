@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour
 
     public float moveSpeed = .6f;
 
+    private bool dontspendmywood;
+
     Animator Character;
 
     private Health healthScript;
@@ -25,6 +27,7 @@ public class PlayerControl : MonoBehaviour
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         healthScript = HouseGameObj.GetComponent<Health>();
         repairCanvas.gameObject.SetActive(false);
+        dontspendmywood = false;
     }
 
     private void Update()
@@ -65,6 +68,11 @@ public class PlayerControl : MonoBehaviour
         {
             Character.SetBool("attackParticles", false);
         }
+
+        if(Input.GetKeyUp(KeyCode.F))
+        {
+            dontspendmywood = false;
+        }
     }
 
     private void ApplyInput(float moveInput, float turnInput)
@@ -88,14 +96,16 @@ public class PlayerControl : MonoBehaviour
         if(other.tag == "House")
         {
             repairCanvas.gameObject.SetActive(true);
-            if(Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && !dontspendmywood)
             {
-                if(healthScript.wood >= 2)
+                dontspendmywood = true;
+                if (healthScript.wood >= 2)
                 {
                     healthScript.spendWood(2);
                     healthScript.Heal(1);
                 }
             }
+
         }
     }
 
