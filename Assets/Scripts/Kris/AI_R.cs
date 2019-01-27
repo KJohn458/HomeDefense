@@ -23,6 +23,7 @@ public class AI_R : MonoBehaviour
 
     public GameObject pivot;
     private Collider col;
+    public GameObject deathParticles;
 
 
     private int chargeTime = 3;
@@ -148,6 +149,7 @@ public class AI_R : MonoBehaviour
         Destroy(agent);
         R.SetTrigger("Death");
         audio.PlayOneShot(deathAudioClip, 0.4f);
+        deathParticles.SetActive(true);
         Invoke("deathAnim", 1.5f);
     }
 
