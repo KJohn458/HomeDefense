@@ -57,7 +57,8 @@ public class Health : MonoBehaviour
             spawn2.SetActive(false);
             spawn3.SetActive(false);
             spawn4.SetActive(false);
-            
+            maxWood = 15 * (upgradeScript.difficulty + 1);
+            maxHealth = 15 * (upgradeScript.difficulty + 1);
 
             addonOne.SetActive(false);
         }
@@ -68,7 +69,8 @@ public class Health : MonoBehaviour
             spawn2.SetActive(true);
             spawn3.SetActive(false);
             spawn4.SetActive(false);
-
+            maxWood = 15 * (upgradeScript.difficulty + 1);
+            maxHealth = 15 * (upgradeScript.difficulty + 1);
             addonOne.SetActive(true);
             addonTwo.SetActive(false);
         }
@@ -79,7 +81,8 @@ public class Health : MonoBehaviour
             spawn2.SetActive(true);
             spawn3.SetActive(true);
             spawn4.SetActive(false);
-
+            maxWood = 15 * (upgradeScript.difficulty + 1);
+            maxHealth = 15 * (upgradeScript.difficulty + 1);
             addonOne.SetActive(true);
             addonTwo.SetActive(true);
             addonThree.SetActive(false);
@@ -91,7 +94,8 @@ public class Health : MonoBehaviour
             spawn2.SetActive(true);
             spawn3.SetActive(true);
             spawn4.SetActive(true);
-
+            maxWood = 15 * (upgradeScript.difficulty + 1);
+            maxHealth = 15 * (upgradeScript.difficulty + 1);
             addonOne.SetActive(true);
             addonTwo.SetActive(true);
             addonThree.SetActive(true);
@@ -127,12 +131,24 @@ public class Health : MonoBehaviour
 	}
 	
 	public void Gather(int amount){
-		wood+=1*mod;
+        if(wood < maxWood)
+        {
+            wood += 1 * mod;
+            if(wood > maxWood)
+            {
+                wood = maxWood;
+            }
+        }
+		
 	}
 
     public void Heal(int amount)
     {
-        health+=amount;
+        if(health < maxHealth)
+        {
+            health += amount;
+        }
+        
     }
 
     public void spendWood(int amount)
