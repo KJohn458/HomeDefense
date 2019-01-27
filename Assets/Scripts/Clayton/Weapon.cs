@@ -26,9 +26,12 @@ public class Weapon : MonoBehaviour
         }
 
 		
+
     }
-    void OnTriggerEnter(Collider Enemy)
-    {  
+
+    void OnTriggerStay(Collider Enemy)
+    {
+        Debug.Log("Hit an enemy");
         if (Enemy.gameObject.tag == "Enemy")
         {
 			Debug.Log("Hit an enemy");
