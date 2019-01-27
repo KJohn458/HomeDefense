@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 	public Text HP;
 	public Text Wood;
 	public GameObject Death;
+	public GameObject Win;
 
     public GameObject addonOne;
     public GameObject addonTwo;
@@ -95,7 +96,7 @@ public class Health : MonoBehaviour
 
         if(upgradeScript.difficulty >= 4)
         {
-
+			winGame();
         }
 
 
@@ -112,6 +113,11 @@ public class Health : MonoBehaviour
 		Death.SetActive(true);
 	}
 
+	public void winGame()
+	{
+		Time.timeScale = 0f;
+		Win.SetActive(true);
+	}
 	public void Buy(int amount)
 	{
 		wood-=amount;
