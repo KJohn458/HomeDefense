@@ -21,6 +21,8 @@ public class AI_R : MonoBehaviour
     private GameObject GameManagerObj;
     public HouseLocs houseLocations;
 
+    private GameObject pivot;
+
 
     private int chargeTime = 3;
     public int distanceAwayFromHouse;
@@ -44,6 +46,7 @@ public class AI_R : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         findHouse();
         findTarget = true;
+        pivot = GameObject.FindGameObjectWithTag("Pivot");
 
         R = GetComponent<Animator>();
     }
