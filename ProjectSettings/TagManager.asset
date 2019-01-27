@@ -12,6 +12,7 @@ TagManager:
   - Melee
   - Ranged
   - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX

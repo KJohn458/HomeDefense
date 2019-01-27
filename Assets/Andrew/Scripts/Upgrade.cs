@@ -22,13 +22,13 @@ public class Upgrade : MonoBehaviour
 	
     void Update()
     {
+		reach.text = "Cost "+reachCost().ToString()+" wood";
+		power.text = "Cost "+powerCost().ToString()+" wood";
+		wood.text = "Cost "+woodCost().ToString()+" wood";
 		HouseGameObj = GameObject.FindWithTag("House");
 		WeaponGameObj = GameObject.FindWithTag("Weapon");
 		healthScript = HouseGameObj.GetComponent<Health>();
 		weapon = WeaponGameObj.GetComponent<Weapon>();
-		reach.text = "Cost "+reachCost().ToString()+" wood";
-		power.text = "Cost "+powerCost().ToString()+" wood";
-		wood.text = "Cost "+woodCost().ToString()+" wood";
     }
 	private int reachCost()
 	{
@@ -48,7 +48,7 @@ public class Upgrade : MonoBehaviour
 		healthScript.Damage(powerCost());
 		power_level++;
 		weapon.damageIncrease();
-		if (power_level==3)
+		if (power_level>=3)
 		{
 			GetComponent<Button>().interactable = false;
 		}
@@ -58,7 +58,7 @@ public class Upgrade : MonoBehaviour
 		healthScript.Damage(woodCost());
 		wood_level++;
 		healthScript.mod+=1;
-		if (wood_level==3)
+		if (wood_level>=3)
 		{
 			GetComponent<Button>().interactable = false;
 		}
@@ -72,7 +72,7 @@ public class Upgrade : MonoBehaviour
 			reachLv1.SetActive(false);
 			reachLv2.SetActive(true);
 		}
-		if (reach_level==3)
+		if (reach_level>=3)
 		{
 			reachLv2.SetActive(false);
 			reachLv3.SetActive(true);
