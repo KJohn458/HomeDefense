@@ -12,6 +12,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5330975362183319025, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1417414589428101049}
+    - target: {fileID: 5330975362183319025, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3876174319088483943}
+    - target: {fileID: 7214526037533525462, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1044158106703692584}
+    - target: {fileID: 7214526037533525462, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3876174319088483943}
+    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: speed
+      value: 
+      objectReference: {fileID: 8346325954459956274}
+    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: power
+      value: 
+      objectReference: {fileID: 2568290906872774897}
+    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: wood
+      value: 
+      objectReference: {fileID: 4780396080951982312}
+    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: speedButton
+      value: 
+      objectReference: {fileID: 1013648599516411652}
+    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: powerButton
+      value: 
+      objectReference: {fileID: 2591114512694951715}
+    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: woodButton
+      value: 
+      objectReference: {fileID: 7652269200915103008}
     - target: {fileID: 869357712223448491, guid: 92a66ea565c4fd842983f93132a6cd05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,56 +142,6 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 4410436281635453438}
-    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: speed
-      value: 
-      objectReference: {fileID: 8346325954459956274}
-    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: power
-      value: 
-      objectReference: {fileID: 2568290906872774897}
-    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: wood
-      value: 
-      objectReference: {fileID: 4780396080951982312}
-    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: speedButton
-      value: 
-      objectReference: {fileID: 1013648599516411652}
-    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: powerButton
-      value: 
-      objectReference: {fileID: 2591114512694951715}
-    - target: {fileID: 8223759693155533970, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: woodButton
-      value: 
-      objectReference: {fileID: 7652269200915103008}
-    - target: {fileID: 5330975362183319025, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 1417414589428101049}
-    - target: {fileID: 5330975362183319025, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3876174319088483943}
-    - target: {fileID: 7214526037533525462, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 1044158106703692584}
-    - target: {fileID: 7214526037533525462, guid: 92a66ea565c4fd842983f93132a6cd05,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3876174319088483943}
     - target: {fileID: 3303403058205050837, guid: 92a66ea565c4fd842983f93132a6cd05,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -167,19 +167,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 9187825068848734282}
-    - target: {fileID: 6808368671185475590, guid: 92a66ea565c4fd842983f93132a6cd05,
+    - target: {fileID: 6473407918205018738, guid: 92a66ea565c4fd842983f93132a6cd05,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.5999756
-      objectReference: {fileID: 0}
-    - target: {fileID: 648239711, guid: 92a66ea565c4fd842983f93132a6cd05, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 648239711, guid: 92a66ea565c4fd842983f93132a6cd05, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1120267751198497571}
+    - target: {fileID: 6473407918205018738, guid: 92a66ea565c4fd842983f93132a6cd05,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3876174319088483943}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a66ea565c4fd842983f93132a6cd05, type: 3}
 --- !u!1 &9187825068848734282 stripped
@@ -353,6 +350,18 @@ MonoBehaviour:
 --- !u!114 &1062225339407242705 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5284852728000753444, guid: 92a66ea565c4fd842983f93132a6cd05,
+    type: 3}
+  m_PrefabInstance: {fileID: 5182053136570039029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1120267751198497571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5215630484158521814, guid: 92a66ea565c4fd842983f93132a6cd05,
     type: 3}
   m_PrefabInstance: {fileID: 5182053136570039029}
   m_PrefabAsset: {fileID: 0}
