@@ -21,6 +21,9 @@ public class Health : MonoBehaviour
 	
 	public int mod = 1;
 
+    private Upgrade upgradeScript;
+    private GameObject upgradescriptObject;
+
 
     void Start()
     {
@@ -32,6 +35,9 @@ public class Health : MonoBehaviour
 		wood = 0;
 		Death.SetActive(false);
         Time.timeScale = 1f;
+
+        upgradescriptObject = GameObject.FindGameObjectWithTag("Upgrade");
+        upgradeScript = upgradescriptObject.GetComponent<Upgrade>();
     }
 
 
@@ -45,7 +51,7 @@ public class Health : MonoBehaviour
             gameover();
         }
 
-        if(health < 15)
+        if(upgradeScript.difficulty == 0)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(false);
@@ -55,7 +61,7 @@ public class Health : MonoBehaviour
             addonOne.SetActive(false);
         }
 
-        if(health >= 15 && health < 30)
+        if(upgradeScript.difficulty == 1)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(true);
@@ -66,7 +72,7 @@ public class Health : MonoBehaviour
             addonTwo.SetActive(false);
         }
 
-        if (health >= 30 && health < 45)
+        if (upgradeScript.difficulty == 2)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(true);
@@ -78,7 +84,7 @@ public class Health : MonoBehaviour
             addonThree.SetActive(false);
         }
 
-        if (health >= 45 && health < 60)
+        if (upgradeScript.difficulty == 3)
         {
             spawn1.SetActive(true);
             spawn2.SetActive(true);
@@ -88,6 +94,11 @@ public class Health : MonoBehaviour
             addonOne.SetActive(true);
             addonTwo.SetActive(true);
             addonThree.SetActive(true);
+        }
+
+        if(upgradeScript.difficulty == 4)
+        {
+
         }
 
 
@@ -110,10 +121,16 @@ public class Health : MonoBehaviour
 	}
 	
 	public void Gather(int amount){
-		wood+=amount*mod;
+		wood+=1*mod;
 	}
+
     public void Heal(int amount)
     {
         health+=amount;
+    }
+
+    public void spendWood(int amount)
+    {
+        wood = wood - amount;
     }
 }

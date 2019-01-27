@@ -55,6 +55,7 @@ public class AI_R : MonoBehaviour
 
     private void Start()
     {
+
         wood = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");

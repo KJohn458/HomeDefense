@@ -433,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
         type: 3}
-      propertyPath: reach
+      propertyPath: speed
       value: 
       objectReference: {fileID: 4048409341320526808}
     - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
@@ -448,22 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 697403788041058050}
     - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
         type: 3}
-      propertyPath: reachLv1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
-        type: 3}
-      propertyPath: reachLv2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
-        type: 3}
-      propertyPath: reachLv3
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
-        type: 3}
-      propertyPath: reachButton
+      propertyPath: speedButton
       value: 
       objectReference: {fileID: 5038395363455826158}
     - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
@@ -476,6 +461,16 @@ PrefabInstance:
       propertyPath: woodButton
       value: 
       objectReference: {fileID: 2434371176316400330}
+    - target: {fileID: 1104390570615877514, guid: 232a9a6f2db6f424a891aafa82e76f66,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195516263834158858, guid: 232a9a6f2db6f424a891aafa82e76f66,
+        type: 3}
+      propertyPath: m_Name
+      value: Speed
+      objectReference: {fileID: 0}
     - target: {fileID: 3785364929954211561, guid: 232a9a6f2db6f424a891aafa82e76f66,
         type: 3}
       propertyPath: m_TargetGraphic
@@ -486,6 +481,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9092835701573005709}
+    - target: {fileID: 3785364929954211561, guid: 232a9a6f2db6f424a891aafa82e76f66,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4066805325107429747, guid: 232a9a6f2db6f424a891aafa82e76f66,
+        type: 3}
+      propertyPath: m_Name
+      value: Speed Cost
+      objectReference: {fileID: 0}
     - target: {fileID: 1831867413672603342, guid: 232a9a6f2db6f424a891aafa82e76f66,
         type: 3}
       propertyPath: m_TargetGraphic

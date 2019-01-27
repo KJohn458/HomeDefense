@@ -936,7 +936,7 @@ MonoBehaviour:
   bulletVelocity: 80
   EnemyDistanceRun: 20
   enemyHealth: 1
-  audio: {fileID: 0}
+  audio: {fileID: 3302761543585930934}
   deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
   attackAudioClip: {fileID: 8300000, guid: 04ce7076adb7e5d419dd1271eb8a4189, type: 3}
 --- !u!82 &3302761543585930934
@@ -2889,16 +2889,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7135158949933700690}
     m_Modifications:
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_Name
-      value: Hit Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7004233311588704925, guid: 2792763f338edf14b92a33b4fe5b9c14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2968,6 +2958,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5828054
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_Name
+      value: Hit Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2792763f338edf14b92a33b4fe5b9c14, type: 3}
