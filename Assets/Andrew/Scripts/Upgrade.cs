@@ -16,6 +16,9 @@ public class Upgrade : MonoBehaviour
 	private GameObject HouseGameObj;
 	private Weapon weapon;
 	private GameObject WeaponGameObj; 
+	public GameObject reachLv1;
+	public GameObject reachLv2;
+	public GameObject reachLv3;
 	
     void Update()
     {
@@ -23,9 +26,9 @@ public class Upgrade : MonoBehaviour
 		WeaponGameObj = GameObject.FindWithTag("Weapon");
 		healthScript = HouseGameObj.GetComponent<Health>();
 		weapon = WeaponGameObj.GetComponent<Weapon>();
-		reach.text = reachCost().ToString();
-		power.text = powerCost().ToString();
-		wood.text = woodCost().ToString();
+		reach.text = "Cost "+reachCost().ToString()+" wood";
+		power.text = "Cost "+powerCost().ToString()+" wood";
+		wood.text = "Cost "+woodCost().ToString()+" wood";
     }
 	private int reachCost()
 	{
@@ -64,9 +67,15 @@ public class Upgrade : MonoBehaviour
 	{
 		healthScript.Damage(reachCost());
 		reach_level++;
-		//>>>>>>>
+		if (reach_level== 2)
+		{
+			reachLv1.SetActive(false);
+			reachLv2.SetActive(true);
+		}
 		if (reach_level==3)
 		{
+			reachLv2.SetActive(false);
+			reachLv3.SetActive(true);
 			GetComponent<Button>().interactable = false;
 		}
 	}
