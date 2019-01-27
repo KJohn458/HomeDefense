@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnRanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
