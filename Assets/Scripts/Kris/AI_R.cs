@@ -119,7 +119,7 @@ public class AI_R : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Heal();
+        healthScript.Heal(1);
         Destroy(gameObject);
     }
 

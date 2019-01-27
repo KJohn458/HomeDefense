@@ -57,7 +57,7 @@ public class AI_Melee : MonoBehaviour
     {
         Debug.Log("Hit");
         hasAttacked = false;
-        healthScript.Damage();
+        healthScript.Damage(1);
     }
 
     public void Hurt(int amount)
@@ -74,7 +74,7 @@ public class AI_Melee : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Heal();
+        healthScript.Heal(1);
         Destroy(gameObject);
     }
 

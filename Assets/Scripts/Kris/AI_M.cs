@@ -66,7 +66,7 @@ public class AI_M : MonoBehaviour
     {
         Debug.Log("Hit");
         hasAttacked = false;
-        healthScript.Damage();
+        healthScript.Damage(1);
     }
 	
 	public void Hurt(int amount){
@@ -78,7 +78,7 @@ public class AI_M : MonoBehaviour
 	}
 	
 	public void Death(){
-		healthScript.Heal();
+		healthScript.Heal(1);
 		Destroy(gameObject);
 	}
 
