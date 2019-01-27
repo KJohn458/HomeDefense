@@ -1185,10 +1185,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fight off the invading Forest creatures to defend your home.
-
-    Enemies will attack your home, reducing your health. You can use wood collected
-    from fallen enemies to upgrade your Home through the upgrade menu. '
+  m_Text: Fight off the invading Forest creatures to defend your home. Use wood from
+    defeated creatures to upgrade your hoime and unlock stronger ablities. Fully upgrade
+    youir home to win!
 --- !u!222 &1066235132
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1515,6 +1514,8 @@ MonoBehaviour:
     Attack Left: Click
 
     Pause Menu Upgrades: ESC
+
+    Repare home: F
 
 '
 --- !u!222 &1147370927
