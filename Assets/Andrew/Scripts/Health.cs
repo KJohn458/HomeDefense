@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
 	public int health;
-	public Text text;
+	public int wood;
+	public Text HP;
+	public Text Wood;
 	public GameObject Death;
 
     public GameObject addonOne;
@@ -27,6 +29,7 @@ public class Health : MonoBehaviour
         spawn3.SetActive(false);
         spawn4.SetActive(false);
         health = 5;
+		wood = 0;
 		Death.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -34,7 +37,9 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        text.text = health.ToString();
+        HP.text = health.ToString();
+		Wood.text = wood.ToString();
+		
 		if(health==0)
         {
             gameover();
