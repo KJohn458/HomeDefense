@@ -97,14 +97,9 @@ public class Upgrade : MonoBehaviour
 	{
 		if (healthScript.wood>powerCost()){
 			healthScript.Buy(speedCost());
-			reach_level++;
-				reachLv2.SetActive(false);
-				reachLv3.SetActive(true);
-				reachButton.interactable = false;
-			}
-		}
-		else{
-			reachButton.interactable = false;
+			
+		}else{
+			//reachButton.interactable = false;
 		}
 	}
 }
