@@ -79,8 +79,9 @@ public class Spawner : MonoBehaviour
         spawnDelayBool = false;
     }
 
-    void randomSpawnDude()
+    void spawnRandomDude()
     {
+        Debug.Log(randomNum);
         if (randomNum >= 5.0f)
         {
             spawnMeleeDude();
