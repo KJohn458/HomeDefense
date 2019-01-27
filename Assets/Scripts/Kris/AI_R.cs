@@ -140,7 +140,7 @@ public class AI_R : MonoBehaviour
         healthScript.Heal(1);
         Destroy(col);
         Destroy(agent);
-        //put death clip here
+        R.SetTrigger("Death");
         Invoke("deathAnim", 1.5f);
     }
 
@@ -148,6 +148,7 @@ public class AI_R : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     void findHouse()
     {
         Debug.Log("I find the house too!");

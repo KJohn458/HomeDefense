@@ -105,7 +105,7 @@ public class AI_Melee : MonoBehaviour
         healthScript.Heal(wood);
         Destroy(agent);
         Destroy(col);
-        //play death anim clip here
+        M.SetTrigger("Death");
         Invoke("deathAnim", 1.5f);
     }
     
