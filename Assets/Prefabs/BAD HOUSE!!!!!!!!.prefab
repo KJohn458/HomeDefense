@@ -191,8 +191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  text: {fileID: 0}
+  wood: 0
+  HP: {fileID: 0}
+  Wood: {fileID: 0}
   Death: {fileID: 0}
+  Win: {fileID: 0}
   addonOne: {fileID: 1136760021425110537}
   addonTwo: {fileID: 155588498024012438}
   addonThree: {fileID: 1769450967244206666}
@@ -201,6 +204,7 @@ MonoBehaviour:
   spawn3: {fileID: 0}
   spawn4: {fileID: 0}
   mod: 1
+  upgradeScript: {fileID: 0}
 --- !u!65 &7177818146639586397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -212,8 +216,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.03, y: 1.97, z: 2.8}
-  m_Center: {x: 0, y: 0.8666251, z: 0}
+  m_Size: {x: 3.0323975, y: 1.9700003, z: 2.966528}
+  m_Center: {x: 0.13223784, y: 0.86662513, z: -0.009681494}
 --- !u!65 &7058779400850118367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -463,6 +467,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609509672886, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609509672886, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609509672886, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609509672886, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609509672886, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127058609509672886, guid: a383ddc68f2f8b747a309b68028d620b,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a383ddc68f2f8b747a309b68028d620b, type: 3}
