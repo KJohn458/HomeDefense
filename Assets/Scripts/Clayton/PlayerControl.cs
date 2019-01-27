@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -13,16 +14,24 @@ public class PlayerControl : MonoBehaviour
 
     Animator Character;
 
+    private Health healthScript;
+    private GameObject HouseGameObj;
+
+    public Canvas repairCanvas;
+
     private void Start()
     {
         Character = GetComponent<Animator>();
+        HouseGameObj = GameObject.FindGameObjectWithTag("House");
+        healthScript = HouseGameObj.GetComponent<Health>();
+        repairCanvas.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         float moveAxis = Input.GetAxis(moveInputAxis);
         float turnAxis = Input.GetAxis(turnInputAxis);
-
+        
         ApplyInput(moveAxis, turnAxis);
 
         if (Input.GetKey(KeyCode.W))
@@ -72,5 +81,26 @@ public class PlayerControl : MonoBehaviour
     private void Turn(float input)
     {
         transform.Rotate(0, input * rotationRate * Time.deltaTime, 0);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "House")
+        {
+            repairCanvas.gameObject.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                if(healthScript.wood >= 2)
+                {
+                    healthScript.spendWood(2);
+                    healthScript.Heal(1);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        repairCanvas.gameObject.SetActive(false);
     }
 }
