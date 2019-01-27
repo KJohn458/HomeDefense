@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
 
     public float rotationRate = 150;
 
-    public float moveSpeed = .25f;
+    public float moveSpeed = .6f;
 
     Animator Character;
 

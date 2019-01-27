@@ -70,7 +70,7 @@ public class Upgrade : MonoBehaviour
 	}
 	
 	private int woodCost(){
-		return upgrade_cost*power_level;
+		return upgrade_cost*wood_level;
 	}
 	
 	public void Difficulty(){
@@ -111,7 +111,7 @@ public class Upgrade : MonoBehaviour
 		if (healthScript.wood>speedCost()){
 			healthScript.Buy(speedCost());
 			speed_level++;
-			//mod speed
+			control.moveSpeed+=.2f;
 			if (speed_level>=3)
 			{
 				speedButton.interactable = false;
