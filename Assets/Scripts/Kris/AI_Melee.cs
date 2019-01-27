@@ -111,7 +111,7 @@ public class AI_Melee : MonoBehaviour
     
     void deathAnim()
     {
-        Destroy(gameObject) 
+        Destroy(gameObject);
     }
     void findHouse()
     {
