@@ -68,10 +68,10 @@ public class AI_Melee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if(other.gameObject.tag == "House")
+        Debug.Log("Yoyoyo");
+        if(other.gameObject.tag == "House" || other.gameObject.tag == "Addon1" || other.gameObject.tag == "Addon2" || other.gameObject.tag == "Addon3")
         {
-            Debug.Log("Yoyoyo");
+            
             agent.speed = 0;
             agentStopped = true;
             transform.LookAt(houseToMoveTo);
@@ -80,7 +80,7 @@ public class AI_Melee : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "House")
+        if (other.gameObject.tag == "House" || other.gameObject.tag == "Addon1" || other.gameObject.tag == "Addon2" || other.gameObject.tag == "Addon3")
         {
             agentStopped = false;
             agent.speed = speedOfTree;
