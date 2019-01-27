@@ -49,6 +49,10 @@ public class AI_Melee : MonoBehaviour
             M.SetBool("isWalking", false);
         }
 
+        if (agent.speed == 0)
+        {
+            M.Play("Attack");
+        }
         if(hasAttacked == false && agentStopped == true)
         {
             hasAttacked = true;
