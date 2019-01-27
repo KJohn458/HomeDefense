@@ -59,9 +59,9 @@ public class Health : MonoBehaviour
 
     }
 	
-	public void Damage()
+	public void Damage(int amount)
 	{
-		health--;
+		health-=amount;
 	}
 	
 	public void gameover()
@@ -70,8 +70,8 @@ public class Health : MonoBehaviour
 		Death.SetActive(true);
 	}
 
-    public void Heal()
+    public void Heal(int amount)
     {
-        health++;
+        health+=amount;
     }
 }
