@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 35aea5b22c3c34d479417b6931f9738b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9e1d69c7c57ddb745bf72ca04fbafffd, type: 2}
 --- !u!114 &53856348 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2178743773007911047, guid: 22f6acaa11e0dc84280e1420470fccaa,
@@ -653,12 +653,12 @@ PrefabInstance:
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnRanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnMelee
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
