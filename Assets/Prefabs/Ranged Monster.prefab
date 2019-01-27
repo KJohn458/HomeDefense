@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60eed65d3f536b42b43d72ef71a5196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1205306467, guid: dc785184b553af6419f99e120540c4b0, type: 3}
   bulletPrefab: {fileID: 2491543503938907506, guid: c4b2657f5d6ed9c4e955dfb18f39e37d,
     type: 3}
   houseLocations: {fileID: 0}

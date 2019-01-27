@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     private bool hitOnce;
     void Start()
     {
-        HouseGameObj = GameObject.Find("House");
+        HouseGameObj = GameObject.Find("Main House");
         healthScript = HouseGameObj.GetComponent<Health>();
         hitOnce = false;
     }
