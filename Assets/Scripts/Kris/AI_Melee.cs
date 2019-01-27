@@ -49,7 +49,7 @@ public class AI_Melee : MonoBehaviour
             M.SetBool("isWalking", false);
         }
 
-        if (hasAttacked == true)
+        if (hasAttacked == false)
         {
             M.Play("Attack");
         }

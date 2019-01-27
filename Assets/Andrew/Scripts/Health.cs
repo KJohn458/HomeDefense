@@ -9,16 +9,23 @@ public class Health : MonoBehaviour
 	public GameObject Death;
 
     public GameObject addonOne;
-
     public GameObject addonTwo;
-
     public GameObject addonThree;
+
+    public GameObject spawn1;
+    public GameObject spawn2;
+    public GameObject spawn3;
+    public GameObject spawn4;
 	
 	public int mod = 1;
 
 
     void Start()
     {
+        spawn1.SetActive(true);
+        spawn2.SetActive(false);
+        spawn3.SetActive(false);
+        spawn4.SetActive(false);
         health = 5;
 		Death.SetActive(false);
         Time.timeScale = 1f;
@@ -35,17 +42,32 @@ public class Health : MonoBehaviour
 
         if(health < 15)
         {
+            spawn1.SetActive(true);
+            spawn2.SetActive(false);
+            spawn3.SetActive(false);
+            spawn4.SetActive(false);
+
             addonOne.SetActive(false);
         }
 
         if(health >= 15 && health < 30)
         {
+            spawn1.SetActive(true);
+            spawn2.SetActive(true);
+            spawn3.SetActive(false);
+            spawn4.SetActive(false);
+
             addonOne.SetActive(true);
             addonTwo.SetActive(false);
         }
 
         if (health >= 30 && health < 45)
         {
+            spawn1.SetActive(true);
+            spawn2.SetActive(true);
+            spawn3.SetActive(true);
+            spawn4.SetActive(false);
+
             addonOne.SetActive(true);
             addonTwo.SetActive(true);
             addonThree.SetActive(false);
@@ -53,6 +75,11 @@ public class Health : MonoBehaviour
 
         if (health >= 45 && health < 60)
         {
+            spawn1.SetActive(true);
+            spawn2.SetActive(true);
+            spawn3.SetActive(true);
+            spawn4.SetActive(true);
+
             addonOne.SetActive(true);
             addonTwo.SetActive(true);
             addonThree.SetActive(true);
