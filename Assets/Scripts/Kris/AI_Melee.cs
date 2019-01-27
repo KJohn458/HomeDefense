@@ -20,6 +20,8 @@ public class AI_Melee : MonoBehaviour
     private Transform House;
     private NavMeshAgent agent;
 
+    Animator M;
+
     public void Start()
     {
 
@@ -32,12 +34,24 @@ public class AI_Melee : MonoBehaviour
         healthScript = HouseGameObj.GetComponent<Health>();
         findHouse();
 
+        M = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        
-       
+        if (agent.speed > 0)
+        {
+            M.SetBool("isWalking", true);
+        }
+        else
+        {
+            M.SetBool("isWalking", false);
+        }
+
+        if (hasAttacked == true)
+        {
+            M.Play("Attack");
+        }
 
         if (Vector3.Distance(transform.position, houseToMoveTo.position) < distanceAwayFromHouse)
         {
