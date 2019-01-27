@@ -213,6 +213,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 539666941, guid: cb8547c6035ddf145a54f567d68a658f,
         type: 3}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: setMeleeHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: setRangedHealth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: setRangedSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: spawnRanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091390706005814438, guid: 37d45fd6c94e5794fa30d0968173d6f6,
+        type: 3}
+      propertyPath: spawnMelee
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3880221515926297675, guid: 37d45fd6c94e5794fa30d0968173d6f6,
         type: 3}
       propertyPath: m_Speed
