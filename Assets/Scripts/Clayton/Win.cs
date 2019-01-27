@@ -7,12 +7,12 @@ public class Win : MonoBehaviour
 {
     private int HouseLvl;
     public Text HP;
-    public Text WinTxt;
+    public Text WinText;
     void Start()
     {
         HouseLvl = 1;
         
-        WinTxt.text = "";
+        WinText.text = "";
     }
 
     private void Update()
@@ -24,11 +24,11 @@ public class Win : MonoBehaviour
     {
         if (HouseLvl >= 10)
         {
-            WinTxt.text = "YOU HAVE DEAFETED THE DARK WOODS";
+            WinText.text = "YOU HAVE DEAFETED THE DARK WOODS";
         }
         else if (HouseLvl == 0)
         {
-            WinTxt.text = "You Have Been Defeated!";
+            WinText.text = "You Have Been Defeated!";
         }
     }   
 }
