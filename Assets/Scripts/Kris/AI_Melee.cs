@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class AI_Melee : MonoBehaviour
 {
     public int distanceAwayFromHouse;
-    private bool agentDestroyed = false;
+    private bool agentStopped = false;
     private bool hasAttacked = false;
     public int swingTime = 3;
     public int enemyHealth;
 	public int wood = 1;
-
+    public int speedOfTree;
     public HouseLocs houseLocations;
     private Health healthScript;
 
@@ -54,17 +54,30 @@ public class AI_Melee : MonoBehaviour
             M.Play("Attack");
         }
 
-        if (Vector3.Distance(transform.position, houseToMoveTo.position) < distanceAwayFromHouse)
-        {
-            agent.speed = 0;
-            agentDestroyed = true;
-            transform.LookAt(houseToMoveTo);
-        }
 
-        if(hasAttacked == false && agentDestroyed == true)
+        if(hasAttacked == false && agentStopped == true)
         {
             hasAttacked = true;
             Invoke("swingBranch", swingTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "House")
+        {
+            agent.speed = 0;
+            agentStopped = true;
+            transform.LookAt(houseToMoveTo);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "House")
+        {
+            agentStopped = false;
+            agent.speed = speedOfTree;
         }
     }
 
