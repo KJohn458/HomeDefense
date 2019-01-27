@@ -27,8 +27,8 @@ public class AI_R : MonoBehaviour
     private int chargeTime = 3;
     public int distanceAwayFromHouse;
     private bool hasAttacked;
-    public float bulletVelocity = 8000f;
-    public float EnemyDistanceRun = 4.0f;
+    public float bulletVelocity = 400f;
+    public float EnemyDistanceRun = 50.0f;
 
     private bool findTarget;
     public int enemyHealth;
@@ -64,8 +64,8 @@ public class AI_R : MonoBehaviour
 
         
 
-        pos = gameObject.transform.position;
-        rotation = gameObject.transform.rotation;
+        pos = pivot.transform.position;
+        rotation = pivot.transform.rotation;
         float distance = Vector3.Distance(transform.position, Player.transform.position);
         
 
@@ -100,7 +100,6 @@ public class AI_R : MonoBehaviour
         {
             agent.isStopped = true;
             R.Play("Tree Attack");
-            transform.LookAt(houseToMoveTo);
             hasAttacked = true;
             Invoke("rangedAttack", chargeTime);
         }
@@ -113,7 +112,7 @@ public class AI_R : MonoBehaviour
 
     void rangedAttack()
     {
-
+        transform.LookAt(houseToMoveTo);
         GameObject clone;
         hasAttacked = false;
         clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
