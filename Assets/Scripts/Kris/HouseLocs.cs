@@ -11,7 +11,7 @@ public class HouseLocs : MonoBehaviour
     public Transform Addon3Pos;
     public GameObject Addon3GO;
 
-    public void Awake()
+    public void Start()
     {
         Addon1GO = GameObject.FindGameObjectWithTag("Addon1");
         Addon1Pos = GameObject.FindGameObjectWithTag("Addon1").transform;

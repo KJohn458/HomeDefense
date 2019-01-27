@@ -6,71 +6,88 @@ public class Spawner : MonoBehaviour
 {
     public GameObject meleeEnemy;
     public GameObject rangedEnemy;
-    public int spawnTimer;
-    public float percentOfMelee, minPercent, maxPercent;
-    private bool spawnBool;
-    private float randomNum;
     private Vector3 pos;
     Quaternion rotation;
+    public int spawnTimer;
+    private bool spawnDelayBool;
 
-    // stuff below here is for harder spawning
-    public int defaultHealth;
-    public float defaultSpeed;
-    public int eliteHealth;
-    public float eliteSpeed;
+    // new stuff
 
-    private int aiHealth;
-    private float aiSpeed;
+    public int setMeleeHealth;
+    public int setRangedHealth;
+    public float setMeleeSpeed;
+    public float setRangedSpeed;
+    public bool spawnRanged;
+    public bool spawnMelee;
+
+
+
     [SerializeField]
-    private bool defaultSpawns;
+    private bool defaultStats;
+    private float minNum;
+    private float maxNum;
+    private float randomNum;
+    
+    
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        spawnBool = false;
-        defaultSpawns = true;
+        defaultStats = true;
+        spawnDelayBool = false;
+        minNum = 0.0f;
+        maxNum = 10.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         pos = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
-        if (!spawnBool)
+
+        if(spawnMelee && !spawnDelayBool)
         {
-            spawnBool = true;
-            randomNum = Random.Range(minPercent, maxPercent);
+            spawnDelayBool = true;
             Invoke("spawnMeleeDude", spawnTimer);
         }
 
-
-        if(!defaultSpawns)
+        if(spawnRanged && !spawnDelayBool)
         {
-            aiHealth = eliteHealth;
-            aiSpeed = eliteSpeed;
+            spawnDelayBool = true;
+            Invoke("spawnRangedDude", spawnTimer);
         }
-        else
+
+        if((spawnMelee && spawnRanged) && !spawnDelayBool)
         {
-            aiHealth = defaultHealth;
-            aiSpeed = defaultSpeed;
+            spawnDelayBool = true;
+            randomNum = Random.Range(minNum, maxNum);
+            Invoke("spawnRandomDude", spawnTimer);
         }
     }
 
     void spawnMeleeDude()
     {
         GameObject clone;
-        if(randomNum < percentOfMelee)
+        clone = Instantiate(meleeEnemy, pos, rotation);
+        clone.SetActive(true);
+        spawnDelayBool = false;
+    }
+
+    void spawnRangedDude()
+    {
+        GameObject clone;
+        clone = Instantiate(rangedEnemy, pos, rotation);
+        clone.SetActive(true);
+        spawnDelayBool = false;
+    }
+
+    void randomSpawnDude()
+    {
+        if (randomNum >= 5.0f)
         {
-            clone = Instantiate(meleeEnemy, pos, rotation);
+            spawnMeleeDude();
         }
         else
         {
-            clone = Instantiate(rangedEnemy, pos, rotation);
+            spawnRangedDude();
         }
-        
-        clone.SetActive(true);
-        spawnBool = false;
     }
 }

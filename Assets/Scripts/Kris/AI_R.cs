@@ -41,7 +41,12 @@ public class AI_R : MonoBehaviour
     public AudioClip deathAudioClip;
     public AudioClip attackAudioClip;
 
-    
+    // new spawner stuff below
+    private GameObject spawnerObj;
+    private Spawner spawner;
+
+
+
 
     private void Start()
     {
@@ -52,10 +57,16 @@ public class AI_R : MonoBehaviour
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        findHouse();
+        
         findTarget = true;
         col = GetComponent<Collider>();
         audio = GetComponent<AudioSource>();
+
+        spawnerObj = GameObject.FindGameObjectWithTag("Spawner");
+        spawner = spawnerObj.GetComponent<Spawner>();
+        setHealthAndSpeed();
+
+        findHouse();
 
         R = GetComponent<Animator>();
     }
@@ -158,6 +169,13 @@ public class AI_R : MonoBehaviour
     void deathAnim()
     {
         Destroy(gameObject);
+    }
+
+
+    void setHealthAndSpeed()
+    {
+        enemyHealth = spawner.setRangedHealth;
+        agent.speed = spawner.setRangedSpeed;
     }
 
     void findHouse()
