@@ -5,8 +5,11 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject meleeEnemy;
+    public GameObject rangedEnemy;
     public int spawnTimer;
+    public float percentOfMelee, minPercent, maxPercent;
     private bool spawnBool;
+    private float randomNum;
     private Vector3 pos;
     Quaternion rotation;
 
@@ -27,14 +30,24 @@ public class Spawner : MonoBehaviour
         if (!spawnBool)
         {
             spawnBool = true;
+            randomNum = Random.Range(minPercent, maxPercent);
             Invoke("spawnMeleeDude", spawnTimer);
-        }
+            
+}
     }
 
     void spawnMeleeDude()
     {
         GameObject clone;
-        clone = Instantiate(meleeEnemy, pos, rotation);
+        if(randomNum < percentOfMelee)
+        {
+            clone = Instantiate(meleeEnemy, pos, rotation);
+        }
+        else
+        {
+            clone = Instantiate(rangedEnemy, pos, rotation);
+        }
+        
         clone.SetActive(true);
         spawnBool = false;
     }
