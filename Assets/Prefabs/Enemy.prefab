@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8318447812629160996}
   - component: {fileID: 8318447812629160997}
   - component: {fileID: 8318447812629160998}
-  - component: {fileID: 8318447812629160999}
   - component: {fileID: 8318447812629161002}
+  - component: {fileID: 5201302058132498381}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -94,19 +94,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8318447812629160999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8318447812629160992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68f8a61dd8408234ea43c87570841371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 0
 --- !u!195 &8318447812629161002
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -117,8 +104,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.50000006
-  m_Speed: 1.5
-  m_Acceleration: 8
+  m_Speed: 100
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -129,3 +116,19 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5201302058132498381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318447812629160992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bb9eb3a7dbb8e469c5af2b58cd6434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceAwayFromHouse: 0
+  swingTime: 3
+  enemyHealth: 0
+  houseLocations: {fileID: 0}

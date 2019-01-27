@@ -28,9 +28,28 @@ public class Bullet : MonoBehaviour
             healthScript.Damage();
             Destroy(gameObject);
             hitOnce = true;
-
         }
-        
+        if (other.tag == "Addon1" && hitOnce == false)
+        {
+            Debug.Log("Enters tag");
+            healthScript.Damage();
+            Destroy(gameObject);
+            hitOnce = true;
+        }
+        if (other.tag == "Addon2" && hitOnce == false)
+        {
+            Debug.Log("Enters tag");
+            healthScript.Damage();
+            Destroy(gameObject);
+            hitOnce = true;
+        }
+        if (other.tag == "Addon3" && hitOnce == false)
+        {
+            Debug.Log("Enters tag");
+            healthScript.Damage();
+            Destroy(gameObject);
+            hitOnce = true;
+        }
 
     }
 
