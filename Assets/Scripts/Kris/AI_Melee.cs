@@ -81,7 +81,7 @@ public class AI_Melee : MonoBehaviour
         Debug.Log("Hit");
         hasAttacked = false;
         healthScript.Damage(1);
-        M.Play("Attack");
+        M.Play("Tree Attack");
     }
 
     public void Hurt(int amount)
