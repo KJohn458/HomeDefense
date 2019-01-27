@@ -31,10 +31,12 @@ public class AI_Melee : MonoBehaviour
 
     public GameObject deathParticles;
 
+    // new spawner stuff below
+    private GameObject spawnerObj;
+    private Spawner spawner;
+
     public void Start()
     {
-
-        enemyHealth = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         House = GameObject.FindGameObjectWithTag("House").transform;
@@ -42,6 +44,11 @@ public class AI_Melee : MonoBehaviour
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
         col = GetComponent<Collider>();
+
+        spawnerObj = GameObject.FindGameObjectWithTag("Spawner");
+        spawner = spawnerObj.GetComponent<Spawner>();
+        setHealthAndSpeed();
+
         findHouse();
 
         
@@ -127,6 +134,12 @@ public class AI_Melee : MonoBehaviour
     void deathAnim()
     {
         Destroy(gameObject);
+    }
+
+    void setHealthAndSpeed()
+    {
+        enemyHealth = spawner.setMeleeHealth;
+        agent.speed = spawner.setMeleeSpeed;
     }
 
     void findHouse()
