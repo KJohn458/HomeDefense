@@ -35,6 +35,7 @@ public class AI_R : MonoBehaviour
     public int enemyHealth;
 
     Animator R;
+    AudioSource deathSound;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class AI_R : MonoBehaviour
         findHouse();
         findTarget = true;
         col = GetComponent<Collider>();
+        deathSound = GetComponent<AudioSource>();
 
         R = GetComponent<Animator>();
     }
@@ -141,6 +143,7 @@ public class AI_R : MonoBehaviour
         Destroy(col);
         Destroy(agent);
         R.SetTrigger("Death");
+        deathSound.Play();
         Invoke("deathAnim", 1.5f);
     }
 
