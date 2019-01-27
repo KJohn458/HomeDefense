@@ -225,6 +225,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2082729757}
+    - target: {fileID: 4410436282399752067, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2082729757}
+    - target: {fileID: 3876174319088483943, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1711926089}
     - target: {fileID: 3876174319088483943, guid: 22f6acaa11e0dc84280e1420470fccaa,
         type: 3}
       propertyPath: player
@@ -250,6 +260,21 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 2091736753}
+    - target: {fileID: 2086795823516731129, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086795823516731129, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086795823516731129, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 2086795823516731129, guid: 22f6acaa11e0dc84280e1420470fccaa,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -529,26 +554,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: setMeleeSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: spawnRanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: spawnMelee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: spawnTimer
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3713915653956736744, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: m_Enabled
@@ -569,20 +574,15 @@ PrefabInstance:
       propertyPath: setRangedSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3713915653956736747, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3713915653931299680, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: setMeleeSpeed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
-        type: 3}
-      propertyPath: setRangedSpeed
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3713915655054283099, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -608,17 +608,62 @@ PrefabInstance:
     - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: setMeleeSpeed
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: setMeleeHealth
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: setRangedSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnRanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnMelee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setRangedSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setRangedSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33152485731b2754cb4115bab335771f, type: 3}
@@ -722,25 +767,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a12de4456b7d4ee4fbda11effeb1e55f, type: 3}
---- !u!1 &862946753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 962442434, guid: dc785184b553af6419f99e120540c4b0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1145542266}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &862946757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 862946753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 8b0225e1e0caea54e9b87798f2bf9830, type: 2}
 --- !u!1 &958667032
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,14 +975,6 @@ PrefabInstance:
     - target: {fileID: 1228725648, guid: dc785184b553af6419f99e120540c4b0, type: 3}
       propertyPath: rotationRate
       value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800251574, guid: dc785184b553af6419f99e120540c4b0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1802450550, guid: dc785184b553af6419f99e120540c4b0, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc785184b553af6419f99e120540c4b0, type: 3}
@@ -1189,6 +1207,10 @@ PrefabInstance:
       propertyPath: Win
       value: 
       objectReference: {fileID: 1070829755}
+    - target: {fileID: 1743612816, guid: e48f8caee5a312644bda0992db301810, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7177818146639586397, guid: e48f8caee5a312644bda0992db301810,
         type: 3}
       propertyPath: m_Size.x
