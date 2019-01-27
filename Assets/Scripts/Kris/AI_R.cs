@@ -25,6 +25,7 @@ public class AI_R : MonoBehaviour
     private Collider col;
     public GameObject deathParticles;
 
+    public int wood;
 
     private int chargeTime = 3;
     public int distanceAwayFromHouse;
@@ -45,12 +46,16 @@ public class AI_R : MonoBehaviour
     private GameObject spawnerObj;
     private Spawner spawner;
 
+    //loop stuff here
+    private int forLoop;
+    private int numOfEvolutions;
+
 
 
 
     private void Start()
     {
-        enemyHealth = 1;
+        wood = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         House = GameObject.FindGameObjectWithTag("House").transform;
@@ -66,7 +71,9 @@ public class AI_R : MonoBehaviour
         spawner = spawnerObj.GetComponent<Spawner>();
         setHealthAndSpeed();
 
-        findHouse();
+        numOfEvolutions = 4;
+
+        findHouse2();
 
         R = GetComponent<Animator>();
     }
@@ -104,7 +111,7 @@ public class AI_R : MonoBehaviour
         {
            if(findTarget == false)
             {
-                findHouse();
+                findHouse2();
                 findTarget = true;
             }
             agent.isStopped = false;
@@ -157,7 +164,7 @@ public class AI_R : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Heal(1);
+        healthScript.Gather(wood);
         Destroy(col);
         Destroy(agent);
         R.SetTrigger("Death");
@@ -177,6 +184,38 @@ public class AI_R : MonoBehaviour
         enemyHealth = spawner.setRangedHealth;
         agent.speed = spawner.setRangedSpeed;
     }
+
+    void findHouse2()
+    {
+        GameObject[] gameObjectArray = { HouseGameObj, houseLocations.Addon1GO, houseLocations.Addon2GO, houseLocations.Addon3GO };
+        Transform[] transformArray = { House, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
+        houseToMoveTo = House;
+        houseToMoveTo.position = House.position;
+
+        for (forLoop = 0; forLoop < numOfEvolutions; forLoop++)
+        {
+            Debug.Log("enters the olde fore loope");
+            if (gameObjectArray[forLoop].activeSelf == true)
+            {
+                if (Vector3.Distance(transform.position, transformArray[forLoop].position) < Vector3.Distance(transform.position, houseToMoveTo.position)) 
+                {
+                    houseToMoveTo = transformArray[forLoop];
+                    houseToMoveTo.position = transformArray[forLoop].position;
+                    Debug.Log("Sets new pos for house to move to");
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(houseToMoveTo.position, path);
+        agent.destination = houseToMoveTo.position;
+    }
+
+    /*
 
     void findHouse()
     {
@@ -299,4 +338,5 @@ public class AI_R : MonoBehaviour
         agent.CalculatePath(houseToMoveTo.position, path);
         agent.destination = houseToMoveTo.position;
     }
+    */
 }
