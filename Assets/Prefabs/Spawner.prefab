@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5091390706005814438}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,9 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4114f0812407964ebf2393807cd2cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeEnemy: {fileID: 0}
-  rangedEnemy: {fileID: 0}
-  spawnTimer: 5
-  percentOfMelee: 0
-  minPercent: 0
-  maxPercent: 0
+  meleeEnemy: {fileID: 539666941, guid: cb8547c6035ddf145a54f567d68a658f, type: 3}
+  rangedEnemy: {fileID: 2538610798078724926, guid: 771ea377f0c0fab4aa0cf7680880db05,
+    type: 3}
+  spawnTimer: 3
+  setMeleeHealth: 2
+  setRangedHealth: 1
+  setMeleeSpeed: 20
+  setRangedSpeed: 10
+  spawnRanged: 1
+  spawnMelee: 1
+  defaultStats: 0
