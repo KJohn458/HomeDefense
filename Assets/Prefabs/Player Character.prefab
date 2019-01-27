@@ -1476,6 +1476,7 @@ GameObject:
   - component: {fileID: 962442435}
   - component: {fileID: 962442437}
   - component: {fileID: 962442436}
+  - component: {fileID: 862946757}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1547,6 +1548,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962442434}
   m_Enabled: 1
+--- !u!114 &862946757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962442434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 8b0225e1e0caea54e9b87798f2bf9830, type: 2}
 --- !u!1 &983423226
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,8 +2213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104eefacdb3b4284da9aa9382899c09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRate: 200
-  moveSpeed: 0.8
+  rotationRate: 150
+  moveSpeed: 0.6
   repairCanvas: {fileID: 0}
 --- !u!1 &1206207262
 GameObject:
@@ -3474,6 +3488,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1205306468}
     m_Modifications:
+    - target: {fileID: 100000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
+      propertyPath: m_Name
+      value: Atk Hitbox
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.10820144
@@ -3517,10 +3535,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
-      propertyPath: m_Name
-      value: Atk Hitbox
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 91f1c606dd70f254a86460f33b1ca93d, type: 3}
       propertyPath: m_Enabled
