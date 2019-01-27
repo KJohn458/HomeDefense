@@ -57,6 +57,7 @@ public class Health : MonoBehaviour
             spawn2.SetActive(false);
             spawn3.SetActive(false);
             spawn4.SetActive(false);
+            
 
             addonOne.SetActive(false);
         }
