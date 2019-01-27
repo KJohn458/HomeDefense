@@ -59,7 +59,7 @@ public class AI_R : MonoBehaviour
             R.SetBool("isWalking", false);
         }
 
-        if (hasAttacked == false)
+        if (agent.speed == 0)
         {
             R.Play("Attack");
         }
