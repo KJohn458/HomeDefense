@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void OnTriggerStay(Collider Enemy)
+    void OnTriggerCollider(Collider Enemy)
     {
         Debug.Log("Hit an enemy");
         if (Enemy.gameObject.tag == "Enemy")
