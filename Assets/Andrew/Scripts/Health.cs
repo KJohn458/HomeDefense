@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
     public GameObject addonTwo;
 
     public GameObject addonThree;
+	
+	public int mod = 1;
 
 
     void Start()
@@ -72,6 +74,6 @@ public class Health : MonoBehaviour
 
     public void Heal(int amount)
     {
-        health+=amount;
+        health+=amount*mod;
     }
 }

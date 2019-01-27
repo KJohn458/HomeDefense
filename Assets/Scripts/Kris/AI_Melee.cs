@@ -10,6 +10,7 @@ public class AI_Melee : MonoBehaviour
     private bool hasAttacked = false;
     public int swingTime = 3;
     public int enemyHealth;
+	public int wood = 1;
 
     public HouseLocs houseLocations;
     private Health healthScript;
@@ -20,28 +21,42 @@ public class AI_Melee : MonoBehaviour
     private Transform House;
     private NavMeshAgent agent;
 
+    Animator M;
+
     public void Start()
     {
-        
+
         enemyHealth = 1;
         agent = GetComponent<NavMeshAgent>();
-        HouseGameObj = GameObject.FindWithTag("House");
-        House = GameObject.FindWithTag("House").transform;
+        HouseGameObj = GameObject.FindGameObjectWithTag("House");
+        House = GameObject.FindGameObjectWithTag("House").transform;
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
         findHouse();
 
+        M = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        
-       
+        if (agent.speed > 0)
+        {
+            M.SetBool("isWalking", true);
+        }
+        else
+        {
+            M.SetBool("isWalking", false);
+        }
+
+        if (hasAttacked == true)
+        {
+            M.Play("Attack");
+        }
 
         if (Vector3.Distance(transform.position, houseToMoveTo.position) < distanceAwayFromHouse)
         {
-            Destroy(agent);
+            agent.speed = 0;
             agentDestroyed = true;
             transform.LookAt(houseToMoveTo);
         }
@@ -69,12 +84,13 @@ public class AI_Melee : MonoBehaviour
         {
             Death();
         }
-            
+
+
     }
 
     public void Death()
     {
-        healthScript.Heal(1);
+        healthScript.Heal(wood);
         Destroy(gameObject);
     }
 
