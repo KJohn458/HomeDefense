@@ -76,8 +76,7 @@ public class Upgrade : MonoBehaviour
 			}
 		}else{
 			powerButton.interactable = false;
-		}
-		
+		}	
 	}
 	public void Wood()
 	{
@@ -97,9 +96,14 @@ public class Upgrade : MonoBehaviour
 	{
 		if (healthScript.wood>powerCost()){
 			healthScript.Buy(speedCost());
-			
+			speed_level++;
+			//mod speed
+			if (speed_level>=3)
+			{
+				speedButton.interactable = false;
+			}
 		}else{
-			//reachButton.interactable = false;
+			speedButton.interactable = false;
 		}
 	}
 }
