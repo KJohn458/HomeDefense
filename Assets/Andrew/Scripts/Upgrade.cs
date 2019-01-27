@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
 {
-    private int upgrade_cost = 15;
+    public int upgrade_cost = 15;
 	private int speed_level = 1;
 	private int power_level = 1;
 	private int wood_level = 1;
@@ -21,6 +21,7 @@ public class Upgrade : MonoBehaviour
 	public Button woodButton;
 	private PlayerControl control;
 	public GameObject player;
+	public int difficalty = 0;
 	
 	void Start()
 	{
@@ -56,23 +57,32 @@ public class Upgrade : MonoBehaviour
 		}
 		
     }
-	private int speedCost()
-	{
+	private int buildCost(){
+		return upgrade_cost*2*(difficalty+1);
+	}
+	
+	private int speedCost(){
 		return upgrade_cost*speed_level;
 	}
-	private int powerCost()
-	{
-		return upgrade_cost*power_level;
-	}
-	private int woodCost()
-	{
+	
+	private int powerCost(){
 		return upgrade_cost*power_level;
 	}
 	
-	public void Power()
-	{
+	private int woodCost(){
+		return upgrade_cost*power_level;
+	}
+	
+	public void Difficalty(){
+		if (healthScript.wood>buildCost()){
+			difficalty++;
+			healthScript.Buy(buildCost());
+		}
+	}
+	
+	public void Power(){
 		if (healthScript.wood>powerCost()){
-			healthScript.Damage(powerCost());
+			healthScript.Buy(powerCost());
 			power_level++;
 			weapon.damageIncrease();
 			if (power_level>=3){
@@ -82,10 +92,10 @@ public class Upgrade : MonoBehaviour
 			powerButton.interactable = false;
 		}	
 	}
-	public void Wood()
-	{
-		if (healthScript.wood>powerCost()){
-			healthScript.Damage(woodCost());
+	
+	public void Wood(){
+		if (healthScript.wood>woodCost()){
+			healthScript.Buy(woodCost());
 			wood_level++;
 			healthScript.mod+=1;
 			if (wood_level>=3)
@@ -96,9 +106,9 @@ public class Upgrade : MonoBehaviour
 			woodButton.interactable = false;
 		}
 	}
-	public void Speed()
-	{
-		if (healthScript.wood>powerCost()){
+	
+	public void Speed(){
+		if (healthScript.wood>speedCost()){
 			healthScript.Buy(speedCost());
 			speed_level++;
 			//mod speed
