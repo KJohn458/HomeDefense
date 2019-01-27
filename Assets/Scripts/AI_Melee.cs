@@ -22,6 +22,7 @@ public class AI_Melee : MonoBehaviour
 
     public void Start()
     {
+        
         enemyHealth = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindWithTag("House");
@@ -29,16 +30,14 @@ public class AI_Melee : MonoBehaviour
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
+        findHouse();
 
-        
     }
 
     private void Update()
     {
-        findHouse();
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(houseToMoveTo.position, path);
-        agent.destination = houseToMoveTo.position;
+        
+       
 
         if (Vector3.Distance(transform.position, houseToMoveTo.position) < distanceAwayFromHouse)
         {
@@ -81,7 +80,7 @@ public class AI_Melee : MonoBehaviour
 
     void findHouse()
     {
-
+        Debug.Log("I find the house");
         if (houseLocations.Addon1GO.activeSelf == true && houseLocations.Addon2GO.activeSelf == false)
         {
             Debug.Log("test");
@@ -194,5 +193,9 @@ public class AI_Melee : MonoBehaviour
             houseToMoveTo = House;
             houseToMoveTo.position = House.position;
         }
+
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(houseToMoveTo.position, path);
+        agent.destination = houseToMoveTo.position;
     }
 }
