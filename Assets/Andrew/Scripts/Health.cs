@@ -6,6 +6,8 @@ public class Health : MonoBehaviour
 {
 	public int health;
 	public int wood;
+    private int maxWood;
+    private int maxHealth;
 	public Text HP;
 	public Text Wood;
 	public GameObject Death;
@@ -55,6 +57,7 @@ public class Health : MonoBehaviour
             spawn2.SetActive(false);
             spawn3.SetActive(false);
             spawn4.SetActive(false);
+            
 
             addonOne.SetActive(false);
         }
