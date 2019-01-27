@@ -35,8 +35,7 @@ public class Weapon : MonoBehaviour
         if (Enemy.gameObject.tag == "Enemy")
         {
 			Debug.Log("Hit an enemy");
-			AI_Melee enemy_m = Enemy.gameObject.GetComponent<AI_Melee>();
-			enemy_m.Hurt(damage);
+            Destroy(Enemy.gameObject);
         }
 
     }
