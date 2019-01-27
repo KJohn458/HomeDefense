@@ -24,8 +24,8 @@ public class AI_M : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-		enemyHealth = 6;
+
+        enemyHealth = 1;
         
         healthScript = HouseGameObj.GetComponent<Health>();
         agentDestroyed = false;
