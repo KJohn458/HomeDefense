@@ -4,12 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - House
   - Addon1
   - Addon2
   - Addon3
   - GameManager
+  - Melee
+  - Ranged
+  - Enemy
   layers:
   - Default
   - TransparentFX

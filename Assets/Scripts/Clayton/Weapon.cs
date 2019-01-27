@@ -29,13 +29,19 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void OnTriggerStay(Collider Enemy)
+    void OnTriggerCollider(Collider Enemy)
     {
         Debug.Log("Hit an enemy");
-        if (Enemy.gameObject.tag == "Enemy")
+        if (Enemy.gameObject.tag == "Melee")
         {
 			Debug.Log("Hit an enemy");
             Destroy(Enemy.gameObject);
+        }
+        if(Enemy.gameObject.tag == "Ranged")
+        {
+            Debug.Log("Hit an enemy");
+            AI_R enemy_r = Enemy.gameObject.GetComponent<AI_R>();
+            enemy_r.Hurt(damage);
         }
 
     }

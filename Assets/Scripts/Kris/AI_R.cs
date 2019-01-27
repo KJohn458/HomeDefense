@@ -28,24 +28,20 @@ public class AI_R : MonoBehaviour
     public float bulletVelocity = 8000f;
     public float EnemyDistanceRun = 4.0f;
 
-
-
-
-
-
-
-
-
+    private bool findTarget;
+    public int enemyHealth;
 
     private void Start()
     {
-
+        enemyHealth = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         House = GameObject.FindGameObjectWithTag("House").transform;
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
-
+        Player = GameObject.FindGameObjectWithTag("Player");
+        findHouse();
+        findTarget = true;
 
     }
 
@@ -54,7 +50,7 @@ public class AI_R : MonoBehaviour
         pos = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
         float distance = Vector3.Distance(transform.position, Player.transform.position);
-        findHouse();
+        
 
         if (distance < EnemyDistanceRun && hasAttacked == false)
         {
@@ -64,19 +60,22 @@ public class AI_R : MonoBehaviour
             Vector3 newPos = transform.position + dirToPlayer;
 
             agent.SetDestination(newPos);
+            findTarget = false;
         }
 
         else if(Vector3.Distance(transform.position, houseToMoveTo.position) > distanceAwayFromHouse)
         {
-           
+           if(findTarget == false)
+            {
+                findHouse();
+                findTarget = true;
+            }
             agent.isStopped = false;
             healthScript = HouseGameObj.GetComponent<Health>();
             
             hasAttacked = false;
             agent = GetComponent<NavMeshAgent>();
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(houseToMoveTo.position, path);
-            agent.destination = houseToMoveTo.position;
+            
         }
 
 
@@ -96,6 +95,7 @@ public class AI_R : MonoBehaviour
 
     void rangedAttack()
     {
+
         GameObject clone;
         hasAttacked = false;
         clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
@@ -105,9 +105,27 @@ public class AI_R : MonoBehaviour
         
     }
 
+    public void Hurt(int amount)
+    {
+        Debug.Log("Test hurt");
+        enemyHealth -= amount;
+        Debug.Log(enemyHealth);
+        if (enemyHealth == 0)
+        {
+            Death();
+        }
+
+    }
+
+    public void Death()
+    {
+        healthScript.Heal();
+        Destroy(gameObject);
+    }
+
     void findHouse()
     {
-        
+        Debug.Log("I find the house too!");
         if (houseLocations.Addon1GO.activeSelf == true && houseLocations.Addon2GO.activeSelf == false)
         {
             Debug.Log("test");
@@ -221,5 +239,9 @@ public class AI_R : MonoBehaviour
             houseToMoveTo.position = House.position;
             Debug.Log("lock on");
         }
+
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(houseToMoveTo.position, path);
+        agent.destination = houseToMoveTo.position;
     }
 }
