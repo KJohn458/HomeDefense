@@ -310,6 +310,11 @@ PrefabInstance:
       propertyPath: m_FontData.m_MaxSize
       value: 48
       objectReference: {fileID: 0}
+    - target: {fileID: 4410436282421947688, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4410436282399752067, guid: 22f6acaa11e0dc84280e1420470fccaa,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -350,6 +355,36 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 2091736753}
+    - target: {fileID: 1987743282594149906, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3500783380576213562, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3824543064534360757, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974879498589872663, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 5974879498589872663, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5474914680025949141, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_Text
+      value: You win!
+      objectReference: {fileID: 0}
     - target: {fileID: 1843791822528979699, guid: 22f6acaa11e0dc84280e1420470fccaa,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -805,6 +840,12 @@ Transform:
   m_Father: {fileID: 958667033}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1070829755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1987743282594149906, guid: 22f6acaa11e0dc84280e1420470fccaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 431991437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1071048494 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3876174319088483943, guid: 22f6acaa11e0dc84280e1420470fccaa,
@@ -1117,6 +1158,10 @@ PrefabInstance:
       propertyPath: Wood
       value: 
       objectReference: {fileID: 1598718736}
+    - target: {fileID: 1743612816, guid: e48f8caee5a312644bda0992db301810, type: 3}
+      propertyPath: Win
+      value: 
+      objectReference: {fileID: 1070829755}
     - target: {fileID: 7177818146639586397, guid: e48f8caee5a312644bda0992db301810,
         type: 3}
       propertyPath: m_Size.x
