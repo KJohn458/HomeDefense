@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7923718471565360874}
   - component: {fileID: 250278924}
   - component: {fileID: 250278925}
-  - component: {fileID: 250278927}
-  - component: {fileID: 250278928}
+  - component: {fileID: 1851320935637543566}
+  - component: {fileID: 4693617968134873240}
   m_Layer: 0
   m_Name: BAD HOUSE!!!!!!!!
   m_TagString: House
@@ -113,7 +113,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0151582, y: 2.1683555, z: 2.0438383}
   m_Center: {x: -0.0013790291, y: 1.0832814, z: 0.018741691}
---- !u!114 &250278927
+--- !u!114 &1851320935637543566
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 0}
---- !u!114 &250278928
+--- !u!114 &4693617968134873240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +144,10 @@ MonoBehaviour:
   addonOne: {fileID: 8504359612279604149}
   addonTwo: {fileID: 8504359611466420589}
   addonThree: {fileID: 8504359610952329904}
+  spawn1: {fileID: 0}
+  spawn2: {fileID: 0}
+  spawn3: {fileID: 0}
+  spawn4: {fileID: 0}
   mod: 1
 --- !u!65 &190761542
 BoxCollider:
