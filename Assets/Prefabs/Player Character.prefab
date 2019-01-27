@@ -2170,9 +2170,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &1228725649
 CapsuleCollider:
@@ -2201,7 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationRate: 150
-  moveSpeed: 0.6
+  moveSpeed: 0.8
 --- !u!1 &1206207262
 GameObject:
   m_ObjectHideFlags: 0
