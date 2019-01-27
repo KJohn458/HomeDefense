@@ -320,7 +320,12 @@ PrefabInstance:
     - target: {fileID: 3713915653956736747, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnMelee
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653956736747, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653931299680, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -346,7 +351,22 @@ PrefabInstance:
     - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnRanged
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915655054283096, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713915653931299683, guid: 33152485731b2754cb4115bab335771f,
+        type: 3}
+      propertyPath: setMeleeSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
