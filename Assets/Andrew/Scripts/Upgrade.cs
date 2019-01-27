@@ -12,6 +12,7 @@ public class Upgrade : MonoBehaviour
 	public Text speed;
 	public Text power;
 	public Text wood;
+	public Text build;
 	private Health healthScript;
 	private GameObject HouseGameObj;
 	private Weapon weapon;
@@ -19,20 +20,28 @@ public class Upgrade : MonoBehaviour
 	public Button speedButton;
 	public Button powerButton;
 	public Button woodButton;
+	public Button buildButton;
 	private PlayerControl control;
 	public GameObject player;
-	public int difficulty = 0;
+	public int difficulty = 1;
+	public bool woodMax;
+	public bool powerMax;
+	public bool speedMax;
 	
 	void Start()
 	{
 		speed.text = "Cost "+speedCost().ToString()+" wood";
 		power.text = "Cost "+powerCost().ToString()+" wood";
 		wood.text = "Cost "+woodCost().ToString()+" wood";
+		build.text = "Cost "+buildCost().ToString()+" wood";
 		HouseGameObj = GameObject.FindWithTag("House");
 		WeaponGameObj = GameObject.FindWithTag("Weapon");
 		healthScript = HouseGameObj.GetComponent<Health>();
 		weapon = WeaponGameObj.GetComponent<Weapon>();
 		control = player.GetComponent<PlayerControl>();
+		woodMax = false;
+		powerMax = false;
+		speedMax = false;
 	}
 	
     void Update()
@@ -40,17 +49,22 @@ public class Upgrade : MonoBehaviour
 		speed.text = "Cost "+speedCost().ToString()+" wood";
 		power.text = "Cost "+powerCost().ToString()+" wood";
 		wood.text = "Cost "+woodCost().ToString()+" wood";
-		if (healthScript.wood<powerCost()){
+		if (healthScript.wood<buildCost()){
+			buildButton.interactable = false;
+		}else{
+			buildButton.interactable = true;
+		}
+		if (healthScript.wood<powerCost()||powerMax){
 			powerButton.interactable = false;
 		}else{
 			powerButton.interactable = true;
 		}
-		if (healthScript.wood<speedCost()){
+		if (healthScript.wood<speedCost()||speedMax){
 			speedButton.interactable = false;
 		}else{
 			speedButton.interactable = true;
 		}
-		if (healthScript.wood<woodCost()){
+		if (healthScript.wood<woodCost()||woodMax){
 			woodButton.interactable = false;
 		}else{
 			woodButton.interactable = true;
@@ -58,7 +72,7 @@ public class Upgrade : MonoBehaviour
 		
     }
 	private int buildCost(){
-		return upgrade_cost*2*(difficulty+1);
+		return upgrade_cost*2*difficulty;
 	}
 	
 	private int speedCost(){
@@ -86,6 +100,7 @@ public class Upgrade : MonoBehaviour
 			power_level++;
 			weapon.damageIncrease();
 			if (power_level>=3){
+				powerMax = true;
 				powerButton.interactable = false;
 			}
 		}else{
@@ -100,6 +115,7 @@ public class Upgrade : MonoBehaviour
 			healthScript.mod+=1;
 			if (wood_level>=3)
 			{
+				woodMax = true;
 				woodButton.interactable = false;
 			}
 		}else{
@@ -114,6 +130,7 @@ public class Upgrade : MonoBehaviour
 			control.moveSpeed+=.2f;
 			if (speed_level>=3)
 			{
+				speedMax = true;
 				speedButton.interactable = false;
 			}
 		}else{

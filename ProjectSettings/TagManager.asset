@@ -15,6 +15,7 @@ TagManager:
   - Weapon
   - Pivot
   - Spawner
+  - Upgrade
   layers:
   - Default
   - TransparentFX
