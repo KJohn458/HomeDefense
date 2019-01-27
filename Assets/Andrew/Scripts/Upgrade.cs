@@ -6,25 +6,22 @@ using UnityEngine.UI;
 public class Upgrade : MonoBehaviour
 {
     private int upgrade_cost = 15;
-	private int reach_level = 1;
+	private int speed_level = 1;
 	private int power_level = 1;
 	private int wood_level = 1;
-	public Text reach;
+	public Text speed;
 	public Text power;
 	public Text wood;
 	private Health healthScript;
 	private GameObject HouseGameObj;
 	private Weapon weapon;
 	private GameObject WeaponGameObj; 
-	public GameObject reachLv1;
-	public GameObject reachLv2;
-	public GameObject reachLv3;
-	public Button reachButton;
+	public Button speedButton;
 	public Button powerButton;
 	public Button woodButton;
 	void Start()
 	{
-		reach.text = "Cost "+reachCost().ToString()+" wood";
+		speed.text = "Cost "+speedCost().ToString()+" wood";
 		power.text = "Cost "+powerCost().ToString()+" wood";
 		wood.text = "Cost "+woodCost().ToString()+" wood";
 		HouseGameObj = GameObject.FindWithTag("House");
@@ -35,7 +32,7 @@ public class Upgrade : MonoBehaviour
 	
     void Update()
     {
-		reach.text = "Cost "+reachCost().ToString()+" wood";
+		speed.text = "Cost "+speedCost().ToString()+" wood";
 		power.text = "Cost "+powerCost().ToString()+" wood";
 		wood.text = "Cost "+woodCost().ToString()+" wood";
 		if (healthScript.wood<powerCost()){
@@ -43,21 +40,21 @@ public class Upgrade : MonoBehaviour
 		}else{
 			powerButton.interactable = true;
 		}
-		if (healthScript.wood<reachCost()){
-			powerButton.interactable = false;
+		if (healthScript.wood<speedCost()){
+			speedButton.interactable = false;
 		}else{
-			powerButton.interactable = true;
+			speedButton.interactable = true;
 		}
 		if (healthScript.wood<woodCost()){
-			powerButton.interactable = false;
+			woodButton.interactable = false;
 		}else{
-			powerButton.interactable = true;
+			woodButton.interactable = true;
 		}
 		
     }
-	private int reachCost()
+	private int speedCost()
 	{
-		return upgrade_cost*reach_level;
+		return upgrade_cost*speed_level;
 	}
 	private int powerCost()
 	{
@@ -96,18 +93,11 @@ public class Upgrade : MonoBehaviour
 			woodButton.interactable = false;
 		}
 	}
-	public void Reach()
+	public void Speed()
 	{
 		if (healthScript.wood>powerCost()){
-			healthScript.Damage(reachCost());
+			healthScript.Buy(speedCost());
 			reach_level++;
-			if (reach_level== 2)
-			{
-				reachLv1.SetActive(false);
-				reachLv2.SetActive(true);
-			}
-			if (reach_level>=3)
-			{
 				reachLv2.SetActive(false);
 				reachLv3.SetActive(true);
 				reachButton.interactable = false;

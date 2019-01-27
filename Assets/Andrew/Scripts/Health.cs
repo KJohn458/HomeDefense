@@ -104,8 +104,16 @@ public class Health : MonoBehaviour
 		Death.SetActive(true);
 	}
 
+	public void Buy(int amount)
+	{
+		wood-=amount;
+	}
+	
+	public void Gather(){
+		wood+=1*mod
+	}
     public void Heal(int amount)
     {
-        health+=amount*mod;
+        health+=amount;
     }
 }
