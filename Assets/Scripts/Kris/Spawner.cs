@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
             Invoke("spawnRangedDude", spawnTimer);
         }
 
-        if((spawnMelee && spawnRanged) && !spawnDelayBool)
+        if(spawnMelee && spawnRanged && !spawnDelayBool)
         {
             spawnDelayBool = true;
             randomNum = Random.Range(minNum, maxNum);
@@ -79,8 +79,9 @@ public class Spawner : MonoBehaviour
         spawnDelayBool = false;
     }
 
-    void randomSpawnDude()
+    void spawnRandomDude()
     {
+        Debug.Log(randomNum);
         if (randomNum >= 5.0f)
         {
             spawnMeleeDude();
