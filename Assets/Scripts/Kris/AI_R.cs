@@ -59,10 +59,7 @@ public class AI_R : MonoBehaviour
             R.SetBool("isWalking", false);
         }
 
-        if (hasAttacked == false)
-        {
-            R.Play("Attack");
-        }
+        
 
         pos = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
@@ -99,6 +96,7 @@ public class AI_R : MonoBehaviour
         else if(!hasAttacked)
         {
             agent.isStopped = true;
+            R.Play("Tree Attack");
             transform.LookAt(houseToMoveTo);
             hasAttacked = true;
             Invoke("rangedAttack", chargeTime);

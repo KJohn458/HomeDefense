@@ -49,12 +49,10 @@ public class AI_Melee : MonoBehaviour
             M.SetBool("isWalking", false);
         }
 
-        if (hasAttacked == false)
+        if (agent.speed == 0)
         {
             M.Play("Attack");
         }
-
-
         if(hasAttacked == false && agentStopped == true)
         {
             hasAttacked = true;
@@ -83,9 +81,11 @@ public class AI_Melee : MonoBehaviour
 
     void swingBranch()
     {
+
         Debug.Log("Hit");
         hasAttacked = false;
         healthScript.Damage(1);
+        M.Play("Tree Attack");
     }
 
     public void Hurt(int amount)

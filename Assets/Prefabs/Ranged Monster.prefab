@@ -910,11 +910,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  bulletPrefab: {fileID: 7302862943934017162, guid: aa09aafd6adc57e48a783553b78cd652,
+  bulletPrefab: {fileID: 2491543503938907506, guid: c4b2657f5d6ed9c4e955dfb18f39e37d,
     type: 3}
   houseLocations: {fileID: 0}
   distanceAwayFromHouse: 25
-  bulletVelocity: 8000
+  bulletVelocity: 80
   EnemyDistanceRun: 4
   enemyHealth: 1
 --- !u!1 &2801595879184347842
