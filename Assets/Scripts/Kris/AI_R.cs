@@ -42,10 +42,6 @@ public class AI_R : MonoBehaviour
     public AudioClip deathAudioClip;
     public AudioClip attackAudioClip;
 
-    // new spawner stuff below
-    private GameObject spawnerObj;
-    private Spawner spawner;
-
     //loop stuff here
     private int forLoop;
     private int numOfEvolutions;
@@ -63,14 +59,11 @@ public class AI_R : MonoBehaviour
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        
+
         findTarget = true;
         col = GetComponent<Collider>();
         audio = GetComponent<AudioSource>();
 
-        spawnerObj = GameObject.FindGameObjectWithTag("Spawner");
-        spawner = spawnerObj.GetComponent<Spawner>();
-        setHealthAndSpeed();
 
         numOfEvolutions = 4;
 
@@ -90,12 +83,12 @@ public class AI_R : MonoBehaviour
             R.SetBool("isWalking", false);
         }
 
-        
+
 
         pos = pivot.transform.position;
         rotation = pivot.transform.rotation;
         float distance = Vector3.Distance(transform.position, Player.transform.position);
-        
+
 
         if (distance < EnemyDistanceRun && hasAttacked == false)
         {
@@ -108,23 +101,23 @@ public class AI_R : MonoBehaviour
             findTarget = false;
         }
 
-        else if(Vector3.Distance(transform.position, houseToMoveTo.position) > distanceAwayFromHouse)
+        else if (Vector3.Distance(transform.position, houseToMoveTo.position) > distanceAwayFromHouse)
         {
-           if(findTarget == false)
+            if (findTarget == false)
             {
                 findHouse2();
                 findTarget = true;
             }
             agent.isStopped = false;
             healthScript = HouseGameObj.GetComponent<Health>();
-            
+
             hasAttacked = false;
             agent = GetComponent<NavMeshAgent>();
-            
+
         }
 
 
-        else if(!hasAttacked)
+        else if (!hasAttacked)
         {
             agent.isStopped = true;
             R.Play("Tree Attack");
@@ -134,7 +127,7 @@ public class AI_R : MonoBehaviour
 
         else
         {
-          //  Debug.Log("Charging my attack!");
+            //  Debug.Log("Charging my attack!");
         }
     }
 
@@ -180,11 +173,6 @@ public class AI_R : MonoBehaviour
     }
 
 
-    void setHealthAndSpeed()
-    {
-        enemyHealth = spawner.setRangedHealth;
-        agent.speed = spawner.setRangedSpeed;
-    }
 
     void findHouse2()
     {
@@ -198,7 +186,7 @@ public class AI_R : MonoBehaviour
             Debug.Log("enters the olde fore loope");
             if (gameObjectArray[forLoop].activeSelf == true)
             {
-                if (Vector3.Distance(transform.position, transformArray[forLoop].position) < Vector3.Distance(transform.position, houseToMoveTo.position)) 
+                if (Vector3.Distance(transform.position, transformArray[forLoop].position) < Vector3.Distance(transform.position, houseToMoveTo.position))
                 {
                     houseToMoveTo = transformArray[forLoop];
                     houseToMoveTo.position = transformArray[forLoop].position;
@@ -215,129 +203,4 @@ public class AI_R : MonoBehaviour
         agent.CalculatePath(houseToMoveTo.position, path);
         agent.destination = houseToMoveTo.position;
     }
-
-    /*
-
-    void findHouse()
-    {
-        Debug.Log("I find the house too!");
-        if (houseLocations.Addon1GO.activeSelf == true && houseLocations.Addon2GO.activeSelf == false)
-        {
-            Debug.Log("test");
-            if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon1Pos.position))
-            {
-                houseToMoveTo = House;
-                houseToMoveTo.position = House.position;
-            }
-            else
-            {
-                houseToMoveTo = houseLocations.Addon1Pos;
-                houseToMoveTo.position = houseLocations.Addon1Pos.position;
-            }
-        }
-
-        else if (houseLocations.Addon2GO.activeSelf == true && houseLocations.Addon3GO.activeSelf == false)
-        {
-            Debug.Log("test1");
-            if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon1Pos.position))
-            {
-                if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon2Pos.position))
-                {
-                    houseToMoveTo = House;
-                    houseToMoveTo.position = House.position;
-                }
-                else
-                {
-                    houseToMoveTo = houseLocations.Addon2Pos;
-                    houseToMoveTo.position = houseLocations.Addon2Pos.position;
-                }
-            }
-            else
-            {
-                if (Vector3.Distance(transform.position, houseLocations.Addon1Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon2Pos.position))
-                {
-                    houseToMoveTo = houseLocations.Addon1Pos;
-                    houseToMoveTo.position = houseLocations.Addon1Pos.position;
-                }
-                else
-                {
-                    houseToMoveTo = houseLocations.Addon2Pos;
-                    houseToMoveTo.position = houseLocations.Addon2Pos.position;
-                }
-            }
-        }
-
-        else if (houseLocations.Addon3GO.activeSelf == true)
-        {
-            Debug.Log("test2");
-            if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon1Pos.position))
-            {
-                if (Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon2Pos.position))
-                {
-                    if(Vector3.Distance(transform.position, House.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
-                    {
-                        houseToMoveTo = House;
-                        houseToMoveTo.position = House.position;
-                    }
-                    else
-                    {
-                        houseToMoveTo = houseLocations.Addon3Pos;
-                        houseToMoveTo.position = houseLocations.Addon3Pos.position;
-                    }
-                }
-                else if(Vector3.Distance(transform.position, houseLocations.Addon2Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
-                {
-                    houseToMoveTo = houseLocations.Addon2Pos;
-                    houseToMoveTo.position = houseLocations.Addon2Pos.position;
-                }
-
-                else
-                {
-                    houseToMoveTo = houseLocations.Addon3Pos;
-                    houseToMoveTo.position = houseLocations.Addon3Pos.position;
-                }
-            }
-            else
-            {
-                Debug.Log("test3");
-                if (Vector3.Distance(transform.position, houseLocations.Addon1Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon2Pos.position))
-                {
-                    if(Vector3.Distance(transform.position, houseLocations.Addon1Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
-                    {
-                        houseToMoveTo = houseLocations.Addon1Pos;
-                        houseToMoveTo.position = houseLocations.Addon1Pos.position;
-                    }
-                    else
-                    {
-                        houseToMoveTo = houseLocations.Addon3Pos;
-                        houseToMoveTo.position = houseLocations.Addon3Pos.position;
-                    }
-                }
-                else
-                {
-                    if(Vector3.Distance(transform.position, houseLocations.Addon2Pos.position) < Vector3.Distance(transform.position, houseLocations.Addon3Pos.position))
-                    {
-                        houseToMoveTo = houseLocations.Addon2Pos;
-                        houseToMoveTo.position = houseLocations.Addon2Pos.position;
-                    }
-                    else
-                    {
-                        houseToMoveTo = houseLocations.Addon3Pos;
-                        houseToMoveTo.position = houseLocations.Addon3Pos.position;
-                    }
-                }
-            }
-        }
-        else
-        {
-            houseToMoveTo = House;
-            houseToMoveTo.position = House.position;
-            Debug.Log("lock on");
-        }
-
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(houseToMoveTo.position, path);
-        agent.destination = houseToMoveTo.position;
-    }
-    */
 }

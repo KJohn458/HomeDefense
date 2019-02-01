@@ -32,8 +32,6 @@ public class AI_Melee : MonoBehaviour
     public GameObject deathParticles;
 
     // new spawner stuff below
-    private GameObject spawnerObj;
-    private Spawner spawner;
 
     //loop stuff here
     private int forLoop;
@@ -50,9 +48,6 @@ public class AI_Melee : MonoBehaviour
         healthScript = HouseGameObj.GetComponent<Health>();
         col = GetComponent<Collider>();
 
-        spawnerObj = GameObject.FindGameObjectWithTag("Spawner");
-        spawner = spawnerObj.GetComponent<Spawner>();
-        setHealthAndSpeed();
         numOfEvolutions = 4;
         findHouse();
 
@@ -143,11 +138,6 @@ public class AI_Melee : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void setHealthAndSpeed()
-    {
-        enemyHealth = spawner.setMeleeHealth;
-        agent.speed = spawner.setMeleeSpeed;
-    }
 
     void findHouse()
     {

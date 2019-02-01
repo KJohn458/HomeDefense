@@ -6,10 +6,9 @@ public class Spawner : MonoBehaviour
 {
     public GameObject meleeEnemy;
     public GameObject rangedEnemy;
-    private Vector3 pos;
     Quaternion rotation;
-    public int spawnTimer;
-    private bool spawnDelayBool;
+    public float timeToSpawn;
+    private float spawnTimer;
 
     // new stuff
 
@@ -33,53 +32,35 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         defaultStats = true;
-        spawnDelayBool = false;
         minNum = 0.0f;
         maxNum = 10.0f;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        pos = gameObject.transform.position;
         rotation = gameObject.transform.rotation;
 
-        if(spawnMelee && !spawnDelayBool && !spawnRanged)
-        {
-            spawnDelayBool = true;
-            Invoke("spawnMeleeDude", spawnTimer);
-        }
-
-        if(spawnRanged && !spawnDelayBool && !spawnMelee)
-        {
-            spawnDelayBool = true;
-            Invoke("spawnRangedDude", spawnTimer);
-        }
-
-        if(spawnMelee && spawnRanged && !spawnDelayBool)
-        {
-            spawnDelayBool = true;
-            randomNum = Random.Range(minNum, maxNum);
-            Invoke("spawnRandomDude", spawnTimer);
-        }
+        countTimer();
     }
 
     void spawnMeleeDude()
     {
         GameObject clone;
-        clone = Instantiate(meleeEnemy, pos, rotation);
+        clone = Instantiate(meleeEnemy, transform.position, rotation);
+        clone.GetComponent<AI_Melee>().enemyHealth = setMeleeHealth;
         clone.SetActive(true);
-        spawnDelayBool = false;
+
     }
 
     void spawnRangedDude()
     {
         GameObject clone;
-        clone = Instantiate(rangedEnemy, pos, rotation);
+        clone = Instantiate(rangedEnemy, transform.position, rotation);
+        clone.GetComponent<AI_R>().enemyHealth = setRangedHealth;
         clone.SetActive(true);
-        spawnDelayBool = false;
     }
 
-    void spawnRandomDude()
+    void spawnRandomDude(float randomNum)
     {
         Debug.Log(randomNum);
         if (randomNum >= 5.0f)
@@ -89,6 +70,30 @@ public class Spawner : MonoBehaviour
         else
         {
             spawnRangedDude();
+        }
+    }
+
+    void countTimer()
+    {
+        spawnTimer -= Time.deltaTime;
+        if(spawnTimer <= 0)
+        {
+            if (spawnMelee && !spawnRanged)
+            {
+                spawnMeleeDude();
+            }
+
+            if (spawnRanged && !spawnMelee)
+            {
+                spawnRangedDude();
+            }
+
+            if (spawnMelee && spawnRanged)
+            {
+                randomNum = Random.Range(minNum, maxNum);
+                spawnRandomDude(randomNum);
+            }
+            spawnTimer = timeToSpawn;
         }
     }
 }

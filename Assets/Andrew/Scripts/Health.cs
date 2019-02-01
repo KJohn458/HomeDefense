@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     private int maxHealth;
 	public Text HP;
 	public Text Wood;
+
+    // Andrew
 	public GameObject Death;
 	public GameObject Win;
 
