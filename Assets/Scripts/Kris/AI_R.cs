@@ -3,47 +3,43 @@ using UnityEngine.AI;
 
 public class AI_R : MonoBehaviour
 {
-    private GameObject HouseGameObj;
-    public GameObject Player;
-    public GameObject bulletPrefab;
+    // enemy ai and house finder objects
+    private GameObject HouseGameObj; //for enemies to find the house
+    public GameObject Player; // for the enemies to know where the player is
+    private Transform houseToMoveTo; // transform that changes position based on nearby house 
+    public HouseLocs houseLocations; // gamemanager object that holds all possible houses
+    private bool findTarget;
+    private Collider col; // used to delete col when enemy killed to remove hitbox
+    public int enemyAttackDistance;
+    public float EnemyDistanceRun = 50.0f; // how close player has to be to enable running away
 
-    private Health healthScript;
-    private NavMeshAgent agent;
+    private Health healthScript; // reference health script to add wood to currency
+    private NavMeshAgent agent; // reference to navmeshagent to control movement
 
+    //find current location of enemy
     private Vector3 pos;
     Quaternion rotation;
 
+    //bullet stuff
     private Rigidbody cloneRB;
-
-    private Transform House;
-    private Transform houseToMoveTo;
-
-    private GameObject GameManagerObj;
-    public HouseLocs houseLocations;
-
-    public GameObject pivot;
-    private Collider col;
-    public GameObject deathParticles;
-
-    public int wood;
-
-    private int chargeTime = 3;
-    public int distanceAwayFromHouse;
-    private bool hasAttacked;
+    public GameObject bulletPrefab;
+    public GameObject pivot; // where bullet fires from
     public float bulletVelocity = 400f;
-    public float EnemyDistanceRun = 50.0f;
 
-    private bool findTarget;
+    //attack and death
+    private int chargeTime = 3;
+    private bool hasAttacked;
     public int enemyHealth;
 
-    Animator R;
-
+    // animation and sound
+    Animator rangedAnims;
     new public AudioSource audio;
     public AudioClip deathAudioClip;
     public AudioClip attackAudioClip;
+    public GameObject deathParticles;
 
     //loop stuff here
-    private int forLoop;
+    private int houseLoop;
     private int numOfEvolutions;
 
 
@@ -52,44 +48,40 @@ public class AI_R : MonoBehaviour
     private void Start()
     {
 
-        wood = 1;
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
-        House = GameObject.FindGameObjectWithTag("House").transform;
-        GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
-        houseLocations = GameManagerObj.GetComponent<HouseLocs>();
+        houseLocations = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HouseLocs>();
         Player = GameObject.FindGameObjectWithTag("Player");
-
+        healthScript = HouseGameObj.GetComponent<Health>();
         findTarget = true;
         col = GetComponent<Collider>();
         audio = GetComponent<AudioSource>();
-
-
         numOfEvolutions = 4;
-
-        findHouse2();
-
-        R = GetComponent<Animator>();
+        findHouse();
+        rangedAnims = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        //playing walking anim
         if (agent.speed > 0)
         {
-            R.SetBool("isWalking", true);
+            rangedAnims.SetBool("isWalking", true);
         }
         else
         {
-            R.SetBool("isWalking", false);
+            rangedAnims.SetBool("isWalking", false);
         }
 
 
-
+        // instantiate position for bullet
         pos = pivot.transform.position;
         rotation = pivot.transform.rotation;
+
+        // distance away from player currently
         float distance = Vector3.Distance(transform.position, Player.transform.position);
 
-
+        
         if (distance < EnemyDistanceRun && hasAttacked == false)
         {
             agent.isStopped = false;
@@ -101,15 +93,15 @@ public class AI_R : MonoBehaviour
             findTarget = false;
         }
 
-        else if (Vector3.Distance(transform.position, houseToMoveTo.position) > distanceAwayFromHouse)
+        else if (Vector3.Distance(transform.position, HouseGameObj.transform.position) > enemyAttackDistance)
         {
             if (findTarget == false)
             {
-                findHouse2();
+                findHouse();
                 findTarget = true;
             }
             agent.isStopped = false;
-            healthScript = HouseGameObj.GetComponent<Health>();
+
 
             hasAttacked = false;
             agent = GetComponent<NavMeshAgent>();
@@ -120,7 +112,7 @@ public class AI_R : MonoBehaviour
         else if (!hasAttacked)
         {
             agent.isStopped = true;
-            R.Play("Tree Attack");
+            rangedAnims.Play("Tree Attack");
             hasAttacked = true;
             Invoke("rangedAttack", chargeTime);
         }
@@ -133,7 +125,7 @@ public class AI_R : MonoBehaviour
 
     void rangedAttack()
     {
-        transform.LookAt(houseToMoveTo);
+        transform.LookAt(HouseGameObj.transform.position);
         GameObject clone;
         hasAttacked = false;
         clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
@@ -158,10 +150,10 @@ public class AI_R : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Gather(wood);
+        healthScript.Gather(1);
         Destroy(col);
-        Destroy(agent);
-        R.SetTrigger("Death");
+        agent.speed = 0;
+        rangedAnims.SetTrigger("Death");
         audio.PlayOneShot(deathAudioClip, 0.4f);
         deathParticles.SetActive(true);
         Invoke("deathAnim", 1.5f);
@@ -174,22 +166,22 @@ public class AI_R : MonoBehaviour
 
 
 
-    void findHouse2()
+    void findHouse()
     {
         GameObject[] gameObjectArray = { HouseGameObj, houseLocations.Addon1GO, houseLocations.Addon2GO, houseLocations.Addon3GO };
-        Transform[] transformArray = { House, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
-        houseToMoveTo = House;
-        houseToMoveTo.position = House.position;
+        Transform[] transformArray = { HouseGameObj.transform, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
+        houseToMoveTo = HouseGameObj.transform;
+        houseToMoveTo.position = HouseGameObj.transform.position;
 
-        for (forLoop = 0; forLoop < numOfEvolutions; forLoop++)
+        for (houseLoop = 0; houseLoop < numOfEvolutions; houseLoop++)
         {
             Debug.Log("enters the olde fore loope");
-            if (gameObjectArray[forLoop].activeSelf == true)
+            if (gameObjectArray[houseLoop].activeSelf == true)
             {
-                if (Vector3.Distance(transform.position, transformArray[forLoop].position) < Vector3.Distance(transform.position, houseToMoveTo.position))
+                if (Vector3.Distance(transform.position, transformArray[houseLoop].position) < Vector3.Distance(transform.position, houseToMoveTo.position))
                 {
-                    houseToMoveTo = transformArray[forLoop];
-                    houseToMoveTo.position = transformArray[forLoop].position;
+                    houseToMoveTo = transformArray[houseLoop];
+                    houseToMoveTo.position = transformArray[houseLoop].position;
                     Debug.Log("Sets new pos for house to move to");
                 }
             }
@@ -202,5 +194,11 @@ public class AI_R : MonoBehaviour
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(houseToMoveTo.position, path);
         agent.destination = houseToMoveTo.position;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(pos, EnemyDistanceRun);
     }
 }

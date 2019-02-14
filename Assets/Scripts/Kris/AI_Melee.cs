@@ -5,33 +5,31 @@ using UnityEngine.AI;
 
 public class AI_Melee : MonoBehaviour
 {
-    public int distanceAwayFromHouse;
-    private bool agentStopped = false;
+    // See comments in AI_R to see what stuff here does
+    //ai and house location stuff
+    private GameObject HouseGameObj;
+    private GameObject GameManagerObj;
+    private NavMeshAgent agent;
+    public HouseLocs houseLocations;
+    private Transform houseToMoveTo;
+    private Health healthScript;
+    private Collider col;
+
+    //attacking 
     private bool hasAttacked = false;
     public int swingTime = 3;
     public int enemyHealth;
-    public int wood = 1;
+
+    //movement
     public int speedOfTree;
-    public HouseLocs houseLocations;
-    private Health healthScript;
+    private bool agentStopped = false;
 
-    private GameObject HouseGameObj;
-    private GameObject GameManagerObj;
-    private Transform houseToMoveTo;
-    private Transform House;
-    private NavMeshAgent agent;
-
-    private Collider col;
-
-    Animator M;
-
+    // anim and sound stuff
+    Animator meleeAnim;
     new public AudioSource audio;
     public AudioClip deathAudioClip;
     public AudioClip attackAudioClip;
-
     public GameObject deathParticles;
-
-    // new spawner stuff below
 
     //loop stuff here
     private int forLoop;
@@ -42,7 +40,6 @@ public class AI_Melee : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
-        House = GameObject.FindGameObjectWithTag("House").transform;
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
@@ -54,18 +51,18 @@ public class AI_Melee : MonoBehaviour
 
         audio = GetComponent<AudioSource>();
 
-        M = GetComponent<Animator>();
+        meleeAnim = GetComponent<Animator>();
     }
 
     private void Update()
     {
         if (agent.speed > 0)
         {
-            M.SetBool("isWalking", true);
+            meleeAnim.SetBool("isWalking", true);
         }
         else
         {
-            M.SetBool("isWalking", false);
+            meleeAnim.SetBool("isWalking", false);
         }
 
         if (hasAttacked == false && agentStopped == true)
@@ -105,7 +102,7 @@ public class AI_Melee : MonoBehaviour
         hasAttacked = false;
         healthScript.Damage(1);
         audio.PlayOneShot(attackAudioClip, .4f);
-        M.Play("Tree Attack");
+        meleeAnim.Play("Tree Attack");
     }
 
     public void Hurt(int amount)
@@ -123,10 +120,10 @@ public class AI_Melee : MonoBehaviour
 
     public void Death()
     {
-        healthScript.Gather(wood);
+        healthScript.Gather(1);
         Destroy(agent);
         Destroy(col);
-        M.SetTrigger("Death");
+        meleeAnim.SetTrigger("Death");
         audio.PlayOneShot(deathAudioClip, 0.4f);
         deathParticles.SetActive(true);
         Invoke("deathAnim", 0.75f);
@@ -142,9 +139,9 @@ public class AI_Melee : MonoBehaviour
     void findHouse()
     {
         GameObject[] gameObjectArray = { HouseGameObj, houseLocations.Addon1GO, houseLocations.Addon2GO, houseLocations.Addon3GO };
-        Transform[] transformArray = { House, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
-        houseToMoveTo = House;
-        houseToMoveTo.position = House.position;
+        Transform[] transformArray = { HouseGameObj.transform, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
+        houseToMoveTo = HouseGameObj.transform;
+        houseToMoveTo.position = HouseGameObj.transform.position;
 
         for (forLoop = 0; forLoop < numOfEvolutions; forLoop++)
         {

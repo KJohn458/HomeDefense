@@ -926,19 +926,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1205306467, guid: dc785184b553af6419f99e120540c4b0, type: 3}
+  houseLocations: {fileID: 0}
+  enemyAttackDistance: 30
+  EnemyDistanceRun: 20
   bulletPrefab: {fileID: 2491543503938907506, guid: c4b2657f5d6ed9c4e955dfb18f39e37d,
     type: 3}
-  houseLocations: {fileID: 0}
   pivot: {fileID: 1788529041}
-  deathParticles: {fileID: 649968584280958748}
-  wood: 0
-  distanceAwayFromHouse: 30
   bulletVelocity: 80
-  EnemyDistanceRun: 20
   enemyHealth: 1
   audio: {fileID: 3302761543585930934}
   deathAudioClip: {fileID: 8300000, guid: 50df5060d0b659e45b6476b249b021bd, type: 3}
   attackAudioClip: {fileID: 8300000, guid: 04ce7076adb7e5d419dd1271eb8a4189, type: 3}
+  deathParticles: {fileID: 649968584280958748}
 --- !u!82 &3302761543585930934
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2889,6 +2888,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7135158949933700690}
     m_Modifications:
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_Name
+      value: Hit Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7004233311588704925, guid: 2792763f338edf14b92a33b4fe5b9c14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2958,16 +2967,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5828054
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_Name
-      value: Hit Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 6307408768274349273, guid: 2792763f338edf14b92a33b4fe5b9c14,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2792763f338edf14b92a33b4fe5b9c14, type: 3}

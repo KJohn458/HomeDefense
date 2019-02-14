@@ -32,8 +32,8 @@ public class AI_M : MonoBehaviour
         hasAttacked = false;
 
         agent = GetComponent<NavMeshAgent>();
-        HouseGameObj = GameObject.FindWithTag("House");
-        House = GameObject.FindWithTag("House").transform;
+        HouseGameObj = GameObject.FindWithTag("HouseGameObjtransform");
+        House = GameObject.FindWithTag("HouseGameObjtransform").transform;
 
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
@@ -59,7 +59,7 @@ public class AI_M : MonoBehaviour
             Invoke("swingBranch", chargeTime);
         }
 
-        //Debug.Log(Vector3.Distance(transform.position, House.position));
+        //Debug.Log(Vector3.Distance(transform.position, HouseGameObjtransform.position));
     }
 	
     void swingBranch()

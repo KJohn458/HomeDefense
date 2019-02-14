@@ -500,6 +500,16 @@ PrefabInstance:
       propertyPath: m_Text
       value: Press F to Repair 1 health for 2 wood
       objectReference: {fileID: 0}
+    - target: {fileID: 1739181223708171977, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_CancelButton
+      value: Cancel_Keyboard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739181223708171977, guid: 22f6acaa11e0dc84280e1420470fccaa,
+        type: 3}
+      propertyPath: m_SubmitButton
+      value: Submit_Keyboard
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22f6acaa11e0dc84280e1420470fccaa, type: 3}
 --- !u!1001 &440919299
@@ -668,12 +678,12 @@ PrefabInstance:
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnRanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnMelee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}

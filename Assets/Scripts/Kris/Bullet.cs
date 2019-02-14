@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     private Health healthScript;
     private GameObject HouseGameObj;
     private bool hitOnce;
+    private float despawnTimer = 5.0f;
     void Start()
     {
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
@@ -14,9 +15,9 @@ public class Bullet : MonoBehaviour
         hitOnce = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Invoke("destroyPrefab", 5);    
+        countTimer();
     }
 
     void OnTriggerEnter(Collider other)
@@ -48,8 +49,14 @@ public class Bullet : MonoBehaviour
 
     }
 
-    void destroyPrefab()
+    void countTimer()
     {
-        Destroy(gameObject);
+        despawnTimer -= Time.deltaTime;
+        if (despawnTimer <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
+
+
