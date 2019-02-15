@@ -2213,8 +2213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104eefacdb3b4284da9aa9382899c09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRate: 150
-  moveSpeed: 0.6
+  rotationRate: 100
+  moveSpeed: 10
   repairCanvas: {fileID: 0}
 --- !u!1 &1206207262
 GameObject:
