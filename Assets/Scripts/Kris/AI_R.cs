@@ -6,7 +6,7 @@ public class AI_R : MonoBehaviour
     // enemy ai and house finder objects
     private GameObject HouseGameObj; //for enemies to find the house
     public GameObject Player; // for the enemies to know where the player is
-    private Transform houseToMoveTo; // transform that changes position based on nearby house 
+    private Transform houseToMoveTo; // transform that changes position based on nearby house
     public HouseLocs houseLocations; // gamemanager object that holds all possible houses
     private bool findTarget;
     private Collider col; // used to delete col when enemy killed to remove hitbox
@@ -21,7 +21,6 @@ public class AI_R : MonoBehaviour
     Quaternion rotation;
 
     //bullet stuff
-    private Rigidbody cloneRB;
     public GameObject bulletPrefab;
     public GameObject pivot; // where bullet fires from
     public float bulletVelocity = 400f;
@@ -40,22 +39,19 @@ public class AI_R : MonoBehaviour
 
     //loop stuff here
     private int houseLoop;
-    private int numOfEvolutions;
-
-
-
+    private int numOfEvolutions; 
 
     private void Start()
     {
-
         agent = GetComponent<NavMeshAgent>();
+        col = GetComponent<Collider>();
+        audio = GetComponent<AudioSource>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         houseLocations = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HouseLocs>();
         Player = GameObject.FindGameObjectWithTag("Player");
         healthScript = HouseGameObj.GetComponent<Health>();
         findTarget = true;
-        col = GetComponent<Collider>();
-        audio = GetComponent<AudioSource>();
+
         numOfEvolutions = 4;
         findHouse();
         rangedAnims = GetComponent<Animator>();
@@ -101,13 +97,8 @@ public class AI_R : MonoBehaviour
                 findTarget = true;
             }
             agent.isStopped = false;
-
-
             hasAttacked = false;
-            agent = GetComponent<NavMeshAgent>();
-
         }
-
 
         else if (!hasAttacked)
         {
@@ -115,11 +106,6 @@ public class AI_R : MonoBehaviour
             rangedAnims.Play("Tree Attack");
             hasAttacked = true;
             Invoke("rangedAttack", chargeTime);
-        }
-
-        else
-        {
-            //  Debug.Log("Charging my attack!");
         }
     }
 
@@ -129,11 +115,8 @@ public class AI_R : MonoBehaviour
         GameObject clone;
         hasAttacked = false;
         clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
-        clone.AddComponent<Rigidbody>();
-        cloneRB = clone.GetComponent<Rigidbody>();
-        cloneRB.AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
+        clone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletVelocity, ForceMode.Impulse);
         audio.PlayOneShot(attackAudioClip, 0.4f);
-
     }
 
     public void Hurt(int amount)
@@ -145,7 +128,6 @@ public class AI_R : MonoBehaviour
         {
             Death();
         }
-
     }
 
     public void Death()
@@ -163,8 +145,6 @@ public class AI_R : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
 
     void findHouse()
     {
