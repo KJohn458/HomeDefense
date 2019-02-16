@@ -83,7 +83,10 @@ public class PlayerControl : MonoBehaviour
 
     private void Move(float input)
     {
-        transform.Translate(Vector3.forward * input * moveSpeed * Time.deltaTime);
+        if ( !Input.GetKey(KeyCode.LeftShift) )
+            transform.Translate(Vector3.forward * input * moveSpeed * Time.deltaTime);
+        else
+            transform.Translate(Vector3.forward * input * (moveSpeed * 2) * Time.deltaTime);
     }
 
     private void Turn(float input)
