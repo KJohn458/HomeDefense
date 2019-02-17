@@ -11,6 +11,9 @@ public class Health : MonoBehaviour
 	public Text HP;
 	public Text Wood;
 
+    private AI_Melee meleeDudes;
+    private AI_R rangedDudes;
+
     // Andrew
 	public GameObject Death;
 	public GameObject Win;
@@ -31,6 +34,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
+        rangedDudes = GameObject.FindGameObjectsWithTag("Ranged");
         spawn1.SetActive(true);
         spawn2.SetActive(false);
         spawn3.SetActive(false);
@@ -50,7 +54,7 @@ public class Health : MonoBehaviour
 		
 		if(health==0)
         {
-            gameover();
+            
         }
 
         if(upgradeScript.difficulty == 0)

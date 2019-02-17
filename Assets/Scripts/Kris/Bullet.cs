@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Health healthScript;
     private GameObject HouseGameObj;
+    private GameObject Player;
+    private Health healthScript;
+    private PlayerHealth playerHealth; 
     private bool hitOnce;
     private float despawnTimer = 5.0f;
     void Start()
     {
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
+        Player = GameObject.FindGameObjectWithTag("Player");
         healthScript = HouseGameObj.GetComponent<Health>();
+        playerHealth = Player.GetComponent<PlayerHealth>();
         hitOnce = false;
     }
 
@@ -43,6 +47,12 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Addon3" && hitOnce == false)
         {
             healthScript.Damage(1);
+            Destroy(gameObject);
+            hitOnce = true;
+        }
+        if(other.tag == "Player" && hitOnce == false)
+        {
+            playerHealth.playerTakeDamage();
             Destroy(gameObject);
             hitOnce = true;
         }

@@ -9,6 +9,7 @@ public class AI_Melee : MonoBehaviour
     //ai and house location stuff
     private GameObject HouseGameObj;
     private GameObject GameManagerObj;
+    private GameObject Player;
     private NavMeshAgent agent;
     public HouseLocs houseLocations;
     private Transform houseToMoveTo;
@@ -44,7 +45,7 @@ public class AI_Melee : MonoBehaviour
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
         healthScript = HouseGameObj.GetComponent<Health>();
         col = GetComponent<Collider>();
-
+        Player = GameObject.FindGameObjectWithTag("Player");
         numOfEvolutions = 4;
         findHouse();
 
@@ -154,6 +155,12 @@ public class AI_Melee : MonoBehaviour
                     houseToMoveTo.position = transformArray[forLoop].position;
                     Debug.Log("Sets new pos for house to move to");
                 }
+            }
+            else if (gameObjectArray[0].activeSelf == false)
+            {
+                houseToMoveTo = Player.transform;
+                houseToMoveTo.position = Player.transform.position;
+                Debug.Log("Targeting the player");
             }
             else
             {

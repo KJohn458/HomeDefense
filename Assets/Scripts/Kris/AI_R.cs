@@ -89,7 +89,7 @@ public class AI_R : MonoBehaviour
             findTarget = false;
         }
 
-        else if (Vector3.Distance(transform.position, HouseGameObj.transform.position) > enemyAttackDistance)
+        else if (Vector3.Distance(transform.position, houseToMoveTo.transform.position) > enemyAttackDistance)
         {
             if (findTarget == false)
             {
@@ -111,7 +111,7 @@ public class AI_R : MonoBehaviour
 
     void rangedAttack()
     {
-        transform.LookAt(HouseGameObj.transform.position);
+        transform.LookAt(houseToMoveTo.transform.position);
         GameObject clone;
         hasAttacked = false;
         clone = Instantiate(bulletPrefab, pos, rotation) as GameObject;
@@ -155,7 +155,7 @@ public class AI_R : MonoBehaviour
 
         for (houseLoop = 0; houseLoop < numOfEvolutions; houseLoop++)
         {
-            Debug.Log("enters the olde fore loope");
+            Debug.Log("Looking for what house to move to");
             if (gameObjectArray[houseLoop].activeSelf == true)
             {
                 if (Vector3.Distance(transform.position, transformArray[houseLoop].position) < Vector3.Distance(transform.position, houseToMoveTo.position))
@@ -164,6 +164,13 @@ public class AI_R : MonoBehaviour
                     houseToMoveTo.position = transformArray[houseLoop].position;
                     Debug.Log("Sets new pos for house to move to");
                 }
+            }
+            else if(gameObjectArray[0].activeSelf == false)
+            {
+                houseToMoveTo = Player.transform;
+                houseToMoveTo.position = Player.transform.position;
+                EnemyDistanceRun = 0;
+                Debug.Log("Targeting the player");
             }
             else
             {
