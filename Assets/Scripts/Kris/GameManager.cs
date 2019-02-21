@@ -9,20 +9,24 @@ public class GameManager : MonoBehaviour
     private AI_R[] rangedDudes;
 
     private Health healthScript;
+    private GameObject House;
+    private bool FramesNeeded;
+    public bool HouseDestroyed = false;
     // Start is called before the first frame update
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        healthScript = GameObject.FindGameObjectWithTag("House").GetComponent<Health>();
+        healthScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Health>();
+        House = GameObject.FindGameObjectWithTag("House");
     }
 
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (healthScript.health == 0)
+        if (healthScript.health == 0 && FramesNeeded == false) 
         {
-            gameObject.SetActive(false);
+            House.SetActive(false);
             rangedDudes = Object.FindObjectsOfType(typeof(AI_R)) as AI_R[];
             meleeDudes = Object.FindObjectsOfType(typeof(AI_Melee)) as AI_Melee[];
             for (int i = 0; i < meleeDudes.Length; i++)
@@ -34,6 +38,8 @@ public class GameManager : MonoBehaviour
             {
                 rangedDudes[i].SendMessage("findHouse");
             }
+            FramesNeeded = true;
+            HouseDestroyed = true;
         }
     }
 }

@@ -14,12 +14,14 @@ public class AI_Melee : MonoBehaviour
     public HouseLocs houseLocations;
     private Transform houseToMoveTo;
     private Health healthScript;
+    private GameManager gameManager;
     private Collider col;
 
     //attacking 
     private bool hasAttacked = false;
-    public int swingTime = 3;
+    public float buildingAttackTimer = 3f;
     public int enemyHealth;
+    
 
     //movement
     public int speedOfTree;
@@ -35,6 +37,11 @@ public class AI_Melee : MonoBehaviour
     //loop stuff here
     private int forLoop;
     private int numOfEvolutions;
+    public bool HouseDestroyed;
+
+    private float playerAttackTimer = 1f;
+
+    private GameObject meleeAttackBox;
 
 
     public void Start()
@@ -43,19 +50,21 @@ public class AI_Melee : MonoBehaviour
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
         GameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameManagerObj.GetComponent<HouseLocs>();
-        healthScript = HouseGameObj.GetComponent<Health>();
+        healthScript = GameManagerObj.GetComponent<Health>();
+        gameManager = GameManagerObj.GetComponent<GameManager>();
         col = GetComponent<Collider>();
         Player = GameObject.FindGameObjectWithTag("Player");
         numOfEvolutions = 4;
         findHouse();
-
-
         audio = GetComponent<AudioSource>();
-
         meleeAnim = GetComponent<Animator>();
+
+        meleeAttackBox = gameObject.transform.Find("HitBox").gameObject;
+
+        HouseDestroyed = gameManager.HouseDestroyed;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (agent.speed > 0)
         {
@@ -68,23 +77,50 @@ public class AI_Melee : MonoBehaviour
 
         if (hasAttacked == false && agentStopped == true)
         {
-            hasAttacked = true;
-            Invoke("swingBranch", swingTime);
+            if(HouseDestroyed == false)
+            {
+                attackTimer();
+            }
+            else
+            {
+                agent.speed = speedOfTree;
+                agentStopped = false;
+            }
+        }
+      
+
+        if(HouseDestroyed == true)
+        {
+            houseToMoveTo = Player.transform;
+            houseToMoveTo.position = Player.transform.position;
+            NavMeshPath path = new NavMeshPath();
+            agent.CalculatePath(houseToMoveTo.position, path);
+            agent.destination = houseToMoveTo.position;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.tag == "House" || other.gameObject.tag == "Addon1" || other.gameObject.tag == "Addon2" || other.gameObject.tag == "Addon3")
+        if (other.gameObject.tag == "House" || other.gameObject.tag == "Addon1" || other.gameObject.tag == "Addon2" || other.gameObject.tag == "Addon3" )
         {
-            Debug.Log("Yoyoyo");
+            Debug.Log("Stopping to Attack");
             agent.speed = 0;
             agent.velocity = Vector3.zero;
             agentStopped = true;
             transform.LookAt(houseToMoveTo);
         }
-    }
+        else if(other.gameObject.tag == "Player" && HouseDestroyed == true)
+        {
+            Debug.Log("Stopping to Attack the Player");
+            agent.speed = 0;
+            agent.velocity = Vector3.zero;
+            agentStopped = true;
+            transform.LookAt(houseToMoveTo);
+        }
+
+
+    } 
 
     private void OnTriggerExit(Collider other)
     {
@@ -101,7 +137,10 @@ public class AI_Melee : MonoBehaviour
 
         Debug.Log("Hit");
         hasAttacked = false;
-        healthScript.Damage(1);
+
+        meleeAttackBox.GetComponent<MeleeEnemyAttackBox>().hasAttacked = false;
+        meleeAttackBox.GetComponent<MeleeEnemyAttackBox>().MC.enabled = true;
+
         audio.PlayOneShot(attackAudioClip, .4f);
         meleeAnim.Play("Tree Attack");
     }
@@ -122,7 +161,7 @@ public class AI_Melee : MonoBehaviour
     public void Death()
     {
         healthScript.Gather(1);
-        Destroy(agent);
+        agent.speed = 0;
         Destroy(col);
         meleeAnim.SetTrigger("Death");
         audio.PlayOneShot(deathAudioClip, 0.4f);
@@ -136,13 +175,40 @@ public class AI_Melee : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void attackTimer()
+    {
+        if(HouseDestroyed == true)
+        {
+            playerAttackTimer -= Time.deltaTime;
+        }
+        else
+        {
+            buildingAttackTimer -= Time.deltaTime;
+        }
+        
+        if (buildingAttackTimer <= 0 && hasAttacked == false)
+        {
+            hasAttacked = true;
+            swingBranch();
+            buildingAttackTimer = 3f;
+            meleeAttackBox.GetComponent<MeleeEnemyAttackBox>().turnOnCollider();
+        }
+        else if(playerAttackTimer <= 0 && hasAttacked == false)
+        {
+            hasAttacked = true;
+            swingBranch();
+            playerAttackTimer = 1f;
+            meleeAttackBox.GetComponent<MeleeEnemyAttackBox>().turnOnCollider();
+        }
+    }
+
 
     void findHouse()
     {
-        GameObject[] gameObjectArray = { HouseGameObj, houseLocations.Addon1GO, houseLocations.Addon2GO, houseLocations.Addon3GO };
-        Transform[] transformArray = { HouseGameObj.transform, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
-        houseToMoveTo = HouseGameObj.transform;
-        houseToMoveTo.position = HouseGameObj.transform.position;
+        GameObject[] gameObjectArray = { houseLocations.HouseObj, houseLocations.Addon1GO, houseLocations.Addon2GO, houseLocations.Addon3GO };
+        Transform[] transformArray = { houseLocations.HousePos, houseLocations.Addon1Pos, houseLocations.Addon2Pos, houseLocations.Addon3Pos };
+        houseToMoveTo = houseLocations.HouseObj.transform;
+        houseToMoveTo.position = houseLocations.HouseObj.transform.position;
 
         for (forLoop = 0; forLoop < numOfEvolutions; forLoop++)
         {
@@ -160,6 +226,7 @@ public class AI_Melee : MonoBehaviour
             {
                 houseToMoveTo = Player.transform;
                 houseToMoveTo.position = Player.transform.position;
+                HouseDestroyed = true;
                 Debug.Log("Targeting the player");
             }
             else

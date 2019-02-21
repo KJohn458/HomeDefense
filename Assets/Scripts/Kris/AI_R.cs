@@ -6,6 +6,7 @@ public class AI_R : MonoBehaviour
     // enemy ai and house finder objects
     private GameObject HouseGameObj; //for enemies to find the house
     public GameObject Player; // for the enemies to know where the player is
+    private GameObject gameManagerObj;
     private Transform houseToMoveTo; // transform that changes position based on nearby house
     public HouseLocs houseLocations; // gamemanager object that holds all possible houses
     private bool findTarget;
@@ -47,9 +48,10 @@ public class AI_R : MonoBehaviour
         col = GetComponent<Collider>();
         audio = GetComponent<AudioSource>();
         HouseGameObj = GameObject.FindGameObjectWithTag("House");
+        gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
         houseLocations = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HouseLocs>();
         Player = GameObject.FindGameObjectWithTag("Player");
-        healthScript = HouseGameObj.GetComponent<Health>();
+        healthScript = gameManagerObj.GetComponent<Health>();
         findTarget = true;
 
         numOfEvolutions = 4;

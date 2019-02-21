@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HouseLocs : MonoBehaviour
 {
+    public Transform HousePos;
+    public GameObject HouseObj;
     public Transform Addon1Pos;
     public GameObject Addon1GO;
     public Transform Addon2Pos;
@@ -13,12 +15,14 @@ public class HouseLocs : MonoBehaviour
 
     public void Awake()
     {
+        HouseObj = GameObject.FindGameObjectWithTag("House");
+        HousePos = HouseObj.transform;
         Addon1GO = GameObject.FindGameObjectWithTag("Addon1");
-        Addon1Pos = GameObject.FindGameObjectWithTag("Addon1").transform;
+        Addon1Pos = Addon1GO.transform;
         Addon2GO = GameObject.FindGameObjectWithTag("Addon2");
-        Addon2Pos = GameObject.FindGameObjectWithTag("Addon2").transform;
+        Addon2Pos = Addon2GO.transform;
         Addon3GO = GameObject.FindGameObjectWithTag("Addon3");
-        Addon3Pos = GameObject.FindGameObjectWithTag("Addon3").transform;
+        Addon3Pos = Addon3GO.transform;
 
         Addon1GO.SetActive(false);
         Addon2GO.SetActive(false);

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3999240258991343163}
   - component: {fileID: 7598288265113671908}
   - component: {fileID: 9049595339211769318}
+  - component: {fileID: 4074527101085988305}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -88,3 +89,30 @@ MonoBehaviour:
   Addon2GO: {fileID: 0}
   Addon3Pos: {fileID: 0}
   Addon3GO: {fileID: 0}
+--- !u!114 &4074527101085988305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049595339211769319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec73d5337af49f45aa0e4d2559346a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  wood: 0
+  HP: {fileID: 0}
+  Wood: {fileID: 0}
+  Death: {fileID: 0}
+  Win: {fileID: 0}
+  addonOne: {fileID: 0}
+  addonTwo: {fileID: 0}
+  addonThree: {fileID: 0}
+  spawn1: {fileID: 0}
+  spawn2: {fileID: 0}
+  spawn3: {fileID: 0}
+  spawn4: {fileID: 0}
+  mod: 1
+  upgradeScript: {fileID: 0}

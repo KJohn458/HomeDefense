@@ -770,7 +770,7 @@ PrefabInstance:
     - target: {fileID: 3713915653441007771, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653956736744, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -866,12 +866,12 @@ PrefabInstance:
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnRanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
       propertyPath: spawnMelee
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -887,7 +887,7 @@ PrefabInstance:
         type: 3}
       propertyPath: meleeEnemy
       value: 
-      objectReference: {fileID: 539666941, guid: cb8547c6035ddf145a54f567d68a658f,
+      objectReference: {fileID: 6057636915526154655, guid: c727668b40a714147ae71d75b3c39780,
         type: 3}
     - target: {fileID: 3713915653441007768, guid: 33152485731b2754cb4115bab335771f,
         type: 3}
@@ -1914,6 +1914,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc785184b553af6419f99e120540c4b0, type: 3}
+--- !u!114 &1202017040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4780396080951982312, guid: 22f6acaa11e0dc84280e1420470fccaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 431991437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1348576520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4288416149911810, guid: f293a2dcc753a4a489fefe7f8f312d69,
@@ -2379,7 +2391,7 @@ PrefabInstance:
       objectReference: {fileID: 1070829755}
     - target: {fileID: 1743612816, guid: e48f8caee5a312644bda0992db301810, type: 3}
       propertyPath: health
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7177818146639586397, guid: e48f8caee5a312644bda0992db301810,
         type: 3}
@@ -2411,7 +2423,8 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.009681494
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1743612816, guid: e48f8caee5a312644bda0992db301810, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e48f8caee5a312644bda0992db301810, type: 3}
 --- !u!114 &1598718736 stripped
 MonoBehaviour:
@@ -2895,6 +2908,71 @@ PrefabInstance:
       propertyPath: Addon3GO
       value: 
       objectReference: {fileID: 349490033}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: HP
+      value: 
+      objectReference: {fileID: 1362608178}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: Wood
+      value: 
+      objectReference: {fileID: 1202017040}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: Death
+      value: 
+      objectReference: {fileID: 1401328058}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: Win
+      value: 
+      objectReference: {fileID: 1070829755}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: addonOne
+      value: 
+      objectReference: {fileID: 454488889}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: addonTwo
+      value: 
+      objectReference: {fileID: 277636618}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: addonThree
+      value: 
+      objectReference: {fileID: 349490033}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: spawn1
+      value: 
+      objectReference: {fileID: 153250744}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: spawn2
+      value: 
+      objectReference: {fileID: 1082568788}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: spawn3
+      value: 
+      objectReference: {fileID: 971006404}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: spawn4
+      value: 
+      objectReference: {fileID: 803224116}
+    - target: {fileID: 4074527101085988305, guid: 36ff0c7794307304b949b14a9563659e,
+        type: 3}
+      propertyPath: upgradeScript
+      value: 
+      objectReference: {fileID: 1071048494}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36ff0c7794307304b949b14a9563659e, type: 3}
 --- !u!1001 &2014764602
