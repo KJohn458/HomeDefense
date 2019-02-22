@@ -259,7 +259,7 @@ public class InputManager : MonoBehaviour
         {
             case OperatingSystemFamily.MacOSX:
 
-                if (Input.GetKey("Sprint_Keyboard") || Input.GetButton("Sprint_MacOSX"))
+                if (Input.GetButton("Sprint_Keyboard") || Input.GetButton("Sprint_MacOSX"))
                 {
                     return true;
                 }
@@ -267,7 +267,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Windows:
 
-                if (Input.GetKey("Sprint_Keyboard") || Input.GetButton("Sprint_Windows"))
+                if (Input.GetButton("Sprint_Keyboard") || Input.GetButton("Sprint_Windows"))
                 {
                     return true;
                 }
@@ -275,7 +275,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Linux:
 
-                if (Input.GetKey("Sprint_Keyboard") || Input.GetButton("Sprint_Linux"))
+                if (Input.GetButton("Sprint_Keyboard") || Input.GetButton("Sprint_Linux"))
                 {
                     return true;
                 }
@@ -291,7 +291,7 @@ public class InputManager : MonoBehaviour
         {
             case OperatingSystemFamily.MacOSX:
 
-                if (Input.GetButtonDown("Sprint_Keyboard") || Input.GetButton("Sprint_MacOSX"))
+                if (Input.GetButtonDown("Attack_Keyboard") || Input.GetButton("Attack_MacOSX"))
                 {
                     return true;
                 }
@@ -299,7 +299,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Windows:
 
-                if (Input.GetButtonDown("Sprint_Keyboard") || Input.GetButton("Sprint_Windows"))
+                if (Input.GetButtonDown("Attack_Keyboard") || Input.GetButton("Attack_Windows"))
                 {
                     return true;
                 }
@@ -307,7 +307,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Linux:
 
-                if (Input.GetButtonDown("Sprint_Keyboard") || Input.GetButton("Sprint_Linux"))
+                if (Input.GetButtonDown("Attack_Keyboard") || Input.GetButton("Attack_Linux"))
                 {
                     return true;
                 }
