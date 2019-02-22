@@ -17,30 +17,19 @@ public class testInputManager : MonoBehaviour
             Debug.Log("Looking: " + InputManager.instance.Looking());
         }
 
-        if(InputManager.instance.Interact())
-        {
-            Debug.Log("Interact");
-        }
-
-        if(InputManager.instance.Submit())
-        {
-            Debug.Log("Submit");
-        }
-
-        if(InputManager.instance.Cancel())
-        {
-            Debug.Log("Cancel");
-        }
-
         if(InputManager.instance.Pause())
         {
             Debug.Log("Pause");
+        }
+
+        if(InputManager.instance.Attack())
+        {
+            Debug.Log("Attack");
         }
 
         if(InputManager.instance.Sprint())
         {
             Debug.Log("Sprint");
         }
-        
     }
 }

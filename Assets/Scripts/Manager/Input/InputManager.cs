@@ -5,7 +5,6 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance = null;
-
     void Awake()
     {
         if (instance == null)
@@ -16,7 +15,6 @@ public class InputManager : MonoBehaviour
             Destroy(gameObject); 
         }
     }
-
     private static bool TestGamepadConected()
     {
         if (Input.GetJoystickNames().Length > 0)
@@ -27,7 +25,6 @@ public class InputManager : MonoBehaviour
             return false;
         }
     }
-
     private float Move_Horizontal()
     {
         float r = 0.0f;
@@ -52,9 +49,7 @@ public class InputManager : MonoBehaviour
             default:
                 return 0;
         }
-
     }
-
     private float Move_Vertical()
     {
         float r = 0.0f;
@@ -80,12 +75,12 @@ public class InputManager : MonoBehaviour
                 return 0;
         }
     }
-
     public Vector3 Move()
     {
         if (TestGamepadConected())
         {
             return new Vector3(Move_Horizontal(),0.0f, Move_Vertical());
+
         }else
         {
             float x = 0.0f;
@@ -97,7 +92,6 @@ public class InputManager : MonoBehaviour
             return new Vector3 (x, 0.0f,y);
         }
     }
-
     private float Looking_Horizontal()
     {
         float r = 0.0f;
@@ -107,7 +101,7 @@ public class InputManager : MonoBehaviour
             case OperatingSystemFamily.MacOSX:
 
                 r += Input.GetAxis("Looking_Horizontal_Joystick_MacOSX");
-        return Mathf.Clamp(r, -1.0f, 1.0f);
+                return Mathf.Clamp(r, -1.0f, 1.0f);
 
             case OperatingSystemFamily.Windows:
 
@@ -123,7 +117,6 @@ public class InputManager : MonoBehaviour
                 return 0;
         }
     }
-
     private float Looking_Vertical()
     {
         float r = 0.0f;
@@ -163,107 +156,6 @@ public class InputManager : MonoBehaviour
             return new Vector3 (lookingHorizontal, lookingVertical, 0.0f);
         }
     }
-
-    public bool Interact()
-    {
-        float offset = 0.8f;
-
-        switch (SystemInfo.operatingSystemFamily)
-        {
-            case OperatingSystemFamily.MacOSX:
-
-                if ((Input.GetAxis("Interact_Joystick_MacOSX_R") > offset) || Input.GetButtonDown("Interact_Keyboard"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Windows:
-
-                if ((Input.GetAxis("Interact_Joystick_Windows_R") > offset) || Input.GetButtonDown("Interact_Keyboard"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Linux:
-
-                if ((Input.GetAxis("Interact_Joystick_Linux_R") > offset) || Input.GetButtonDown("Interact_Keyboard"))
-                {
-                    return true;
-                }
-                else return false;
-
-            default:
-                return false;
-        }
-    }
-
-    public bool Submit()
-    {
-        switch (SystemInfo.operatingSystemFamily)
-        {
-            case OperatingSystemFamily.MacOSX:
-
-                if (Input.GetButtonDown("Submit_Keyboard") || Input.GetButtonDown("Submit_MacOSX"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Windows:
-
-                if (Input.GetButtonDown("Submit_Keyboard") || Input.GetButtonDown("Submit_Windows"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Linux:
-
-                if (Input.GetButtonDown("Submit_Keyboard") || Input.GetButtonDown("Submit_Linux"))
-                {
-                    return true;
-                }
-                else return false;
-
-            default:
-                return false;
-        }
-    }
-    public bool Cancel()
-    {
-        switch (SystemInfo.operatingSystemFamily)
-        {
-            case OperatingSystemFamily.MacOSX:
-
-                if (Input.GetButtonDown("Cancel_Keyboard") || Input.GetButtonDown("Cancel_MacOSX"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Windows:
-
-                if (Input.GetButtonDown("Cancel_Keyboard") || Input.GetButtonDown("Cancel_Windows"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Linux:
-
-                if (Input.GetButtonDown("Cancel_Keyboard") || Input.GetButtonDown("Cancel_Linux"))
-                {
-                    return true;
-                }
-                else return false;
-
-            default:
-                return false;
-        }
-    }
-
     public bool Pause()
     {
         switch (SystemInfo.operatingSystemFamily)
@@ -296,6 +188,70 @@ public class InputManager : MonoBehaviour
                 return false;
         }
     }
+    public bool Submit()
+    {
+        switch (SystemInfo.operatingSystemFamily)
+        {
+            case OperatingSystemFamily.MacOSX:
+
+                if (Input.GetKeyDown("Submit_Keyboard") || Input.GetButtonDown("Submit_MacOSX"))
+                {
+                    return true;
+                }
+                else return false;
+
+            case OperatingSystemFamily.Windows:
+
+                if (Input.GetKeyDown("Submit_Keyboard") || Input.GetButtonDown("Submit_Windows"))
+                {
+                    return true;
+                }
+                else return false;
+
+            case OperatingSystemFamily.Linux:
+
+                if (Input.GetKeyDown("Submit_Keyboard") || Input.GetButtonDown("Submit_Linux"))
+                {
+                    return true;
+                }
+                else return false;
+
+            default:
+                return false;
+        }
+    }
+    public bool Cancel()
+    {
+        switch (SystemInfo.operatingSystemFamily)
+        {
+            case OperatingSystemFamily.MacOSX:
+
+                if (Input.GetKeyDown("Cancel_Keyboard") || Input.GetButtonDown("Cancel_MacOSX"))
+                {
+                    return true;
+                }
+                else return false;
+
+            case OperatingSystemFamily.Windows:
+
+                if (Input.GetKeyDown("Cancel_Keyboard") || Input.GetButtonDown("Cancel_Windows"))
+                {
+                    return true;
+                }
+                else return false;
+
+            case OperatingSystemFamily.Linux:
+
+                if (Input.GetKeyDown("Cancel_Keyboard") || Input.GetButtonDown("Cancel_Linux"))
+                {
+                    return true;
+                }
+                else return false;
+
+            default:
+                return false;
+        }
+    }
 
     public bool Sprint()
     {
@@ -303,7 +259,7 @@ public class InputManager : MonoBehaviour
         {
             case OperatingSystemFamily.MacOSX:
 
-                if (Input.GetButton("Sprint_Keyboard") || Input.GetButton("Sprint_MacOSX"))
+                if (Input.GetKey("Sprint_Keyboard") || Input.GetButton("Sprint_MacOSX"))
                 {
                     return true;
                 }
@@ -311,7 +267,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Windows:
 
-                if (Input.GetButton("Sprint_Keyboard") || Input.GetButton("Sprint_Windows"))
+                if (Input.GetKey("Sprint_Keyboard") || Input.GetButton("Sprint_Windows"))
                 {
                     return true;
                 }
@@ -319,7 +275,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Linux:
 
-                if (Input.GetButton("Sprint_Keyboard") || Input.GetButton("Sprint_Linux"))
+                if (Input.GetKey("Sprint_Keyboard") || Input.GetButton("Sprint_Linux"))
                 {
                     return true;
                 }
@@ -329,14 +285,13 @@ public class InputManager : MonoBehaviour
                 return false;
         }
     }
-
-    public bool Crouch()
+        public bool Attack()
     {
         switch (SystemInfo.operatingSystemFamily)
         {
             case OperatingSystemFamily.MacOSX:
 
-                if (Input.GetButton("Crouch_Keyboard") || Input.GetButton("Crouch_MacOSX"))
+                if (Input.GetButtonDown("Sprint_Keyboard") || Input.GetButton("Sprint_MacOSX"))
                 {
                     return true;
                 }
@@ -344,7 +299,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Windows:
 
-                if (Input.GetButton("Crouch_Keyboard") || Input.GetButton("Crouch_Windows"))
+                if (Input.GetButtonDown("Sprint_Keyboard") || Input.GetButton("Sprint_Windows"))
                 {
                     return true;
                 }
@@ -352,106 +307,7 @@ public class InputManager : MonoBehaviour
 
             case OperatingSystemFamily.Linux:
 
-                if (Input.GetButton("Crouch_Keyboard") || Input.GetButton("Crouch_Linux"))
-                {
-                    return true;
-                }
-                else return false;
-
-            default:
-                return false;
-        }
-    }
-
-    public bool Lean_L()
-    {
-        switch (SystemInfo.operatingSystemFamily)
-        {
-            case OperatingSystemFamily.MacOSX:
-
-                if (Input.GetButton("Lean_Keyboard_L") || Input.GetButtonDown("Lean_MacOSX_L"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Windows:
-
-                if (Input.GetButton("Lean_Keyboard_L") || Input.GetButtonDown("Lean_Windows_L"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Linux:
-
-                if (Input.GetButton("Lean_Keyboard_L") || Input.GetButtonDown("Lean_Linux_L"))
-                {
-                    return true;
-                }
-                else return false;
-
-            default:
-                return false;
-        }
-    }
-
-    public bool Lean_R()
-    {
-        switch (SystemInfo.operatingSystemFamily)
-        {
-            case OperatingSystemFamily.MacOSX:
-
-                if (Input.GetButton("Lean_Keyboard_R") || Input.GetButtonDown("Lean_MacOSX_R"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Windows:
-
-                if (Input.GetButton("Lean_Keyboard_R") || Input.GetButtonDown("Lean_Windows_R"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Linux:
-
-                if (Input.GetButton("Lean_Keyboard_R") || Input.GetButtonDown("Lean_Linux_R"))
-                {
-                    return true;
-                }
-                else return false;
-
-            default:
-                return false;
-        }
-    }
-
-    public bool ThrowObject()
-    {
-        switch (SystemInfo.operatingSystemFamily)
-        {
-            case OperatingSystemFamily.MacOSX:
-
-                if (Input.GetButtonDown("ThrowObject_Keyboard") || Input.GetButtonDown("ThrowObject_MacOSX"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Windows:
-
-                if (Input.GetButtonDown("ThrowObject_Keyboard") || Input.GetButtonDown("ThrowObject_Windows"))
-                {
-                    return true;
-                }
-                else return false;
-
-            case OperatingSystemFamily.Linux:
-
-                if (Input.GetButtonDown("ThrowObject_Keyboard") || Input.GetButtonDown("ThrowObject_Linux"))
+                if (Input.GetButtonDown("Sprint_Keyboard") || Input.GetButton("Sprint_Linux"))
                 {
                     return true;
                 }
