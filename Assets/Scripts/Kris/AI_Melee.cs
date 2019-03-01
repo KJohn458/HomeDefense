@@ -97,6 +97,11 @@ public class AI_Melee : MonoBehaviour
             agent.CalculatePath(houseToMoveTo.position, path);
             agent.destination = houseToMoveTo.position;
         }
+
+        if (HouseDestroyed == true && agentStopped == true)
+        {
+            attackTimer();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

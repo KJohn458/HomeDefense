@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7598288265113671908}
   - component: {fileID: 9049595339211769318}
   - component: {fileID: 4074527101085988305}
+  - component: {fileID: 888359256953246352}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae220ad62d4000c4d935665a00a57260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HouseDestroyed: 0
 --- !u!114 &3999240258991343163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd245481dbc8514899e849ce2c382ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HousePos: {fileID: 0}
+  HouseObj: {fileID: 0}
   Addon1Pos: {fileID: 0}
   Addon1GO: {fileID: 0}
   Addon2Pos: {fileID: 0}
@@ -116,3 +120,16 @@ MonoBehaviour:
   spawn4: {fileID: 0}
   mod: 1
   upgradeScript: {fileID: 0}
+--- !u!114 &888359256953246352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9049595339211769319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2621084c33abe8b479b0d273096c8c6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
