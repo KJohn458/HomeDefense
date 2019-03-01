@@ -47,13 +47,13 @@ public class CamLooking : MonoBehaviour
             targetRotCam.x = Xmin;
         }
 
-        if (InputManager.instance.Lean_L())
+        if (Input.GetKey(KeyCode.Q))
         {
             curAngle = Mathf.MoveTowardsAngle(curAngle, maxAngle, speed * Time.deltaTime);
             transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(-1, 0.8f, 0), 0.1f);
             //transform.localPosition = new Vector3(-1,0.8f,0);;
         }
-        else if (InputManager.instance.Lean_R())
+        else if (Input.GetKey(KeyCode.E))
         {
             curAngle = Mathf.MoveTowardsAngle(curAngle, -maxAngle, speed * Time.deltaTime);
             transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(1, 0.8f, 0), 0.1f);
@@ -66,7 +66,7 @@ public class CamLooking : MonoBehaviour
             //transform.localPosition = new Vector3(0,0.8f,0);
         }
 
-        if(InputManager.instance.Lean_L() || InputManager.instance.Lean_R())
+        if(Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.E))
         {
             transform.localRotation = Quaternion.AngleAxis(curAngle, Vector3.forward); 
         }

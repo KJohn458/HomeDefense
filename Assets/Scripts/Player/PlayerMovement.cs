@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Sprinting()
     {
-        if (InputManager.instance.Sprint())
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprinting = true;
 
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isSprinting)
         {
-            if(InputManager.instance.Crouch())
+            if(Input.GetKey(KeyCode.LeftControl))
             {
                 iscrouching = true;
                 transform.localScale = new Vector3(1, 0.3f, 1);
